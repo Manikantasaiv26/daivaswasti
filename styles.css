@@ -305,10 +305,18 @@ a:hover {
   font-weight: 600;
 }
 
+.footer-label {
+  margin: 0.65rem 0 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 600;
+}
+
 .footer-col a {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
-  color: #fff;
+  color: #cfcfcf;
 }
 
 .footer-bottom {
