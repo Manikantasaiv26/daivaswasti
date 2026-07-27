@@ -104,7 +104,7 @@ a:hover {
   width: 100%;
   height: min(88vh, 820px);
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center center;
 }
 
 .hero-overlay {
