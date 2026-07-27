@@ -298,14 +298,17 @@ a:hover {
 .footer-col h4 {
   margin: 0 0 0.35rem;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #bdbdbd;
+  font-weight: 600;
 }
 
 .footer-col a {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
-  color: var(--muted);
+  font-size: 0.95rem;
+  color: #fff;
 }
 
 .footer-bottom {
