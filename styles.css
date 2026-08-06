@@ -156,7 +156,7 @@ a:hover {
 }
 
 .hero-kicker {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.35rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.8rem, 5vw, 3.2rem);
   letter-spacing: 0.14em;
@@ -164,10 +164,18 @@ a:hover {
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.65);
 }
 
-.hero-kalash {
-  width: min(240px, 52vw);
+.hero-buddha {
+  width: min(220px, 48vw);
   height: auto;
-  margin: 0.35rem auto 0.85rem;
+  margin: 0.15rem auto 0.1rem;
+  mix-blend-mode: lighten;
+  filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.35));
+}
+
+.hero-kalash {
+  width: min(180px, 42vw);
+  height: auto;
+  margin: 0 auto 0.75rem;
   mix-blend-mode: lighten;
   filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.25));
 }
@@ -394,8 +402,12 @@ a:hover {
     height: 70vh;
   }
 
+  .hero-buddha {
+    width: min(180px, 52vw);
+  }
+
   .hero-kalash {
-    width: min(200px, 58vw);
+    width: min(150px, 46vw);
   }
 
   .footer-grid {
