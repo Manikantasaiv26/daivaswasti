@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -27,15 +27,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
+      - name: Prepare site files
+        run: |
+          mkdir -p _site
+          cp -a index.html styles.css script.js CNAME .nojekyll README.md _site/
+          cp -a assets _site/assets
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
         with:
-          # GitHub's managed pages-build-deployment aborts at 10m while
-          # deployment_in_progress; give the custom publish more headroom.
-          timeout: 1200000
+          timeout: 600000
