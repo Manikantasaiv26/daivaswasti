@@ -144,20 +144,20 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  padding: 2rem 1.25rem;
+  padding: clamp(3.5rem, 10vh, 6rem) 1.25rem 2rem;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.25) 35%,
-    rgba(0, 0, 0, 0.55) 68%,
-    rgba(0, 0, 0, 0.85)
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.35) 70%,
+    rgba(0, 0, 0, 0.55)
   );
 }
 
 .hero-kicker {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.75rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.8rem, 5vw, 3.2rem);
   letter-spacing: 0.14em;
@@ -166,40 +166,11 @@ a:hover {
 }
 
 .hero-title {
-  margin: 0 0 0.65rem;
+  margin: 0;
   font-size: clamp(0.95rem, 2vw, 1.25rem);
   font-weight: 400;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
-}
-
-.hero-emblem {
-  position: relative;
-  width: min(300px, 68vw);
-  aspect-ratio: 1;
-  margin: 0.25rem auto 0;
-}
-
-.hero-kalash {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 2%;
-  width: 48%;
-  height: auto;
-  transform: translateX(-50%);
-  opacity: 0.55;
-  pointer-events: none;
-  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.28));
-}
-
-.hero-buddha {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
 }
 
 .section {
@@ -414,16 +385,6 @@ a:hover {
   .hero-image {
     min-height: 70vh;
     height: 70vh;
-  }
-
-  .hero-emblem {
-    width: min(250px, 78vw);
-  }
-
-  .hero-kalash {
-    width: 46%;
-    opacity: 0.5;
-    top: 1%;
   }
 
   .footer-grid {
