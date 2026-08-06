@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Daiva Swasti — sacred space for devotion, blessings, and connection."
+    />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <title>Daiva Swasti</title>
+    <link rel="stylesheet" href="styles.css?v=14" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">DAIVA SWASTI</a>
+        <nav class="main-nav" aria-label="Primary">
+          <a href="#top">Home</a>
+          <a href="mailto:pranam@daivaswasti.org">About</a>
+          <a
+            href="https://daivaswasti.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Services</a
+          >
+          <a href="#contact">Contact</a>
+          <a class="talk-btn" href="#contact">Talk to us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Hero">
+        <img
+          class="hero-image"
+          src="assets/hero-temple.jpg?v=11"
+          alt="Meditating Buddha with sacred Kalash behind the silhouette"
+        />
+        <div class="hero-overlay">
+          <p class="hero-kicker">DAIVA SWASTI</p>
+          <h1 class="hero-title">स्वस्ति नो बृहस्पतिर्दधातु</h1>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container narrow">
+          <h2>Contact Us</h2>
+          <h3>Drop us a line!</h3>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <label class="sr-only" for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Name" />
+
+            <label class="sr-only" for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email*"
+              required
+            />
+
+            <label class="sr-only" for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Message"
+            ></textarea>
+
+            <label class="checkbox-row">
+              <input type="checkbox" name="newsletter" />
+              <span
+                >Sign up for our email list for updates, promotions, and
+                more.</span
+              >
+            </label>
+
+            <button type="submit" class="send-btn">Send</button>
+          </form>
+
+          <p class="recaptcha-note">
+            This site is protected by reCAPTCHA and the Google
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Privacy Policy</a
+            >
+            and
+            <a
+              href="https://policies.google.com/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Terms of Service</a
+            >
+            apply.
+          </p>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <p class="footer-label">About</p>
+          <a href="mailto:pranam@daivaswasti.org">pranam@daivaswasti.org</a>
+          <p class="footer-label">Services</p>
+          <a
+            href="https://daivaswasti.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://daivaswasti.org/</a
+          >
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>
+          Copyright &copy; <span id="year"></span> Daiva Swasti - All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js?v=7"></script>
+  </body>
+</html>
