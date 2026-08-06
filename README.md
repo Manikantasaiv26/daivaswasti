@@ -17,6 +17,14 @@ Open `index.html` in a browser, or serve the folder with any static file server:
 npx --yes serve .
 ```
 
+## Deploy (GitHub Pages)
+
+Publishing is driven by `.github/workflows/deploy-pages.yml` from the `main` branch (Node 24 actions).
+
+In the repo settings, set **Pages → Build and deployment → Source** to **GitHub Actions** (not “Deploy from a branch”). That stops the legacy `pages-build-deployment` workflow, which still pins Node 20 actions and is what surfaces the Node 20 deprecation warning.
+
+Custom domain: `daivaswasti.org` (via `CNAME`).
+
 ## Project structure
 
 - `index.html` — page markup
