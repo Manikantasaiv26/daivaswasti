@@ -22,4 +22,4 @@ npx --yes serve .
 - `index.html` — page markup
 - `styles.css` — layout and styling
 - `script.js` — form handling and year stamp
-- `assets/hero-temple.png` — hero image
+- `assets/hero-temple.jpg` — hero image
