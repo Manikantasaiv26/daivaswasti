@@ -175,22 +175,22 @@ a:hover {
 
 .hero-emblem {
   position: relative;
-  width: min(280px, 62vw);
+  width: min(300px, 68vw);
   aspect-ratio: 1;
-  margin: 0 auto;
+  margin: 0.25rem auto 0;
 }
 
 .hero-kalash {
   position: absolute;
   z-index: 1;
   left: 50%;
-  top: 6%;
-  width: 38%;
+  top: 2%;
+  width: 48%;
   height: auto;
   transform: translateX(-50%);
-  opacity: 0.42;
+  opacity: 0.55;
   pointer-events: none;
-  filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.2));
+  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.28));
 }
 
 .hero-buddha {
@@ -199,7 +199,7 @@ a:hover {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
 }
 
 .section {
@@ -417,13 +417,13 @@ a:hover {
   }
 
   .hero-emblem {
-    width: min(230px, 70vw);
+    width: min(250px, 78vw);
   }
 
   .hero-kalash {
-    width: 34%;
-    opacity: 0.4;
-    top: 5%;
+    width: 46%;
+    opacity: 0.5;
+    top: 1%;
   }
 
   .footer-grid {
