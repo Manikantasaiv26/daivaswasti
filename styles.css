@@ -105,9 +105,9 @@ a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 1.35rem;
+  gap: 1rem;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .main-nav a {
@@ -116,7 +116,7 @@ a:hover {
 }
 
 .main-nav a:hover {
-  color: #111827;
+  color: #b45309;
 }
 
 .talk-btn {
@@ -182,6 +182,165 @@ a:hover {
 
 .section {
   padding: 4.5rem 0;
+}
+
+.intro-band {
+  background: #fff;
+  color: #1a1a1a;
+  padding: 2.75rem 0 2.25rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.intro-band h2 {
+  margin: 0 0 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+  line-height: 1.25;
+  color: #171717;
+  max-width: 22ch;
+}
+
+.intro-band p {
+  margin: 0;
+  color: #5f6368;
+  font-size: 1.05rem;
+  max-width: 52ch;
+}
+
+.light-section {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.soft-section {
+  background: #f5f3ef;
+  color: #1a1a1a;
+}
+
+.panel-header {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.panel-eyebrow {
+  margin: 0 0 0.55rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #b45309;
+}
+
+.panel-title {
+  margin: 0 0 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.55rem, 3.5vw, 2.1rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: #171717;
+}
+
+.panel-intro {
+  margin: 0;
+  color: #5f6368;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.feature-strip,
+.split-panels,
+.offer-grid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.feature-strip,
+.split-panels {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feature-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.offer-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-strip article,
+.text-panel,
+.offer-card {
+  background: #fff;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 14px;
+  padding: 1.35rem 1.25rem;
+  box-shadow: 0 8px 24px rgba(23, 23, 23, 0.04);
+}
+
+.soft-section .text-panel,
+.soft-section .offer-card {
+  background: #fff;
+}
+
+.feature-strip h3,
+.text-panel h3,
+.offer-card h3 {
+  margin: 0 0 0.55rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #171717;
+}
+
+.feature-strip p,
+.text-panel p,
+.offer-card p {
+  margin: 0;
+  color: #5f6368;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.offer-tag {
+  display: inline-block;
+  margin: 0 0 0.7rem !important;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #fff4e5;
+  color: #9a3412 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.85rem;
+  color: #4b5563;
+  font-size: 1.02rem;
+  max-width: 68ch;
+}
+
+.bullet-list li::marker {
+  color: #b45309;
+}
+
+.text-panel em,
+.offer-card em {
+  color: #9a3412;
+  font-style: italic;
+}
+
+.main-nav a[href="#puja"],
+.main-nav a[href="#daiva"],
+.main-nav a[href="#daiva-swasti"],
+.main-nav a[href="#offerings"] {
+  font-weight: 600;
 }
 
 .about,
@@ -381,6 +540,13 @@ a:hover {
   color: #8f8f8f;
 }
 
+@media (max-width: 960px) and (min-width: 761px) {
+  .feature-strip,
+  .offer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 760px) {
   .header-inner {
     flex-direction: column;
@@ -399,6 +565,16 @@ a:hover {
 
   .hero-caption {
     padding: 1.35rem 1rem 1.85rem;
+  }
+
+  .feature-strip,
+  .split-panels,
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header {
+    margin-bottom: 1.5rem;
   }
 
   .footer-grid {
