@@ -185,6 +185,105 @@ a:hover {
   padding: 4.5rem 0;
 }
 
+.content-wide {
+  width: min(100% - 2rem, 820px);
+}
+
+.section-heading {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.section-lead {
+  margin: 0 0 2.5rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.meaning {
+  background:
+    radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.08), transparent 55%),
+    var(--bg-soft);
+}
+
+.meaning-block {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.meaning-block:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.meaning-block h3 {
+  margin: 0 0 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.meaning-block p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 62ch;
+}
+
+.offerings {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 18%),
+    #0d0d0d;
+}
+
+.offering {
+  padding: 1.6rem 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.offering:last-child {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.offering h3 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  font-weight: 500;
+  color: #fff;
+}
+
+.offering p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 62ch;
+}
+
+.content-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 62ch;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.content-list li::marker {
+  color: var(--gold);
+}
+
+.meaning-block em,
+.offering em,
+.content-list em {
+  color: #ebe0b8;
+  font-style: italic;
+}
+
 .about,
 .services {
   background: var(--bg-soft);
