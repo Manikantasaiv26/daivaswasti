@@ -15,7 +15,7 @@ window.DAIVA_I18N = {
       navPuja: "Puja",
       navDaiva: "DAIVA",
       navDaivaSwasti: "DAIVA SWASTI",
-      navOfferings: "Offerings",
+      navOfferings: "OFFERINGS",
       navContact: "Contact",
       navTalk: "Talk to us",
       langAria: "Select language",
