@@ -8,6 +8,7 @@ Static website for [daivaswasti.org](https://daivaswasti.org/).
 - Contact form with newsletter signup option
 - Explore / About / Services / Contact / Connect footer links
 - Contact email: `pranam@daivaswasti.org`
+- Contact form delivers messages to that inbox via Formsubmit
 
 ## Local preview
 

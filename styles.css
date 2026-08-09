@@ -61,6 +61,17 @@ a:hover {
   border: 0;
 }
 
+.honey {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -284,7 +295,12 @@ a:hover {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.send-btn:hover {
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.send-btn:hover:not(:disabled) {
   background: #fff;
   color: #000;
 }
