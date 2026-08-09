@@ -1,19 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const i18n = window.DAIVA_I18N;
+  if (!i18n?.strings?.en) {
+    console.error("Language pack failed to load (i18n.js).");
+    return;
+  }
+
   const supported = new Set(
-    (i18n?.languages || []).map((language) => language.code)
+    (i18n.languages || []).map((language) => language.code)
   );
   const STORAGE_KEY = "daiva-swasti-lang";
 
   let currentLang = "en";
 
   function getStrings(lang) {
-    return i18n?.strings?.[lang] || i18n?.strings?.en || {};
+    return i18n.strings[lang] || i18n.strings.en || {};
   }
 
   function t(key, lang = currentLang) {
     const strings = getStrings(lang);
-    return strings[key] ?? i18n?.strings?.en?.[key] ?? key;
+    return strings[key] ?? i18n.strings.en[key] ?? null;
   }
 
   function applyLanguage(lang) {
@@ -31,31 +36,38 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (!key) return;
+      const value = t(key);
+      if (value == null) return;
 
       if (el.tagName === "META" && el.getAttribute("name") === "description") {
-        el.setAttribute("content", t(key));
+        el.setAttribute("content", value);
         return;
       }
 
-      el.textContent = t(key);
+      el.textContent = value;
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
       const key = el.getAttribute("data-i18n-placeholder");
       if (!key) return;
-      el.setAttribute("placeholder", t(key));
+      const value = t(key);
+      if (value == null) return;
+      el.setAttribute("placeholder", value);
     });
 
     document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
       const key = el.getAttribute("data-i18n-aria");
       if (!key) return;
-      el.setAttribute("aria-label", t(key));
+      const value = t(key);
+      if (value == null) return;
+      el.setAttribute("aria-label", value);
     });
 
     document.querySelectorAll("[data-i18n-html]").forEach((el) => {
       const key = el.getAttribute("data-i18n-html");
       if (!key) return;
       let html = t(key);
+      if (html == null) return;
       if (key === "footerCopy") {
         html = html.replace("{year}", year);
       }

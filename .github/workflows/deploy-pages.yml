@@ -30,7 +30,7 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir -p _site
-          cp -a index.html styles.css script.js CNAME .nojekyll README.md _site/
+          cp -a index.html styles.css script.js i18n.js CNAME .nojekyll README.md _site/
           cp -a assets _site/assets
 
       - name: Upload site
