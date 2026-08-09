@@ -185,107 +185,6 @@ a:hover {
   padding: 4.5rem 0;
 }
 
-.content-wide {
-  width: min(100% - 2rem, 820px);
-}
-
-.panel-header {
-  max-width: 40rem;
-  margin-bottom: 2.5rem;
-}
-
-.panel-eyebrow {
-  margin: 0 0 0.7rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #8a6d1d;
-}
-
-.panel-title {
-  margin: 0 0 0.85rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(1.7rem, 4vw, 2.35rem);
-  line-height: 1.2;
-  font-weight: 700;
-  color: #132238;
-  letter-spacing: -0.01em;
-}
-
-.panel-intro {
-  margin: 0;
-  color: #5b6573;
-  font-size: 1.05rem;
-  line-height: 1.65;
-}
-
-.card-grid {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.card-grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.info-card {
-  background: #fff;
-  border: 1px solid rgba(19, 34, 56, 0.06);
-  border-radius: 18px;
-  padding: 1.45rem 1.35rem 1.55rem;
-  box-shadow: 0 10px 28px rgba(19, 34, 56, 0.06);
-}
-
-.info-card-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 1rem;
-  background: #eef2f6;
-  color: #243447;
-}
-
-.info-card-icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.info-card h3 {
-  margin: 0 0 0.65rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: #132238;
-  letter-spacing: 0.04em;
-}
-
-.info-card p {
-  margin: 0;
-  color: #5b6573;
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.info-card em {
-  color: #8a6d1d;
-  font-style: italic;
-}
-
-.meaning {
-  background:
-    radial-gradient(ellipse at top right, rgba(212, 175, 55, 0.12), transparent 45%),
-    #f3f0ea;
-}
-
-.offerings {
-  background:
-    linear-gradient(180deg, #efebe3, #f7f4ef);
-}
-
 .about,
 .services {
   background: var(--bg-soft);
@@ -483,11 +382,7 @@ a:hover {
   color: #8f8f8f;
 }
 
-@media (max-width: 960px) and (min-width: 761px) {
-  .card-grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+@media (max-width: 760px) {
   .header-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -505,14 +400,6 @@ a:hover {
 
   .hero-caption {
     padding: 1.35rem 1rem 1.85rem;
-  }
-
-  .card-grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .panel-header {
-    margin-bottom: 1.75rem;
   }
 
   .footer-grid {
