@@ -117,16 +117,16 @@ window.DAIVA_I18N = {
     hi: {
       metaDescription:
         "DAIVA SWASTI — भक्ति, आशीर्वाद और जुड़ाव के लिए पवित्र स्थान।",
-      brand: "DAIVA SWASTI",
+      brand: "दैव स्वस्ति",
       navHome: "मुख्य पृष्ठ",
       navPuja: "पूजा",
-      navDaiva: "DAIVA",
-      navDaivaSwasti: "DAIVA SWASTI",
+      navDaiva: "दैव",
+      navDaivaSwasti: "दैव स्वस्ति",
       navOfferings: "सेवाएँ",
       navContact: "संपर्क",
       navTalk: "हमसे बात करें",
       langAria: "भाषा चुनें",
-      heroKicker: "DAIVA SWASTI",
+      heroKicker: "दैव स्वस्ति",
       heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
       introTitle: "दिव्य कल्याण के लिए पवित्र अनुष्ठान, मंत्र और अर्पण",
       introText:
@@ -144,17 +144,17 @@ window.DAIVA_I18N = {
       templeTitle: "मंदिर भक्ति",
       templeText:
         "देवताओं का सम्मान करने और शुभ ऊर्जा को आमंत्रित करने के लिए सावधानी से किए गए अनुष्ठान और अर्पण।",
-      daivaEyebrow: "DAIVA",
+      daivaEyebrow: "दैव",
       daivaTitle: "दिव्य प्रभाव और मंगलमय अस्तित्व",
       daivaIntro:
         "हमारे नाम की पवित्र जड़ें — भाग्य, कल्याण और ब्रह्मांडीय व्यवस्था।",
-      daivaCardTitle: "DAIVA",
+      daivaCardTitle: "दैव",
       daivaCardText:
         "दिव्य प्रभाव, भाग्य या नियति के \"अदृश्य हाथ\" का प्रतिनिधित्व करता है। यह प्रायः तीन परम शक्तियों—ब्रह्मा, विष्णु और महेश—और उनके द्वारा बनाए रखे गए ब्रह्मांडीय क्रम से जुड़ा होता है।",
-      swastiCardTitle: "SWASTI",
+      swastiCardTitle: "स्वस्ति",
       swastiCardText:
         "संस्कृत su (अच्छा) और asti (अस्तित्व) से व्युत्पन्न, इसका अर्थ \"कल्याण\" या \"मंगल\" है। यह स्वस्तिक प्रतीक के मूल अर्थ को दर्शाता है: सूर्य की गति और ब्रह्मांडीय ऊर्जा का संतुलन।",
-      dsEyebrow: "DAIVA SWASTI",
+      dsEyebrow: "दैव स्वस्ति",
       dsTitle: "पवित्र सेवा के माध्यम से आशीर्वाद",
       dsIntro:
         "हमारी आध्यात्मिक सेवाएँ पवित्र अनुष्ठानों, मंत्रों और अर्पणों के माध्यम से दिव्य आशीर्वाद आमंत्रित करती हैं।",
@@ -207,8 +207,8 @@ window.DAIVA_I18N = {
       footerExplore: "अन्वेषण",
       footerServices: "सेवाएँ",
       footerPuja: "पूजा",
-      footerDaiva: "DAIVA",
-      footerDaivaSwasti: "DAIVA SWASTI",
+      footerDaiva: "दैव",
+      footerDaivaSwasti: "दैव स्वस्ति",
       footerOfferings: "आध्यात्मिक सेवाएँ",
       footerContact: "संपर्क",
       footerForm: "संपर्क फ़ॉर्म",
@@ -224,16 +224,16 @@ window.DAIVA_I18N = {
     ta: {
       metaDescription:
         "DAIVA SWASTI — பக்தி, ஆசீர்வாதங்கள் மற்றும் ஆன்மீக இணைப்புக்கான புனித இடம்.",
-      brand: "DAIVA SWASTI",
+      brand: "தைவ ஸ்வஸ்தி",
       navHome: "முகப்பு",
       navPuja: "பூஜை",
-      navDaiva: "DAIVA",
-      navDaivaSwasti: "DAIVA SWASTI",
+      navDaiva: "தைவ",
+      navDaivaSwasti: "தைவ ஸ்வஸ்தி",
       navOfferings: "சேவைகள்",
       navContact: "தொடர்பு",
       navTalk: "எங்களுடன் பேசுங்கள்",
       langAria: "மொழியைத் தேர்ந்தெடுக்கவும்",
-      heroKicker: "DAIVA SWASTI",
+      heroKicker: "தைவ ஸ்வஸ்தி",
       heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
       introTitle: "தெய்வீக நலனுக்கான புனித சடங்குகள், மந்திரங்கள் மற்றும் அர்ப்பணங்கள்",
       introText:
@@ -251,17 +251,17 @@ window.DAIVA_I18N = {
       templeTitle: "கோயில் பக்தி",
       templeText:
         "தெய்வங்களைப் போற்றி சுப சக்தியை அழைக்க கவனமாக செய்யப்படும் சடங்குகளும் அர்ப்பணங்களும்.",
-      daivaEyebrow: "DAIVA",
+      daivaEyebrow: "தைவ",
       daivaTitle: "தெய்வீக செல்வாக்கும் சுபமான இருப்பும்",
       daivaIntro:
         "எங்கள் பெயரின் புனித வேர்கள் — விதி, நலம் மற்றும் அண்ட ஒழுங்கு.",
-      daivaCardTitle: "DAIVA",
+      daivaCardTitle: "தைவ",
       daivaCardText:
         "தெய்வீக செல்வாக்கு, விதி அல்லது விதியின் \"காணாத கை\"யைக் குறிக்கிறது. இது பெரும்பாலும் மூன்று பரம சக்திகளான பிரம்மா, விஷ்ணு, மகேஷ் மற்றும் அவர்கள் காக்கும் அண்ட ஒழுங்குடன் தொடர்புடையது.",
-      swastiCardTitle: "SWASTI",
+      swastiCardTitle: "ஸ்வஸ்தி",
       swastiCardText:
         "சமஸ்கிருத su (நல்லது) மற்றும் asti (இருத்தல்) ஆகியவற்றிலிருந்து வந்தது; இதன் பொருள் \"நலம்\" அல்லது \"சுபம்\". இது ஸ்வஸ்திகச் சின்னத்தின் மூலப் பொருளைக் காட்டுகிறது: சூரியனின் இயக்கமும் அண்ட சக்தியின் சீரமைப்பும்.",
-      dsEyebrow: "DAIVA SWASTI",
+      dsEyebrow: "தைவ ஸ்வஸ்தி",
       dsTitle: "புனித சேவை மூலம் ஆசீர்வாதங்கள்",
       dsIntro:
         "எங்கள் ஆன்மீக சேவைகள் புனித சடங்குகள், மந்திரங்கள் மற்றும் அர்ப்பணங்கள் மூலம் தெய்வீக ஆசீர்வாதங்களை வரவேற்கின்றன.",
@@ -314,8 +314,8 @@ window.DAIVA_I18N = {
       footerExplore: "ஆராயுங்கள்",
       footerServices: "சேவைகள்",
       footerPuja: "பூஜை",
-      footerDaiva: "DAIVA",
-      footerDaivaSwasti: "DAIVA SWASTI",
+      footerDaiva: "தைவ",
+      footerDaivaSwasti: "தைவ ஸ்வஸ்தி",
       footerOfferings: "ஆன்மீக சேவைகள்",
       footerContact: "தொடர்பு",
       footerForm: "தொடர்பு படிவம்",
@@ -331,16 +331,16 @@ window.DAIVA_I18N = {
     te: {
       metaDescription:
         "DAIVA SWASTI — భక్తి, ఆశీర్వాదాలు మరియు ఆధ్యాత్మిక అనుబంధానికి పవిత్ర స్థలం.",
-      brand: "DAIVA SWASTI",
+      brand: "దైవ స్వస్తి",
       navHome: "హోమ్",
       navPuja: "పూజ",
-      navDaiva: "DAIVA",
-      navDaivaSwasti: "DAIVA SWASTI",
+      navDaiva: "దైవ",
+      navDaivaSwasti: "దైవ స్వస్తి",
       navOfferings: "సేవలు",
       navContact: "సంప్రదింపు",
       navTalk: "మాతో మాట్లాడండి",
       langAria: "భాషను ఎంచుకోండి",
-      heroKicker: "DAIVA SWASTI",
+      heroKicker: "దైవ స్వస్తి",
       heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
       introTitle: "దైవిక శ్రేయస్సు కోసం పవిత్ర ఆచారాలు, మంత్రాలు మరియు అర్పణలు",
       introText:
@@ -358,17 +358,17 @@ window.DAIVA_I18N = {
       templeTitle: "దేవాలయ భక్తి",
       templeText:
         "దేవతలను గౌరవించి శుభ శక్తిని ఆహ్వానించడానికి జాగ్రత్తగా నిర్వహించే ఆచారాలు మరియు అర్పణలు.",
-      daivaEyebrow: "DAIVA",
+      daivaEyebrow: "దైవ",
       daivaTitle: "దైవిక ప్రభావం మరియు శుభమైన ఉనికి",
       daivaIntro:
         "మా పేరులోని పవిత్ర మూలాలు — విధి, శ్రేయస్సు మరియు విశ్వ క్రమం.",
-      daivaCardTitle: "DAIVA",
+      daivaCardTitle: "దైవ",
       daivaCardText:
         "దైవిక ప్రభావం, విధి లేదా విధి యొక్క \"కనిపించని చేయి\"ని సూచిస్తుంది. ఇది తరచుగా మూడు పరమ శక్తులైన బ్రహ్మ, విష్ణు, మహేశ్ మరియు వారు కాపాడే విశ్వ క్రమంతో అనుబంధించబడుతుంది.",
-      swastiCardTitle: "SWASTI",
+      swastiCardTitle: "స్వస్తి",
       swastiCardText:
         "సంస్కృత su (మంచి) మరియు asti (ఉనికి) నుండి ఉద్భవించింది; దీని అర్థం \"శ్రేయస్సు\" లేదా \"శుభం\". ఇది స్వస్తిక చిహ్నం యొక్క మూల అర్థాన్ని సూచిస్తుంది: సూర్యుని గమనం మరియు విశ్వ శక్తి సమన్వయం.",
-      dsEyebrow: "DAIVA SWASTI",
+      dsEyebrow: "దైవ స్వస్తి",
       dsTitle: "పవిత్ర సేవ ద్వారా ఆశీర్వాదాలు",
       dsIntro:
         "మా ఆధ్యాత్మిక సేవలు పవిత్ర ఆచారాలు, మంత్రాలు మరియు అర్పణల ద్వారా దైవిక ఆశీర్వాదాలను ఆహ్వానిస్తాయి.",
@@ -421,8 +421,8 @@ window.DAIVA_I18N = {
       footerExplore: "అన్వేషించండి",
       footerServices: "సేవలు",
       footerPuja: "పూజ",
-      footerDaiva: "DAIVA",
-      footerDaivaSwasti: "DAIVA SWASTI",
+      footerDaiva: "దైవ",
+      footerDaivaSwasti: "దైవ స్వస్తి",
       footerOfferings: "ఆధ్యాత్మిక సేవలు",
       footerContact: "సంప్రదింపు",
       footerForm: "సంప్రదింపు ఫారం",
@@ -438,16 +438,16 @@ window.DAIVA_I18N = {
     kn: {
       metaDescription:
         "DAIVA SWASTI — ಭಕ್ತಿ, ಆಶೀರ್ವಾದಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಂಪರ್ಕಕ್ಕಾಗಿ ಪವಿತ್ರ ಸ್ಥಳ.",
-      brand: "DAIVA SWASTI",
+      brand: "ದೈವ ಸ್ವಸ್ತಿ",
       navHome: "ಮುಖಪುಟ",
       navPuja: "ಪೂಜೆ",
-      navDaiva: "DAIVA",
-      navDaivaSwasti: "DAIVA SWASTI",
+      navDaiva: "ದೈವ",
+      navDaivaSwasti: "ದೈವ ಸ್ವಸ್ತಿ",
       navOfferings: "ಸೇವೆಗಳು",
       navContact: "ಸಂಪರ್ಕ",
       navTalk: "ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ",
       langAria: "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
-      heroKicker: "DAIVA SWASTI",
+      heroKicker: "ದೈವ ಸ್ವಸ್ತಿ",
       heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
       introTitle: "ದೈವಿಕ ಕಲ್ಯಾಣಕ್ಕಾಗಿ ಪವಿತ್ರ ಆಚರಣೆಗಳು, ಮಂತ್ರಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳು",
       introText:
@@ -465,17 +465,17 @@ window.DAIVA_I18N = {
       templeTitle: "ದೇವಸ್ಥಾನ ಭಕ್ತಿ",
       templeText:
         "ದೇವತೆಗಳನ್ನು ಗೌರವಿಸಿ ಶುಭ ಶಕ್ತಿಯನ್ನು ಆಹ್ವಾನಿಸಲು ಎಚ್ಚರಿಕೆಯಿಂದ ನಡೆಸುವ ಆಚರಣೆಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳು.",
-      daivaEyebrow: "DAIVA",
+      daivaEyebrow: "ದೈವ",
       daivaTitle: "ದೈವಿಕ ಪ್ರಭಾವ ಮತ್ತು ಶುಭಮಯ ಅಸ್ತಿತ್ವ",
       daivaIntro:
         "ನಮ್ಮ ಹೆಸರಿನ ಪವಿತ್ರ ಬೇರುಗಳು — ವಿಧಿ, ಕಲ್ಯಾಣ ಮತ್ತು ಬ್ರಹ್ಮಾಂಡೀಯ ಕ್ರಮ.",
-      daivaCardTitle: "DAIVA",
+      daivaCardTitle: "ದೈವ",
       daivaCardText:
         "ದೈವಿಕ ಪ್ರಭಾವ, ವಿಧಿ ಅಥವಾ ವಿಧಿಯ \"ಕಾಣದ ಕೈ\"ಯನ್ನು ಸೂಚಿಸುತ್ತದೆ. ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಮೂರು ಪರಮ ಶಕ್ತಿಗಳಾದ ಬ್ರಹ್ಮ, ವಿಷ್ಣು ಮತ್ತು ಮಹೇಶ್ ಹಾಗೂ ಅವರು ಕಾಪಾಡುವ ಬ್ರಹ್ಮಾಂಡೀಯ ಕ್ರಮದೊಂದಿಗೆ ಸಂಬಂಧಿಸಿದೆ.",
-      swastiCardTitle: "SWASTI",
+      swastiCardTitle: "ಸ್ವಸ್ತಿ",
       swastiCardText:
         "ಸಂಸ್ಕೃತ su (ಒಳ್ಳೆಯದು) ಮತ್ತು asti (ಇರುವಿಕೆ) ಯಿಂದ ಬಂದಿದೆ; ಇದರ ಅರ್ಥ \"ಕಲ್ಯಾಣ\" ಅಥವಾ \"ಶುಭ\". ಇದು ಸ್ವಸ್ತಿಕ ಚಿಹ್ನೆಯ ಮೂಲ ಅರ್ಥವನ್ನು ಸೂಚಿಸುತ್ತದೆ: ಸೂರ್ಯನ ಚಲನೆ ಮತ್ತು ಬ್ರಹ್ಮಾಂಡೀಯ ಶಕ್ತಿಯ ಸಮನ್ವಯ.",
-      dsEyebrow: "DAIVA SWASTI",
+      dsEyebrow: "ದೈವ ಸ್ವಸ್ತಿ",
       dsTitle: "ಪವಿತ್ರ ಸೇವೆಯ ಮೂಲಕ ಆಶೀರ್ವಾದಗಳು",
       dsIntro:
         "ನಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳು ಪವಿತ್ರ ಆಚರಣೆಗಳು, ಮಂತ್ರಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳ ಮೂಲಕ ದೈವಿಕ ಆಶೀರ್ವಾದಗಳನ್ನು ಆಹ್ವಾನಿಸುತ್ತವೆ.",
@@ -528,8 +528,8 @@ window.DAIVA_I18N = {
       footerExplore: "ಅನ್ವೇಷಿಸಿ",
       footerServices: "ಸೇವೆಗಳು",
       footerPuja: "ಪೂಜೆ",
-      footerDaiva: "DAIVA",
-      footerDaivaSwasti: "DAIVA SWASTI",
+      footerDaiva: "ದೈವ",
+      footerDaivaSwasti: "ದೈವ ಸ್ವಸ್ತಿ",
       footerOfferings: "ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳು",
       footerContact: "ಸಂಪರ್ಕ",
       footerForm: "ಸಂಪರ್ಕ ಫಾರ್ಮ್",
