@@ -42,6 +42,10 @@ body[data-lang="kn"] {
   font-family: "Noto Sans Kannada", "Noto Sans", Georgia, serif;
 }
 
+body[data-lang="ml"] {
+  font-family: "Noto Sans Malayalam", "Noto Sans", Georgia, serif;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -132,6 +136,17 @@ a:hover {
   gap: 1rem;
   font-family: "Noto Sans", Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+body[data-lang="hi"] .main-nav,
+body[data-lang="ta"] .main-nav,
+body[data-lang="te"] .main-nav,
+body[data-lang="kn"] .main-nav,
+body[data-lang="ml"] .main-nav {
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .nav-dropdown {
