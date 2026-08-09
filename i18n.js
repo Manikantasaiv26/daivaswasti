@@ -1,0 +1,546 @@
+window.DAIVA_I18N = {
+  languages: [
+    { code: "en", label: "English" },
+    { code: "hi", label: "हिन्दी" },
+    { code: "ta", label: "தமிழ்" },
+    { code: "te", label: "తెలుగు" },
+    { code: "kn", label: "ಕನ್ನಡ" },
+  ],
+  strings: {
+    en: {
+      metaDescription:
+        "Daiva Swasti — sacred space for devotion, blessings, and connection.",
+      brand: "DAIVA SWASTI",
+      navHome: "Home",
+      navPuja: "Puja",
+      navDaiva: "DAIVA",
+      navDaivaSwasti: "DAIVA SWASTI",
+      navOfferings: "Offerings",
+      navContact: "Contact",
+      navTalk: "Talk to us",
+      langAria: "Select language",
+      heroKicker: "DAIVA SWASTI",
+      heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
+      introTitle: "Sacred rituals, mantras, and offerings for divine well-being",
+      introText:
+        "Perform devotion with sincerity and receive blessings through traditional Hindu spiritual services.",
+      pujaEyebrow: "Puja",
+      pujaTitle: "Daily Worship – Pujas",
+      pujaIntro:
+        "Devotional worship offered with sincerity to invite grace, protection, and harmony into daily life.",
+      satyaTitle: "Satyanarayan Puja",
+      satyaText:
+        "Performed for gratitude and blessings on auspicious occasions — home warming, new ventures, birthdays, or marriage anniversaries.",
+      specialTitle: "Special Observances",
+      specialText:
+        "Sacred ceremonies that bring divine harmony to family life and mark important moments with devotion.",
+      templeTitle: "Temple Devotion",
+      templeText:
+        "Rituals and offerings performed with care to honor the deities and invite auspicious energy.",
+      daivaEyebrow: "DAIVA",
+      daivaTitle: "Divine influence and auspicious being",
+      daivaIntro:
+        "The sacred roots of our name — destiny, well-being, and cosmic order.",
+      daivaCardTitle: "DAIVA",
+      daivaCardText:
+        "Represents divine influence, fate, or the \"unseen hand\" of destiny. It is often associated with the three supreme forces—Brahma, Vishnu, and Mahesh—and the cosmic order they maintain.",
+      swastiCardTitle: "SWASTI",
+      swastiCardText:
+        "Derived from the Sanskrit su (good) and asti (being), it translates to \"well-being\" or \"auspiciousness\". It represents the core meaning of the Swastika symbol: the movement of the sun and the alignment of cosmic energy.",
+      dsEyebrow: "DAIVA SWASTI",
+      dsTitle: "Blessings through sacred service",
+      dsIntro:
+        "Our spiritual services invoke divine blessings through sacred rituals, mantras and offerings.",
+      dsBullet1:
+        "Each ceremony is performed with devotion to honor deities such as Lord Shiva, Lord Vishnu, Lord Brahma, Lord Sani, Sri Navagrahas, Goddess Parvati, Goddess Saraswati, Goddess Lakshmi, Lord Ganesha, Lord Hanuman, Lord Subrahmanya, Lord Ayyappa and Cosmic Energies.",
+      dsBullet2:
+        "Attendees and participants experience peace, mindfulness, positive vibes, wellness and spiritual connection.",
+      offeringsEyebrow: "Services",
+      offeringsTitle: "Spiritual Offerings – Hindu Tradition",
+      offeringsIntro:
+        "Book sacred practices for purification, prosperity, protection, and spiritual connection.",
+      offerWorshipTag: "Worship",
+      offerWorshipTitle: "Daily Worship – Pujas",
+      offerWorshipText:
+        "Devotional worship offered with sincerity to invite grace, protection, and harmony into daily life.",
+      offerFireTag: "Fire Rituals",
+      offerFireTitle: "Homa & Yajna",
+      offerFireText:
+        "Vedic fire ceremonies purify the environment and uplift spiritual energy. Through the sacred fire, prayers and offerings are conveyed for prosperity, protection, and inner transformation.",
+      offerSpecialTag: "Special",
+      offerSpecialTitle: "Satyanarayan Puja",
+      offerSpecialText:
+        "Express gratitude or seek blessings for home warming, new ventures, birthdays, or marriage anniversaries — bringing divine harmony to family life.",
+      offerFestTag: "Festivals",
+      offerFestTitle: "Festivals & Celebrations",
+      offerFestText:
+        "Diwali, Nava Ratri, Maha Shiva Ratri, Krishna Janmashtami and Holi — celebrated with traditional rituals, devotion, and community joy.",
+      offerPracticeTag: "Practice",
+      offerPracticeTitle: "Meditation & Chanting",
+      offerPracticeText:
+        "Guided meditation and chanting of Gayatri Mantra, Hanuman Chalisa, and Mahamrityunjaya Mantra for stillness, positive energy, and mental clarity.",
+      offerStudyTag: "Study",
+      offerStudyTitle: "Spiritual Discourses",
+      offerStudyText:
+        "Discussions on the Bhagavad Gita, Upanishads, and Ramayana guide seekers toward self-realization, ethics, and dharma.",
+      offerSevaTag: "Seva",
+      offerSevaTitle: "Community Seva",
+      offerSevaText:
+        "Food donation (annadanam), charity drives, and environmental care — embodying \"Lokah Samastah Sukhino Bhavantu\". May all beings be blissful with good health, wisdom, caring, sharing, mind peace and happiness.",
+      contactTitle: "Contact Us",
+      contactSubtitle: "Drop us a line!",
+      placeholderName: "Name",
+      placeholderEmail: "Email*",
+      placeholderMessage: "Message",
+      newsletterLabel:
+        "Sign up for our email list for updates, promotions, and more.",
+      sendBtn: "Send",
+      recaptchaNote:
+        "This site is protected by reCAPTCHA and the Google <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Privacy Policy</a> and <a href=\"https://policies.google.com/terms\" target=\"_blank\" rel=\"noopener noreferrer\">Terms of Service</a> apply.",
+      footerExplore: "Explore",
+      footerServices: "Services",
+      footerPuja: "Puja",
+      footerDaiva: "DAIVA",
+      footerDaivaSwasti: "DAIVA SWASTI",
+      footerOfferings: "Spiritual Offerings",
+      footerContact: "Contact",
+      footerForm: "Contact form",
+      footerCopy: "Copyright © {year} DAIVA SWASTI - All Rights Reserved.",
+      formEmailRequired: "Please enter your email address.",
+      formMessageRequired: "Please enter a message.",
+      formSending: "Sending your message...",
+      formSuccess:
+        "Thank you. Your message was sent to pranam@daivaswasti.org.",
+      formError:
+        "Sorry, the message could not be sent. Please email pranam@daivaswasti.org directly.",
+    },
+    hi: {
+      metaDescription:
+        "DAIVA SWASTI — भक्ति, आशीर्वाद और जुड़ाव के लिए पवित्र स्थान।",
+      brand: "DAIVA SWASTI",
+      navHome: "मुख्य पृष्ठ",
+      navPuja: "पूजा",
+      navDaiva: "DAIVA",
+      navDaivaSwasti: "DAIVA SWASTI",
+      navOfferings: "सेवाएँ",
+      navContact: "संपर्क",
+      navTalk: "हमसे बात करें",
+      langAria: "भाषा चुनें",
+      heroKicker: "DAIVA SWASTI",
+      heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
+      introTitle: "दिव्य कल्याण के लिए पवित्र अनुष्ठान, मंत्र और अर्पण",
+      introText:
+        "श्रद्धा से उपासना करें और पारंपरिक हिंदू आध्यात्मिक सेवाओं के माध्यम से आशीर्वाद प्राप्त करें।",
+      pujaEyebrow: "पूजा",
+      pujaTitle: "दैनिक उपासना – पूजाएँ",
+      pujaIntro:
+        "दैनिक जीवन में कृपा, रक्षा और सामंजस्य आमंत्रित करने के लिए श्रद्धा से की गई भक्ति उपासना।",
+      satyaTitle: "सत्यनारायण पूजा",
+      satyaText:
+        "शुभ अवसरों पर कृतज्ञता और आशीर्वाद के लिए की जाती है — गृह प्रवेश, नए कार्य, जन्मदिन या विवाह वर्षगाँठ।",
+      specialTitle: "विशेष अनुष्ठान",
+      specialText:
+        "पवित्र समारोह जो पारिवारिक जीवन में दिव्य सामंजस्य लाते हैं और महत्वपूर्ण क्षणों को भक्ति से चिह्नित करते हैं।",
+      templeTitle: "मंदिर भक्ति",
+      templeText:
+        "देवताओं का सम्मान करने और शुभ ऊर्जा को आमंत्रित करने के लिए सावधानी से किए गए अनुष्ठान और अर्पण।",
+      daivaEyebrow: "DAIVA",
+      daivaTitle: "दिव्य प्रभाव और मंगलमय अस्तित्व",
+      daivaIntro:
+        "हमारे नाम की पवित्र जड़ें — भाग्य, कल्याण और ब्रह्मांडीय व्यवस्था।",
+      daivaCardTitle: "DAIVA",
+      daivaCardText:
+        "दिव्य प्रभाव, भाग्य या नियति के \"अदृश्य हाथ\" का प्रतिनिधित्व करता है। यह प्रायः तीन परम शक्तियों—ब्रह्मा, विष्णु और महेश—और उनके द्वारा बनाए रखे गए ब्रह्मांडीय क्रम से जुड़ा होता है।",
+      swastiCardTitle: "SWASTI",
+      swastiCardText:
+        "संस्कृत su (अच्छा) और asti (अस्तित्व) से व्युत्पन्न, इसका अर्थ \"कल्याण\" या \"मंगल\" है। यह स्वस्तिक प्रतीक के मूल अर्थ को दर्शाता है: सूर्य की गति और ब्रह्मांडीय ऊर्जा का संतुलन।",
+      dsEyebrow: "DAIVA SWASTI",
+      dsTitle: "पवित्र सेवा के माध्यम से आशीर्वाद",
+      dsIntro:
+        "हमारी आध्यात्मिक सेवाएँ पवित्र अनुष्ठानों, मंत्रों और अर्पणों के माध्यम से दिव्य आशीर्वाद आमंत्रित करती हैं।",
+      dsBullet1:
+        "प्रत्येक समारोह भक्ति से किया जाता है ताकि भगवान शिव, भगवान विष्णु, भगवान ब्रह्मा, भगवान शनि, श्री नवग्रह, देवी पार्वती, देवी सरस्वती, देवी लक्ष्मी, भगवान गणेश, भगवान हनुमान, भगवान सुब्रह्मण्य, भगवान अय्यप्पा और ब्रह्मांडीय शक्तियों का सम्मान हो।",
+      dsBullet2:
+        "उपस्थित लोग और सहभागी शांति, सजगता, सकारात्मक ऊर्जा, स्वास्थ्य और आध्यात्मिक जुड़ाव का अनुभव करते हैं।",
+      offeringsEyebrow: "सेवाएँ",
+      offeringsTitle: "आध्यात्मिक सेवाएँ – हिंदू परंपरा",
+      offeringsIntro:
+        "शुद्धि, समृद्धि, रक्षा और आध्यात्मिक जुड़ाव के लिए पवित्र साधनाएँ बुक करें।",
+      offerWorshipTag: "उपासना",
+      offerWorshipTitle: "दैनिक उपासना – पूजाएँ",
+      offerWorshipText:
+        "दैनिक जीवन में कृपा, रक्षा और सामंजस्य आमंत्रित करने के लिए श्रद्धा से की गई भक्ति उपासना।",
+      offerFireTag: "अग्नि अनुष्ठान",
+      offerFireTitle: "होम एवं यज्ञ",
+      offerFireText:
+        "वैदिक अग्नि अनुष्ठान वातावरण को शुद्ध करते हैं और आध्यात्मिक ऊर्जा को ऊपर उठाते हैं। पवित्र अग्नि के माध्यम से प्रार्थनाएँ और अर्पण समृद्धि, रक्षा और आंतरिक परिवर्तन के लिए पहुँचते हैं।",
+      offerSpecialTag: "विशेष",
+      offerSpecialTitle: "सत्यनारायण पूजा",
+      offerSpecialText:
+        "गृह प्रवेश, नए कार्य, जन्मदिन या विवाह वर्षगाँठ पर कृतज्ञता व्यक्त करें या आशीर्वाद माँगें — पारिवारिक जीवन में दिव्य सामंजस्य लाने के लिए।",
+      offerFestTag: "त्योहार",
+      offerFestTitle: "त्योहार एवं उत्सव",
+      offerFestText:
+        "दीपावली, नवरात्रि, महाशिवरात्रि, कृष्ण जन्माष्टमी और होली — पारंपरिक अनुष्ठानों, भक्ति और सामुदायिक आनंद के साथ मनाए जाते हैं।",
+      offerPracticeTag: "साधना",
+      offerPracticeTitle: "ध्यान एवं जप",
+      offerPracticeText:
+        "गायत्री मंत्र, हनुमान चालीसा और महामृत्युंजय मंत्र का निर्देशित ध्यान और जप — स्थिरता, सकारात्मक ऊर्जा और मानसिक स्पष्टता के लिए।",
+      offerStudyTag: "अध्ययन",
+      offerStudyTitle: "आध्यात्मिक प्रवचन",
+      offerStudyText:
+        "भगवद्गीता, उपनिषदों और रामायण पर चर्चा साधकों को आत्म-साक्षात्कार, नैतिकता और धर्म की ओर मार्गदर्शन देती है।",
+      offerSevaTag: "सेवा",
+      offerSevaTitle: "सामुदायिक सेवा",
+      offerSevaText:
+        "अन्नदान, दान अभियान और पर्यावरण संरक्षण — \"लोकाः समस्ताः सुखिनो भवन्तु\" की भावना को साकार करते हुए। सभी प्राणी अच्छे स्वास्थ्य, ज्ञान, देखभाल, साझेदारी, मन की शांति और आनंद से सुखी हों।",
+      contactTitle: "संपर्क करें",
+      contactSubtitle: "हमें संदेश लिखें!",
+      placeholderName: "नाम",
+      placeholderEmail: "ईमेल*",
+      placeholderMessage: "संदेश",
+      newsletterLabel:
+        "अपडेट, प्रचार और अधिक जानकारी के लिए हमारी ईमेल सूची में शामिल हों।",
+      sendBtn: "भेजें",
+      recaptchaNote:
+        "यह साइट reCAPTCHA और Google की <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">गोपनीयता नीति</a> तथा <a href=\"https://policies.google.com/terms\" target=\"_blank\" rel=\"noopener noreferrer\">सेवा की शर्तों</a> द्वारा सुरक्षित है।",
+      footerExplore: "अन्वेषण",
+      footerServices: "सेवाएँ",
+      footerPuja: "पूजा",
+      footerDaiva: "DAIVA",
+      footerDaivaSwasti: "DAIVA SWASTI",
+      footerOfferings: "आध्यात्मिक सेवाएँ",
+      footerContact: "संपर्क",
+      footerForm: "संपर्क फ़ॉर्म",
+      footerCopy: "कॉपीराइट © {year} DAIVA SWASTI - सर्वाधिकार सुरक्षित।",
+      formEmailRequired: "कृपया अपना ईमेल पता दर्ज करें।",
+      formMessageRequired: "कृपया संदेश लिखें।",
+      formSending: "आपका संदेश भेजा जा रहा है...",
+      formSuccess:
+        "धन्यवाद। आपका संदेश pranam@daivaswasti.org पर भेज दिया गया।",
+      formError:
+        "क्षमा करें, संदेश नहीं भेजा जा सका। कृपया सीधे pranam@daivaswasti.org पर ईमेल करें।",
+    },
+    ta: {
+      metaDescription:
+        "DAIVA SWASTI — பக்தி, ஆசீர்வாதங்கள் மற்றும் ஆன்மீக இணைப்புக்கான புனித இடம்.",
+      brand: "DAIVA SWASTI",
+      navHome: "முகப்பு",
+      navPuja: "பூஜை",
+      navDaiva: "DAIVA",
+      navDaivaSwasti: "DAIVA SWASTI",
+      navOfferings: "சேவைகள்",
+      navContact: "தொடர்பு",
+      navTalk: "எங்களுடன் பேசுங்கள்",
+      langAria: "மொழியைத் தேர்ந்தெடுக்கவும்",
+      heroKicker: "DAIVA SWASTI",
+      heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
+      introTitle: "தெய்வீக நலனுக்கான புனித சடங்குகள், மந்திரங்கள் மற்றும் அர்ப்பணங்கள்",
+      introText:
+        "உண்மையான பக்தியுடன் வழிபட்டு, பாரம்பரிய இந்து ஆன்மீக சேவைகள் மூலம் ஆசீர்வாதங்களைப் பெறுங்கள்.",
+      pujaEyebrow: "பூஜை",
+      pujaTitle: "தினசரி வழிபாடு – பூஜைகள்",
+      pujaIntro:
+        "தினசரி வாழ்க்கையில் அருள், பாதுகாப்பு மற்றும் ஒற்றுமையை வரவேற்க உண்மையுடன் செய்யப்படும் பக்தி வழிபாடு.",
+      satyaTitle: "சத்யநாராயண பூஜை",
+      satyaText:
+        "சுப நிகழ்வுகளில் நன்றி மற்றும் ஆசீர்வாதங்களுக்காக செய்யப்படுகிறது — குடிபுகுதல், புதிய முயற்சிகள், பிறந்தநாள் அல்லது திருமண ஆண்டு விழா.",
+      specialTitle: "சிறப்பு அனுஷ்டானங்கள்",
+      specialText:
+        "குடும்ப வாழ்க்கையில் தெய்வீக ஒற்றுமையை கொண்டு வந்து, முக்கிய தருணங்களை பக்தியுடன் குறிக்கும் புனித சடங்குகள்.",
+      templeTitle: "கோயில் பக்தி",
+      templeText:
+        "தெய்வங்களைப் போற்றி சுப சக்தியை அழைக்க கவனமாக செய்யப்படும் சடங்குகளும் அர்ப்பணங்களும்.",
+      daivaEyebrow: "DAIVA",
+      daivaTitle: "தெய்வீக செல்வாக்கும் சுபமான இருப்பும்",
+      daivaIntro:
+        "எங்கள் பெயரின் புனித வேர்கள் — விதி, நலம் மற்றும் அண்ட ஒழுங்கு.",
+      daivaCardTitle: "DAIVA",
+      daivaCardText:
+        "தெய்வீக செல்வாக்கு, விதி அல்லது விதியின் \"காணாத கை\"யைக் குறிக்கிறது. இது பெரும்பாலும் மூன்று பரம சக்திகளான பிரம்மா, விஷ்ணு, மகேஷ் மற்றும் அவர்கள் காக்கும் அண்ட ஒழுங்குடன் தொடர்புடையது.",
+      swastiCardTitle: "SWASTI",
+      swastiCardText:
+        "சமஸ்கிருத su (நல்லது) மற்றும் asti (இருத்தல்) ஆகியவற்றிலிருந்து வந்தது; இதன் பொருள் \"நலம்\" அல்லது \"சுபம்\". இது ஸ்வஸ்திகச் சின்னத்தின் மூலப் பொருளைக் காட்டுகிறது: சூரியனின் இயக்கமும் அண்ட சக்தியின் சீரமைப்பும்.",
+      dsEyebrow: "DAIVA SWASTI",
+      dsTitle: "புனித சேவை மூலம் ஆசீர்வாதங்கள்",
+      dsIntro:
+        "எங்கள் ஆன்மீக சேவைகள் புனித சடங்குகள், மந்திரங்கள் மற்றும் அர்ப்பணங்கள் மூலம் தெய்வீக ஆசீர்வாதங்களை வரவேற்கின்றன.",
+      dsBullet1:
+        "ஒவ்வொரு சடங்கும் சிவபெருமான், விஷ்ணு, பிரம்மா, சனீஸ்வரர், ஸ்ரீ நவக்கிரகங்கள், பார்வதி தேவி, சரஸ்வதி தேவி, லட்சுமி தேவி, விநாயகர், அனுமன், சுப்பிரமணியர், ஐயப்பன் மற்றும் அண்ட சக்திகளைப் போற்ற பக்தியுடன் செய்யப்படுகிறது.",
+      dsBullet2:
+        "வருகையாளர்களும் பங்கேற்பாளர்களும் அமைதி, விழிப்புணர்வு, நேர்மறை ஆற்றல், நலம் மற்றும் ஆன்மீக இணைப்பை அனுபவிக்கின்றனர்.",
+      offeringsEyebrow: "சேவைகள்",
+      offeringsTitle: "ஆன்மீக சேவைகள் – இந்து மரபு",
+      offeringsIntro:
+        "சுத்திகரிப்பு, செழிப்பு, பாதுகாப்பு மற்றும் ஆன்மீக இணைப்புக்கான புனித நடைமுறைகளை முன்பதிவு செய்யுங்கள்.",
+      offerWorshipTag: "வழிபாடு",
+      offerWorshipTitle: "தினசரி வழிபாடு – பூஜைகள்",
+      offerWorshipText:
+        "தினசரி வாழ்க்கையில் அருள், பாதுகாப்பு மற்றும் ஒற்றுமையை வரவேற்க உண்மையுடன் செய்யப்படும் பக்தி வழிபாடு.",
+      offerFireTag: "அக்னி சடங்குகள்",
+      offerFireTitle: "ஹோமம் & யஜ்ஞம்",
+      offerFireText:
+        "வேத அக்னி சடங்குகள் சுற்றுச்சூழலைச் சுத்தப்படுத்தி ஆன்மீக ஆற்றலை உயர்த்துகின்றன. புனித அக்னி வழியாக செழிப்பு, பாதுகாப்பு மற்றும் உள் மாற்றத்திற்கான பிரார்த்தனைகளும் அர்ப்பணங்களும் சென்றடைகின்றன.",
+      offerSpecialTag: "சிறப்பு",
+      offerSpecialTitle: "சத்யநாராயண பூஜை",
+      offerSpecialText:
+        "குடிபுகுதல், புதிய முயற்சிகள், பிறந்தநாள் அல்லது திருமண ஆண்டு விழாவில் நன்றி தெரிவியுங்கள் அல்லது ஆசீர்வாதம் வேண்டுங்கள் — குடும்ப வாழ்க்கையில் தெய்வீக ஒற்றுமைக்காக.",
+      offerFestTag: "திருவிழாக்கள்",
+      offerFestTitle: "திருவிழாக்கள் & கொண்டாட்டங்கள்",
+      offerFestText:
+        "தீபாவளி, நவராத்திரி, மகா சிவராத்திரி, கிருஷ்ண ஜென்மாஷ்டமி மற்றும் ஹோலி — பாரம்பரிய சடங்குகள், பக்தி மற்றும் சமூக மகிழ்ச்சியுடன் கொண்டாடப்படுகின்றன.",
+      offerPracticeTag: "சாதனை",
+      offerPracticeTitle: "தியானம் & ஜபம்",
+      offerPracticeText:
+        "காயத்ரி மந்திரம், அனுமன் சாலிசா மற்றும் மகாம்ருத்யுஞ்ஜய மந்திரத்தின் வழிகாட்டப்பட்ட தியானம் மற்றும் ஜபம் — அமைதி, நேர்மறை ஆற்றல் மற்றும் மனத் தெளிவுக்காக.",
+      offerStudyTag: "கற்றல்",
+      offerStudyTitle: "ஆன்மீக உரைகள்",
+      offerStudyText:
+        "பகவத் கீதை, உபநிடதங்கள் மற்றும் இராமாயணம் குறித்த உரையாடல்கள் தேடுபவர்களை ஆத்ம உணர்வு, நெறிமுறை மற்றும் தர்மம் நோக்கி வழிநடத்துகின்றன.",
+      offerSevaTag: "சேவை",
+      offerSevaTitle: "சமூக சேவை",
+      offerSevaText:
+        "அன்னதானம், தொண்டு முயற்சிகள் மற்றும் சுற்றுச்சூழல் பாதுகாப்பு — \"லோகாஃ சமஸ்தாஃ சுகினோ பவந்து\" என்ற உணர்வை நடைமுறைப்படுத்துகின்றன. அனைத்து உயிர்களும் நல்ல ஆரோக்கியம், ஞானம், அக்கறை, பகிர்வு, மன அமைதி மற்றும் மகிழ்ச்சியுடன் நலமாக இருக்கட்டும்.",
+      contactTitle: "தொடர்பு கொள்ளுங்கள்",
+      contactSubtitle: "எங்களுக்கு எழுதுங்கள்!",
+      placeholderName: "பெயர்",
+      placeholderEmail: "மின்னஞ்சல்*",
+      placeholderMessage: "செய்தி",
+      newsletterLabel:
+        "புதுப்பிப்புகள், சலுகைகள் மற்றும் மேலும் தகவல்களுக்கு எங்கள் மின்னஞ்சல் பட்டியலில் சேருங்கள்.",
+      sendBtn: "அனுப்பு",
+      recaptchaNote:
+        "இந்த தளம் reCAPTCHA மற்றும் Google இன் <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">தனியுரிமைக் கொள்கை</a> மற்றும் <a href=\"https://policies.google.com/terms\" target=\"_blank\" rel=\"noopener noreferrer\">சேவை விதிமுறைகள்</a> மூலம் பாதுகாக்கப்படுகிறது.",
+      footerExplore: "ஆராயுங்கள்",
+      footerServices: "சேவைகள்",
+      footerPuja: "பூஜை",
+      footerDaiva: "DAIVA",
+      footerDaivaSwasti: "DAIVA SWASTI",
+      footerOfferings: "ஆன்மீக சேவைகள்",
+      footerContact: "தொடர்பு",
+      footerForm: "தொடர்பு படிவம்",
+      footerCopy: "பதிப்புரிமை © {year} DAIVA SWASTI - அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+      formEmailRequired: "தயவுசெய்து உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்.",
+      formMessageRequired: "தயவுசெய்து ஒரு செய்தியை உள்ளிடவும்.",
+      formSending: "உங்கள் செய்தி அனுப்பப்படுகிறது...",
+      formSuccess:
+        "நன்றி. உங்கள் செய்தி pranam@daivaswasti.org க்கு அனுப்பப்பட்டது.",
+      formError:
+        "மன்னிக்கவும், செய்தியை அனுப்ப முடியவில்லை. தயவுசெய்து நேரடியாக pranam@daivaswasti.org க்கு மின்னஞ்சல் அனுப்புங்கள்.",
+    },
+    te: {
+      metaDescription:
+        "DAIVA SWASTI — భక్తి, ఆశీర్వాదాలు మరియు ఆధ్యాత్మిక అనుబంధానికి పవిత్ర స్థలం.",
+      brand: "DAIVA SWASTI",
+      navHome: "హోమ్",
+      navPuja: "పూజ",
+      navDaiva: "DAIVA",
+      navDaivaSwasti: "DAIVA SWASTI",
+      navOfferings: "సేవలు",
+      navContact: "సంప్రదింపు",
+      navTalk: "మాతో మాట్లాడండి",
+      langAria: "భాషను ఎంచుకోండి",
+      heroKicker: "DAIVA SWASTI",
+      heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
+      introTitle: "దైవిక శ్రేయస్సు కోసం పవిత్ర ఆచారాలు, మంత్రాలు మరియు అర్పణలు",
+      introText:
+        "నిజమైన భక్తితో ఆరాధించి, సాంప్రదాయ హిందూ ఆధ్యాత్మిక సేవల ద్వారా ఆశీర్వాదాలు పొందండి.",
+      pujaEyebrow: "పూజ",
+      pujaTitle: "నిత్య ఆరాధన – పూజలు",
+      pujaIntro:
+        "రోజువారీ జీవితంలో అనుగ్రహం, రక్షణ మరియు సామరస్యాన్ని ఆహ్వానించడానికి భక్తితో చేసే ఆరాధన.",
+      satyaTitle: "సత్యనారాయణ పూజ",
+      satyaText:
+        "శుభ సందర్భాల్లో కృతజ్ఞత మరియు ఆశీర్వాదాల కోసం నిర్వహిస్తారు — గృహప్రవేశం, కొత్త కార్యక్రమాలు, పుట్టినరోజులు లేదా వివాహ వార్షికోత్సవాలు.",
+      specialTitle: "ప్రత్యేక ఆచారాలు",
+      specialText:
+        "కుటుంబ జీవితంలో దైవిక సామరస్యాన్ని తీసుకువచ్చి, ముఖ్యమైన క్షణాలను భక్తితో గుర్తించే పవిత్ర వేడుకలు.",
+      templeTitle: "దేవాలయ భక్తి",
+      templeText:
+        "దేవతలను గౌరవించి శుభ శక్తిని ఆహ్వానించడానికి జాగ్రత్తగా నిర్వహించే ఆచారాలు మరియు అర్పణలు.",
+      daivaEyebrow: "DAIVA",
+      daivaTitle: "దైవిక ప్రభావం మరియు శుభమైన ఉనికి",
+      daivaIntro:
+        "మా పేరులోని పవిత్ర మూలాలు — విధి, శ్రేయస్సు మరియు విశ్వ క్రమం.",
+      daivaCardTitle: "DAIVA",
+      daivaCardText:
+        "దైవిక ప్రభావం, విధి లేదా విధి యొక్క \"కనిపించని చేయి\"ని సూచిస్తుంది. ఇది తరచుగా మూడు పరమ శక్తులైన బ్రహ్మ, విష్ణు, మహేశ్ మరియు వారు కాపాడే విశ్వ క్రమంతో అనుబంధించబడుతుంది.",
+      swastiCardTitle: "SWASTI",
+      swastiCardText:
+        "సంస్కృత su (మంచి) మరియు asti (ఉనికి) నుండి ఉద్భవించింది; దీని అర్థం \"శ్రేయస్సు\" లేదా \"శుభం\". ఇది స్వస్తిక చిహ్నం యొక్క మూల అర్థాన్ని సూచిస్తుంది: సూర్యుని గమనం మరియు విశ్వ శక్తి సమన్వయం.",
+      dsEyebrow: "DAIVA SWASTI",
+      dsTitle: "పవిత్ర సేవ ద్వారా ఆశీర్వాదాలు",
+      dsIntro:
+        "మా ఆధ్యాత్మిక సేవలు పవిత్ర ఆచారాలు, మంత్రాలు మరియు అర్పణల ద్వారా దైవిక ఆశీర్వాదాలను ఆహ్వానిస్తాయి.",
+      dsBullet1:
+        "ప్రతి వేడుకను శివుడు, విష్ణువు, బ్రహ్మ, శని, శ్రీ నవగ్రహాలు, పార్వతి దేవి, సరస్వతి దేవి, లక్ష్మి దేవి, గణేశుడు, హనుమంతుడు, సుబ్రహ్మణ్యుడు, అయ్యప్ప స్వామి మరియు విశ్వ శక్తులను గౌరవించడానికి భక్తితో నిర్వహిస్తారు.",
+      dsBullet2:
+        "హాజరయ్యే వారు మరియు పాల్గొనేవారు శాంతి, అవగాహన, సానుకూల శక్తి, ఆరోగ్యం మరియు ఆధ్యాత్మిక అనుబంధాన్ని అనుభవిస్తారు.",
+      offeringsEyebrow: "సేవలు",
+      offeringsTitle: "ఆధ్యాత్మిక సేవలు – హిందూ సంప్రదాయం",
+      offeringsIntro:
+        "శుద్ధి, సంపద, రక్షణ మరియు ఆధ్యాత్మిక అనుబంధం కోసం పవిత్ర ఆచరణలను బుక్ చేయండి.",
+      offerWorshipTag: "ఆరాధన",
+      offerWorshipTitle: "నిత్య ఆరాధన – పూజలు",
+      offerWorshipText:
+        "రోజువారీ జీవితంలో అనుగ్రహం, రక్షణ మరియు సామరస్యాన్ని ఆహ్వానించడానికి భక్తితో చేసే ఆరాధన.",
+      offerFireTag: "అగ్ని ఆచారాలు",
+      offerFireTitle: "హోమం & యజ్ఞం",
+      offerFireText:
+        "వైదిక అగ్ని ఆచారాలు పరిసరాలను శుద్ధి చేసి ఆధ్యాత్మిక శక్తిని ఉన్నతం చేస్తాయి. పవిత్ర అగ్ని ద్వారా సంపద, రక్షణ మరియు అంతర్గత పరివర్తన కోసం ప్రార్థనలు మరియు అర్పణలు చేరుతాయి.",
+      offerSpecialTag: "ప్రత్యేకం",
+      offerSpecialTitle: "సత్యనారాయణ పూజ",
+      offerSpecialText:
+        "గృహప్రవేశం, కొత్త కార్యక్రమాలు, పుట్టినరోజులు లేదా వివాహ వార్షికోత్సవాల కోసం కృతజ్ఞత తెలపండి లేదా ఆశీర్వాదాలు కోరండి — కుటుంబ జీవితంలో దైవిక సామరస్యానికి.",
+      offerFestTag: "పండుగలు",
+      offerFestTitle: "పండుగలు & వేడుకలు",
+      offerFestText:
+        "దీపావళి, నవరాత్రి, మహా శివరాత్రి, కృష్ణ జన్మాష్టమి మరియు హోలీ — సాంప్రదాయ ఆచారాలు, భక్తి మరియు సామూహిక ఆనందంతో జరుపుకుంటారు.",
+      offerPracticeTag: "సాధన",
+      offerPracticeTitle: "ధ్యానం & జపం",
+      offerPracticeText:
+        "గాయత్రి మంత్రం, హనుమాన్ చాలీసా మరియు మహామృత్యుంజయ మంత్రం యొక్క మార్గదర్శిత ధ్యానం మరియు జపం — నిశ్చలత, సానుకూల శక్తి మరియు మానసిక స్పష్టత కోసం.",
+      offerStudyTag: "అధ్యయనం",
+      offerStudyTitle: "ఆధ్యాత్మిక ఉపన్యాసాలు",
+      offerStudyText:
+        "భగవద్గీత, ఉపనిషత్తులు మరియు రామాయణంపై చర్చలు సాధకులను ఆత్మసాక్షాత్కారం, నీతి మరియు ధర్మం వైపు నడిపిస్తాయి.",
+      offerSevaTag: "సేవ",
+      offerSevaTitle: "సమాజ సేవ",
+      offerSevaText:
+        "అన్నదానం, దాన కార్యక్రమాలు మరియు పర్యావరణ సంరక్షణ — \"లోకాః సమస్తాః సుఖినో భవంతు\" అనే భావాన్ని ఆచరిస్తూ. అన్ని జీవులు మంచి ఆరోగ్యం, జ్ఞానం, శ్రద్ధ, పంచుకోవడం, మనశ్శాంతి మరియు ఆనందంతో సుఖంగా ఉండాలి.",
+      contactTitle: "మమ్మల్ని సంప్రదించండి",
+      contactSubtitle: "మాకు సందేశం పంపండి!",
+      placeholderName: "పేరు",
+      placeholderEmail: "ఇమెయిల్*",
+      placeholderMessage: "సందేశం",
+      newsletterLabel:
+        "నవీకరణలు, ప్రచారాలు మరియు మరిన్ని వివరాల కోసం మా ఇమెయిల్ జాబితాలో చేరండి.",
+      sendBtn: "పంపండి",
+      recaptchaNote:
+        "ఈ సైట్ reCAPTCHA మరియు Google యొక్క <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">గోప్యతా విధానం</a> మరియు <a href=\"https://policies.google.com/terms\" target=\"_blank\" rel=\"noopener noreferrer\">సేవా నిబంధనలు</a> ద్వారా రక్షించబడింది.",
+      footerExplore: "అన్వేషించండి",
+      footerServices: "సేవలు",
+      footerPuja: "పూజ",
+      footerDaiva: "DAIVA",
+      footerDaivaSwasti: "DAIVA SWASTI",
+      footerOfferings: "ఆధ్యాత్మిక సేవలు",
+      footerContact: "సంప్రదింపు",
+      footerForm: "సంప్రదింపు ఫారం",
+      footerCopy: "కాపీరైట్ © {year} DAIVA SWASTI - అన్ని హక్కులు ప్రత్యేకించబడ్డాయి.",
+      formEmailRequired: "దయచేసి మీ ఇమెయిల్ చిరునామాను నమోదు చేయండి.",
+      formMessageRequired: "దయచేసి సందేశాన్ని నమోదు చేయండి.",
+      formSending: "మీ సందేశం పంపబడుతోంది...",
+      formSuccess:
+        "ధన్యవాదాలు. మీ సందేశం pranam@daivaswasti.org కు పంపబడింది.",
+      formError:
+        "క్షమించండి, సందేశం పంపలేకపోయాము. దయచేసి నేరుగా pranam@daivaswasti.org కు ఇమెయిల్ చేయండి.",
+    },
+    kn: {
+      metaDescription:
+        "DAIVA SWASTI — ಭಕ್ತಿ, ಆಶೀರ್ವಾದಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಂಪರ್ಕಕ್ಕಾಗಿ ಪವಿತ್ರ ಸ್ಥಳ.",
+      brand: "DAIVA SWASTI",
+      navHome: "ಮುಖಪುಟ",
+      navPuja: "ಪೂಜೆ",
+      navDaiva: "DAIVA",
+      navDaivaSwasti: "DAIVA SWASTI",
+      navOfferings: "ಸೇವೆಗಳು",
+      navContact: "ಸಂಪರ್ಕ",
+      navTalk: "ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ",
+      langAria: "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      heroKicker: "DAIVA SWASTI",
+      heroTitle: "स्वस्ति नो बृहस्पतिर्दधातु",
+      introTitle: "ದೈವಿಕ ಕಲ್ಯಾಣಕ್ಕಾಗಿ ಪವಿತ್ರ ಆಚರಣೆಗಳು, ಮಂತ್ರಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳು",
+      introText:
+        "ನಿಷ್ಠೆಯಿಂದ ಆರಾಧಿಸಿ ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ಹಿಂದೂ ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳ ಮೂಲಕ ಆಶೀರ್ವಾದಗಳನ್ನು ಪಡೆಯಿರಿ.",
+      pujaEyebrow: "ಪೂಜೆ",
+      pujaTitle: "ನಿತ್ಯ ಆರಾಧನೆ – ಪೂಜೆಗಳು",
+      pujaIntro:
+        "ದೈನಂದಿನ ಜೀವನಕ್ಕೆ ಅನುಗ್ರಹ, ರಕ್ಷಣೆ ಮತ್ತು ಸಾಮರಸ್ಯವನ್ನು ಆಹ್ವಾನಿಸಲು ಭಕ್ತಿಯಿಂದ ಮಾಡುವ ಆರಾಧನೆ.",
+      satyaTitle: "ಸತ್ಯನಾರಾಯಣ ಪೂಜೆ",
+      satyaText:
+        "ಶುಭ ಸಂದರ್ಭಗಳಲ್ಲಿ ಕೃತಜ್ಞತೆ ಮತ್ತು ಆಶೀರ್ವಾದಗಳಿಗಾಗಿ ನಡೆಸಲಾಗುತ್ತದೆ — ಗೃಹಪ್ರವೇಶ, ಹೊಸ ಕಾರ್ಯಗಳು, ಹುಟ್ಟುಹಬ್ಬಗಳು ಅಥವಾ ವಿವಾಹ ವಾರ್ಷಿಕೋತ್ಸವಗಳು.",
+      specialTitle: "ವಿಶೇಷ ಆಚರಣೆಗಳು",
+      specialText:
+        "ಕುಟುಂಬ ಜೀವನಕ್ಕೆ ದೈವಿಕ ಸಾಮರಸ್ಯವನ್ನು ತಂದು, ಪ್ರಮುಖ ಕ್ಷಣಗಳನ್ನು ಭಕ್ತಿಯಿಂದ ಗುರುತಿಸುವ ಪವಿತ್ರ ಸಮಾರಂಭಗಳು.",
+      templeTitle: "ದೇವಸ್ಥಾನ ಭಕ್ತಿ",
+      templeText:
+        "ದೇವತೆಗಳನ್ನು ಗೌರವಿಸಿ ಶುಭ ಶಕ್ತಿಯನ್ನು ಆಹ್ವಾನಿಸಲು ಎಚ್ಚರಿಕೆಯಿಂದ ನಡೆಸುವ ಆಚರಣೆಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳು.",
+      daivaEyebrow: "DAIVA",
+      daivaTitle: "ದೈವಿಕ ಪ್ರಭಾವ ಮತ್ತು ಶುಭಮಯ ಅಸ್ತಿತ್ವ",
+      daivaIntro:
+        "ನಮ್ಮ ಹೆಸರಿನ ಪವಿತ್ರ ಬೇರುಗಳು — ವಿಧಿ, ಕಲ್ಯಾಣ ಮತ್ತು ಬ್ರಹ್ಮಾಂಡೀಯ ಕ್ರಮ.",
+      daivaCardTitle: "DAIVA",
+      daivaCardText:
+        "ದೈವಿಕ ಪ್ರಭಾವ, ವಿಧಿ ಅಥವಾ ವಿಧಿಯ \"ಕಾಣದ ಕೈ\"ಯನ್ನು ಸೂಚಿಸುತ್ತದೆ. ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಮೂರು ಪರಮ ಶಕ್ತಿಗಳಾದ ಬ್ರಹ್ಮ, ವಿಷ್ಣು ಮತ್ತು ಮಹೇಶ್ ಹಾಗೂ ಅವರು ಕಾಪಾಡುವ ಬ್ರಹ್ಮಾಂಡೀಯ ಕ್ರಮದೊಂದಿಗೆ ಸಂಬಂಧಿಸಿದೆ.",
+      swastiCardTitle: "SWASTI",
+      swastiCardText:
+        "ಸಂಸ್ಕೃತ su (ಒಳ್ಳೆಯದು) ಮತ್ತು asti (ಇರುವಿಕೆ) ಯಿಂದ ಬಂದಿದೆ; ಇದರ ಅರ್ಥ \"ಕಲ್ಯಾಣ\" ಅಥವಾ \"ಶುಭ\". ಇದು ಸ್ವಸ್ತಿಕ ಚಿಹ್ನೆಯ ಮೂಲ ಅರ್ಥವನ್ನು ಸೂಚಿಸುತ್ತದೆ: ಸೂರ್ಯನ ಚಲನೆ ಮತ್ತು ಬ್ರಹ್ಮಾಂಡೀಯ ಶಕ್ತಿಯ ಸಮನ್ವಯ.",
+      dsEyebrow: "DAIVA SWASTI",
+      dsTitle: "ಪವಿತ್ರ ಸೇವೆಯ ಮೂಲಕ ಆಶೀರ್ವಾದಗಳು",
+      dsIntro:
+        "ನಮ್ಮ ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳು ಪವಿತ್ರ ಆಚರಣೆಗಳು, ಮಂತ್ರಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳ ಮೂಲಕ ದೈವಿಕ ಆಶೀರ್ವಾದಗಳನ್ನು ಆಹ್ವಾನಿಸುತ್ತವೆ.",
+      dsBullet1:
+        "ಪ್ರತಿ ಸಮಾರಂಭವನ್ನು ಶಿವ, ವಿಷ್ಣು, ಬ್ರಹ್ಮ, ಶನಿ, ಶ್ರೀ ನವಗ್ರಹಗಳು, ಪಾರ್ವತಿ ದೇವಿ, ಸರಸ್ವತಿ ದೇವಿ, ಲಕ್ಷ್ಮಿ ದೇವಿ, ಗಣೇಶ, ಹನುಮಂತ, ಸುಬ್ರಹ್ಮಣ್ಯ, ಅಯ್ಯಪ್ಪ ಸ್ವಾಮಿ ಮತ್ತು ಬ್ರಹ್ಮಾಂಡೀಯ ಶಕ್ತಿಗಳನ್ನು ಗೌರವಿಸಲು ಭಕ್ತಿಯಿಂದ ನಡೆಸಲಾಗುತ್ತದೆ.",
+      dsBullet2:
+        "ಹಾಜರಾಗುವವರು ಮತ್ತು ಭಾಗವಹಿಸುವವರು ಶಾಂತಿ, ಜಾಗೃತಿ, ಧನಾತ್ಮಕ ಶಕ್ತಿ, ಆರೋಗ್ಯ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಂಪರ್ಕವನ್ನು ಅನುಭವಿಸುತ್ತಾರೆ.",
+      offeringsEyebrow: "ಸೇವೆಗಳು",
+      offeringsTitle: "ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳು – ಹಿಂದೂ ಪರಂಪರೆ",
+      offeringsIntro:
+        "ಶುದ್ಧೀಕರಣ, ಸಮೃದ್ಧಿ, ರಕ್ಷಣೆ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸಂಪರ್ಕಕ್ಕಾಗಿ ಪವಿತ್ರ ಅಭ್ಯಾಸಗಳನ್ನು ಬುಕ್ ಮಾಡಿ.",
+      offerWorshipTag: "ಆರಾಧನೆ",
+      offerWorshipTitle: "ನಿತ್ಯ ಆರಾಧನೆ – ಪೂಜೆಗಳು",
+      offerWorshipText:
+        "ದೈನಂದಿನ ಜೀವನಕ್ಕೆ ಅನುಗ್ರಹ, ರಕ್ಷಣೆ ಮತ್ತು ಸಾಮರಸ್ಯವನ್ನು ಆಹ್ವಾನಿಸಲು ಭಕ್ತಿಯಿಂದ ಮಾಡುವ ಆರಾಧನೆ.",
+      offerFireTag: "ಅಗ್ನಿ ಆಚರಣೆಗಳು",
+      offerFireTitle: "ಹೋಮ & ಯಜ್ಞ",
+      offerFireText:
+        "ವೈದಿಕ ಅಗ್ನಿ ಆಚರಣೆಗಳು ಪರಿಸರವನ್ನು ಶುದ್ಧೀಕರಿಸಿ ಆಧ್ಯಾತ್ಮಿಕ ಶಕ್ತಿಯನ್ನು ಎತ್ತುತ್ತವೆ. ಪವಿತ್ರ ಅಗ್ನಿಯ ಮೂಲಕ ಸಮೃದ್ಧಿ, ರಕ್ಷಣೆ ಮತ್ತು ಆಂತರಿಕ ಪರಿವರ್ತನೆಗಾಗಿ ಪ್ರಾರ್ಥನೆಗಳು ಮತ್ತು ಅರ್ಪಣೆಗಳು ತಲುಪುತ್ತವೆ.",
+      offerSpecialTag: "ವಿಶೇಷ",
+      offerSpecialTitle: "ಸತ್ಯನಾರಾಯಣ ಪೂಜೆ",
+      offerSpecialText:
+        "ಗೃಹಪ್ರವೇಶ, ಹೊಸ ಕಾರ್ಯಗಳು, ಹುಟ್ಟುಹಬ್ಬಗಳು ಅಥವಾ ವಿವಾಹ ವಾರ್ಷಿಕೋತ್ಸವಗಳಿಗೆ ಕೃತಜ್ಞತೆ ತೋರಿಸಿ ಅಥವಾ ಆಶೀರ್ವಾದ ಕೇಳಿ — ಕುಟುಂಬ ಜೀವನದಲ್ಲಿ ದೈವಿಕ ಸಾಮರಸ್ಯಕ್ಕಾಗಿ.",
+      offerFestTag: "ಹಬ್ಬಗಳು",
+      offerFestTitle: "ಹಬ್ಬಗಳು & ಆಚರಣೆಗಳು",
+      offerFestText:
+        "ದೀಪಾವಳಿ, ನವರಾತ್ರಿ, ಮಹಾ ಶಿವರಾತ್ರಿ, ಕೃಷ್ಣ ಜನ್ಮಾಷ್ಟಮಿ ಮತ್ತು ಹೋಳಿ — ಸಾಂಪ್ರದಾಯಿಕ ಆಚರಣೆಗಳು, ಭಕ್ತಿ ಮತ್ತು ಸಮುದಾಯದ ಸಂತೋಷದೊಂದಿಗೆ ಆಚರಿಸಲಾಗುತ್ತದೆ.",
+      offerPracticeTag: "ಸಾಧನೆ",
+      offerPracticeTitle: "ಧ್ಯಾನ & ಜಪ",
+      offerPracticeText:
+        "ಗಾಯತ್ರಿ ಮಂತ್ರ, ಹನುಮಾನ್ ಚಾಲೀಸಾ ಮತ್ತು ಮಹಾಮೃತ್ಯುಂಜಯ ಮಂತ್ರದ ಮಾರ್ಗದರ್ಶಿತ ಧ್ಯಾನ ಮತ್ತು ಜಪ — ನಿಶ್ಚಲತೆ, ಧನಾತ್ಮಕ ಶಕ್ತಿ ಮತ್ತು ಮಾನಸಿಕ ಸ್ಪಷ್ಟತೆಗೆ.",
+      offerStudyTag: "ಅಧ್ಯಯನ",
+      offerStudyTitle: "ಆಧ್ಯಾತ್ಮಿಕ ಪ್ರವಚನಗಳು",
+      offerStudyText:
+        "ಭಗವದ್ಗೀತೆ, ಉಪನಿಷತ್ತುಗಳು ಮತ್ತು ರಾಮಾಯಣದ ಕುರಿತು ಚರ್ಚೆಗಳು ಸಾಧಕರನ್ನು ಆತ್ಮಸಾಕ್ಷಾತ್ಕಾರ, ನೀತಿ ಮತ್ತು ಧರ್ಮದ ಕಡೆಗೆ ಮಾರ್ಗದರ್ಶನ ಮಾಡುತ್ತವೆ.",
+      offerSevaTag: "ಸೇವೆ",
+      offerSevaTitle: "ಸಮುದಾಯ ಸೇವೆ",
+      offerSevaText:
+        "ಅನ್ನದಾನ, ದಾನ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ಪರಿಸರ ಸಂರಕ್ಷಣೆ — \"ಲೋಕಾಃ ಸಮಸ್ತಾಃ ಸುಖಿನೋ ಭವಂತು\" ಎಂಬ ಭಾವವನ್ನು ಆಚರಿಸುತ್ತವೆ. ಎಲ್ಲಾ ಜೀವಿಗಳು ಉತ್ತಮ ಆರೋಗ್ಯ, ಜ್ಞಾನ, ಕಾಳಜಿ, ಹಂಚಿಕೆ, ಮನಶ್ಶಾಂತಿ ಮತ್ತು ಸಂತೋಷದಿಂದ ಸುಖಿಯಾಗಿರಲಿ.",
+      contactTitle: "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+      contactSubtitle: "ನಮಗೆ ಸಂದೇಶ ಬರೆಯಿರಿ!",
+      placeholderName: "ಹೆಸರು",
+      placeholderEmail: "ಇಮೇಲ್*",
+      placeholderMessage: "ಸಂದೇಶ",
+      newsletterLabel:
+        "ನವೀಕರಣಗಳು, ಪ್ರಚಾರಗಳು ಮತ್ತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಮ್ಮ ಇಮೇಲ್ ಪಟ್ಟಿಗೆ ಸೇರಿ.",
+      sendBtn: "ಕಳುಹಿಸಿ",
+      recaptchaNote:
+        "ಈ ತಾಣವು reCAPTCHA ಮತ್ತು Google ನ <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">ಗೌಪ್ಯತಾ ನೀತಿ</a> ಮತ್ತು <a href=\"https://policies.google.com/terms\" target=\"_blank\" rel=\"noopener noreferrer\">ಸೇವಾ ನಿಯಮಗಳು</a> ಮೂಲಕ ರಕ್ಷಿಸಲ್ಪಟ್ಟಿದೆ.",
+      footerExplore: "ಅನ್ವೇಷಿಸಿ",
+      footerServices: "ಸೇವೆಗಳು",
+      footerPuja: "ಪೂಜೆ",
+      footerDaiva: "DAIVA",
+      footerDaivaSwasti: "DAIVA SWASTI",
+      footerOfferings: "ಆಧ್ಯಾತ್ಮಿಕ ಸೇವೆಗಳು",
+      footerContact: "ಸಂಪರ್ಕ",
+      footerForm: "ಸಂಪರ್ಕ ಫಾರ್ಮ್",
+      footerCopy: "ಕೃತಿಸ್ವಾಮ್ಯ © {year} DAIVA SWASTI - ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+      formEmailRequired: "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ.",
+      formMessageRequired: "ದಯವಿಟ್ಟು ಸಂದೇಶವನ್ನು ನಮೂದಿಸಿ.",
+      formSending: "ನಿಮ್ಮ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...",
+      formSuccess:
+        "ಧನ್ಯವಾದಗಳು. ನಿಮ್ಮ ಸಂದೇಶವನ್ನು pranam@daivaswasti.org ಗೆ ಕಳುಹಿಸಲಾಗಿದೆ.",
+      formError:
+        "ಕ್ಷಮಿಸಿ, ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನೇರವಾಗಿ pranam@daivaswasti.org ಗೆ ಇಮೇಲ್ ಮಾಡಿ.",
+    },
+  },
+};

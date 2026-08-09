@@ -1,8 +1,153 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
+  const i18n = window.DAIVA_I18N;
+  const supported = new Set(
+    (i18n?.languages || []).map((language) => language.code)
+  );
+  const STORAGE_KEY = "daiva-swasti-lang";
+
+  let currentLang = "en";
+
+  function getStrings(lang) {
+    return i18n?.strings?.[lang] || i18n?.strings?.en || {};
   }
+
+  function t(key, lang = currentLang) {
+    const strings = getStrings(lang);
+    return strings[key] ?? i18n?.strings?.en?.[key] ?? key;
+  }
+
+  function applyLanguage(lang) {
+    if (!supported.has(lang)) {
+      lang = "en";
+    }
+
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.body.dataset.lang = lang;
+    localStorage.setItem(STORAGE_KEY, lang);
+
+    const year = String(new Date().getFullYear());
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+
+      if (el.tagName === "META" && el.getAttribute("name") === "description") {
+        el.setAttribute("content", t(key));
+        return;
+      }
+
+      el.textContent = t(key);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (!key) return;
+      el.setAttribute("placeholder", t(key));
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-aria");
+      if (!key) return;
+      el.setAttribute("aria-label", t(key));
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-html");
+      if (!key) return;
+      let html = t(key);
+      if (key === "footerCopy") {
+        html = html.replace("{year}", year);
+      }
+      el.innerHTML = html;
+    });
+
+    const label = i18n.languages.find((item) => item.code === lang)?.label;
+    const labelEl = document.querySelector("[data-lang-label]");
+    if (labelEl && label) {
+      labelEl.textContent = label;
+    }
+
+    document.querySelectorAll("[data-lang]").forEach((option) => {
+      const selected = option.getAttribute("data-lang") === lang;
+      option.setAttribute("aria-selected", selected ? "true" : "false");
+      option.classList.toggle("is-active", selected);
+    });
+
+    const status = document.getElementById("form-status");
+    if (status) {
+      status.textContent = "";
+    }
+  }
+
+  function setupLanguageSwitcher() {
+    const root = document.querySelector("[data-lang-switcher]");
+    const button = document.querySelector("[data-lang-button]");
+    const menu = document.querySelector("[data-lang-menu]");
+    if (!root || !button || !menu) return;
+
+    const closeMenu = () => {
+      menu.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+      root.classList.remove("is-open");
+    };
+
+    const openMenu = () => {
+      menu.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+      root.classList.add("is-open");
+    };
+
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (menu.hidden) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+
+    menu.querySelectorAll("[data-lang]").forEach((option) => {
+      option.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const lang = option.getAttribute("data-lang");
+        if (lang) {
+          applyLanguage(lang);
+        }
+        closeMenu();
+      });
+
+      option.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          option.click();
+        }
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!root.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const initial =
+    saved && supported.has(saved)
+      ? saved
+      : supported.has(navigator.language?.slice(0, 2))
+        ? navigator.language.slice(0, 2)
+        : "en";
+
+  setupLanguageSwitcher();
+  applyLanguage(initial);
 
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
@@ -33,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!email) {
       if (status) {
-        status.textContent = "Please enter your email address.";
+        status.textContent = t("formEmailRequired");
       }
       emailInput?.focus();
       return;
@@ -41,14 +186,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!message) {
       if (status) {
-        status.textContent = "Please enter a message.";
+        status.textContent = t("formMessageRequired");
       }
       messageInput?.focus();
       return;
     }
 
     if (status) {
-      status.textContent = "Sending your message...";
+      status.textContent = t("formSending");
     }
     if (submitBtn instanceof HTMLButtonElement) {
       submitBtn.disabled = true;
@@ -82,14 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (status) {
-        status.textContent =
-          "Thank you. Your message was sent to pranam@daivaswasti.org.";
+        status.textContent = t("formSuccess");
       }
       form.reset();
     } catch (error) {
       if (status) {
-        status.textContent =
-          "Sorry, the message could not be sent. Please email pranam@daivaswasti.org directly.";
+        status.textContent = t("formError");
       }
       console.error(error);
     } finally {

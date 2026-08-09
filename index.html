@@ -5,25 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
+      data-i18n="metaDescription"
       content="Daiva Swasti — sacred space for devotion, blessings, and connection."
     />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>Daiva Swasti</title>
-    <link rel="stylesheet" href="styles.css?v=34" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=35" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top">DAIVA SWASTI</a>
-        <nav class="main-nav" aria-label="Primary">
-          <a href="#top">Home</a>
-          <a href="#puja">Puja</a>
-          <a href="#daiva">Daiva</a>
-          <a href="#daiva-swasti">Daiva Swasti</a>
-          <a href="#offerings">Offerings</a>
-          <a href="#contact">Contact</a>
-          <a class="talk-btn" href="#contact">Talk to us</a>
-        </nav>
+        <a class="brand" href="#top" data-i18n="brand">DAIVA SWASTI</a>
+        <div class="header-actions">
+          <nav class="main-nav" aria-label="Primary">
+            <a href="#top" data-i18n="navHome">Home</a>
+            <a href="#puja" data-i18n="navPuja">Puja</a>
+            <a href="#daiva" data-i18n="navDaiva">Daiva</a>
+            <a href="#daiva-swasti" data-i18n="navDaivaSwasti">Daiva Swasti</a>
+            <a href="#offerings" data-i18n="navOfferings">Offerings</a>
+            <a href="#contact" data-i18n="navContact">Contact</a>
+            <a class="talk-btn" href="#contact" data-i18n="navTalk">Talk to us</a>
+          </nav>
+
+          <div class="lang-switcher" data-lang-switcher>
+            <button
+              type="button"
+              class="lang-btn"
+              data-lang-button
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              data-i18n-aria="langAria"
+              aria-label="Select language"
+            >
+              <span class="lang-current" data-lang-label>English</span>
+              <svg
+                class="lang-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.5 4.25L6 7.75L9.5 4.25"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <ul class="lang-menu" data-lang-menu role="listbox" hidden>
+              <li role="option" tabindex="0" data-lang="en" aria-selected="true">
+                English
+              </li>
+              <li role="option" tabindex="0" data-lang="hi" aria-selected="false">
+                हिन्दी
+              </li>
+              <li role="option" tabindex="0" data-lang="ta" aria-selected="false">
+                தமிழ்
+              </li>
+              <li role="option" tabindex="0" data-lang="te" aria-selected="false">
+                తెలుగు
+              </li>
+              <li role="option" tabindex="0" data-lang="kn" aria-selected="false">
+                ಕನ್ನಡ
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -35,15 +91,17 @@
           alt="Shiva Lingam abhishekam with milk offering in a temple"
         />
         <div class="hero-caption">
-          <p class="hero-kicker">DAIVA SWASTI</p>
-          <h1 class="hero-title">स्वस्ति नो बृहस्पतिर्दधातु</h1>
+          <p class="hero-kicker" data-i18n="heroKicker">DAIVA SWASTI</p>
+          <h1 class="hero-title" data-i18n="heroTitle">स्वस्ति नो बृहस्पतिर्दधातु</h1>
         </div>
       </section>
 
       <section class="intro-band">
         <div class="container">
-          <h2>Sacred rituals, mantras, and offerings for divine well-being</h2>
-          <p>
+          <h2 data-i18n="introTitle">
+            Sacred rituals, mantras, and offerings for divine well-being
+          </h2>
+          <p data-i18n="introText">
             Perform devotion with sincerity and receive blessings through
             traditional Hindu spiritual services.
           </p>
@@ -53,9 +111,9 @@
       <section id="puja" class="section light-section">
         <div class="container">
           <header class="panel-header">
-            <p class="panel-eyebrow">Puja</p>
-            <h2 class="panel-title">Daily Worship – Pujas</h2>
-            <p class="panel-intro">
+            <p class="panel-eyebrow" data-i18n="pujaEyebrow">Puja</p>
+            <h2 class="panel-title" data-i18n="pujaTitle">Daily Worship – Pujas</h2>
+            <p class="panel-intro" data-i18n="pujaIntro">
               Devotional worship offered with sincerity to invite grace,
               protection, and harmony into daily life.
             </p>
@@ -70,23 +128,23 @@
 
           <div class="feature-strip">
             <article>
-              <h3>Satyanarayan Puja</h3>
-              <p>
+              <h3 data-i18n="satyaTitle">Satyanarayan Puja</h3>
+              <p data-i18n="satyaText">
                 Performed for gratitude and blessings on auspicious occasions —
                 home warming, new ventures, birthdays, or marriage
                 anniversaries.
               </p>
             </article>
             <article>
-              <h3>Special Observances</h3>
-              <p>
+              <h3 data-i18n="specialTitle">Special Observances</h3>
+              <p data-i18n="specialText">
                 Sacred ceremonies that bring divine harmony to family life and
                 mark important moments with devotion.
               </p>
             </article>
             <article>
-              <h3>Temple Devotion</h3>
-              <p>
+              <h3 data-i18n="templeTitle">Temple Devotion</h3>
+              <p data-i18n="templeText">
                 Rituals and offerings performed with care to honor the deities
                 and invite auspicious energy.
               </p>
@@ -98,9 +156,11 @@
       <section id="daiva" class="section soft-section">
         <div class="container">
           <header class="panel-header">
-            <p class="panel-eyebrow">Daiva</p>
-            <h2 class="panel-title">Divine influence and auspicious being</h2>
-            <p class="panel-intro">
+            <p class="panel-eyebrow" data-i18n="daivaEyebrow">Daiva</p>
+            <h2 class="panel-title" data-i18n="daivaTitle">
+              Divine influence and auspicious being
+            </h2>
+            <p class="panel-intro" data-i18n="daivaIntro">
               The sacred roots of our name — destiny, well-being, and cosmic
               order.
             </p>
@@ -113,8 +173,8 @@
                 src="assets/daiva.jpg?v=2"
                 alt="Golden cosmic temple light representing divine destiny"
               />
-              <h3>DAIVA</h3>
-              <p>
+              <h3 data-i18n="daivaCardTitle">DAIVA</h3>
+              <p data-i18n="daivaCardText">
                 Represents divine influence, fate, or the "unseen hand" of
                 destiny. It is often associated with the three supreme
                 forces—Brahma, Vishnu, and Mahesh—and the cosmic order they
@@ -127,8 +187,8 @@
                 src="assets/swasti.jpg?v=2"
                 alt="Sunrise over sacred river and temple ghats for well-being"
               />
-              <h3>SWASTI</h3>
-              <p>
+              <h3 data-i18n="swastiCardTitle">SWASTI</h3>
+              <p data-i18n="swastiCardText">
                 Derived from the Sanskrit <em>su</em> (good) and
                 <em>asti</em> (being), it translates to "well-being" or
                 "auspiciousness". It represents the core meaning of the
@@ -143,9 +203,11 @@
       <section id="daiva-swasti" class="section light-section">
         <div class="container">
           <header class="panel-header">
-            <p class="panel-eyebrow">Daiva Swasti</p>
-            <h2 class="panel-title">Blessings through sacred service</h2>
-            <p class="panel-intro">
+            <p class="panel-eyebrow" data-i18n="dsEyebrow">Daiva Swasti</p>
+            <h2 class="panel-title" data-i18n="dsTitle">
+              Blessings through sacred service
+            </h2>
+            <p class="panel-intro" data-i18n="dsIntro">
               Our spiritual services invoke divine blessings through sacred
               rituals, mantras and offerings.
             </p>
@@ -159,14 +221,14 @@
           </figure>
 
           <ul class="bullet-list">
-            <li>
+            <li data-i18n="dsBullet1">
               Each ceremony is performed with devotion to honor deities such as
               Lord Shiva, Lord Vishnu, Lord Brahma, Lord Sani, Sri Navagrahas,
               Goddess Parvati, Goddess Saraswati, Goddess Lakshmi, Lord
               Ganesha, Lord Hanuman, Lord Subrahmanya, Lord Ayyappa and Cosmic
               Energies.
             </li>
-            <li>
+            <li data-i18n="dsBullet2">
               Attendees and participants experience peace, mindfulness,
               positive vibes, wellness and spiritual connection.
             </li>
@@ -177,9 +239,11 @@
       <section id="offerings" class="section soft-section">
         <div class="container">
           <header class="panel-header">
-            <p class="panel-eyebrow">Services</p>
-            <h2 class="panel-title">Spiritual Offerings – Hindu Tradition</h2>
-            <p class="panel-intro">
+            <p class="panel-eyebrow" data-i18n="offeringsEyebrow">Services</p>
+            <h2 class="panel-title" data-i18n="offeringsTitle">
+              Spiritual Offerings – Hindu Tradition
+            </h2>
+            <p class="panel-intro" data-i18n="offeringsIntro">
               Book sacred practices for purification, prosperity, protection,
               and spiritual connection.
             </p>
@@ -194,18 +258,18 @@
 
           <div class="offer-grid">
             <article class="offer-card">
-              <p class="offer-tag">Worship</p>
-              <h3>Daily Worship – Pujas</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerWorshipTag">Worship</p>
+              <h3 data-i18n="offerWorshipTitle">Daily Worship – Pujas</h3>
+              <p data-i18n="offerWorshipText">
                 Devotional worship offered with sincerity to invite grace,
                 protection, and harmony into daily life.
               </p>
             </article>
 
             <article class="offer-card">
-              <p class="offer-tag">Fire Rituals</p>
-              <h3>Homa &amp; Yajna</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerFireTag">Fire Rituals</p>
+              <h3 data-i18n="offerFireTitle">Homa &amp; Yajna</h3>
+              <p data-i18n="offerFireText">
                 Vedic fire ceremonies purify the environment and uplift
                 spiritual energy. Through the sacred fire, prayers and
                 offerings are conveyed for prosperity, protection, and inner
@@ -214,9 +278,9 @@
             </article>
 
             <article class="offer-card">
-              <p class="offer-tag">Special</p>
-              <h3>Satyanarayan Puja</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerSpecialTag">Special</p>
+              <h3 data-i18n="offerSpecialTitle">Satyanarayan Puja</h3>
+              <p data-i18n="offerSpecialText">
                 Express gratitude or seek blessings for home warming, new
                 ventures, birthdays, or marriage anniversaries — bringing
                 divine harmony to family life.
@@ -224,9 +288,9 @@
             </article>
 
             <article class="offer-card">
-              <p class="offer-tag">Festivals</p>
-              <h3>Festivals &amp; Celebrations</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerFestTag">Festivals</p>
+              <h3 data-i18n="offerFestTitle">Festivals &amp; Celebrations</h3>
+              <p data-i18n="offerFestText">
                 Diwali, Nava Ratri, Maha Shiva Ratri, Krishna Janmashtami and
                 Holi — celebrated with traditional rituals, devotion, and
                 community joy.
@@ -234,9 +298,9 @@
             </article>
 
             <article class="offer-card">
-              <p class="offer-tag">Practice</p>
-              <h3>Meditation &amp; Chanting</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerPracticeTag">Practice</p>
+              <h3 data-i18n="offerPracticeTitle">Meditation &amp; Chanting</h3>
+              <p data-i18n="offerPracticeText">
                 Guided meditation and chanting of Gayatri Mantra, Hanuman
                 Chalisa, and Mahamrityunjaya Mantra for stillness, positive
                 energy, and mental clarity.
@@ -244,18 +308,18 @@
             </article>
 
             <article class="offer-card">
-              <p class="offer-tag">Study</p>
-              <h3>Spiritual Discourses</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerStudyTag">Study</p>
+              <h3 data-i18n="offerStudyTitle">Spiritual Discourses</h3>
+              <p data-i18n="offerStudyText">
                 Discussions on the Bhagavad Gita, Upanishads, and Ramayana
                 guide seekers toward self-realization, ethics, and dharma.
               </p>
             </article>
 
             <article class="offer-card">
-              <p class="offer-tag">Seva</p>
-              <h3>Community Seva</h3>
-              <p>
+              <p class="offer-tag" data-i18n="offerSevaTag">Seva</p>
+              <h3 data-i18n="offerSevaTitle">Community Seva</h3>
+              <p data-i18n="offerSevaText">
                 Food donation (annadanam), charity drives, and environmental
                 care — embodying
                 <em>"Lokah Samastah Sukhino Bhavantu"</em>. May all beings be
@@ -269,8 +333,8 @@
 
       <section id="contact" class="section contact">
         <div class="container narrow">
-          <h2>Contact Us</h2>
-          <h3>Drop us a line!</h3>
+          <h2 data-i18n="contactTitle">Contact Us</h2>
+          <h3 data-i18n="contactSubtitle">Drop us a line!</h3>
 
           <form
             id="contact-form"
@@ -284,39 +348,47 @@
             <input type="hidden" name="_captcha" value="false" />
             <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" />
 
-            <label class="sr-only" for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Name" />
+            <label class="sr-only" for="name" data-i18n="placeholderName">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Name"
+              data-i18n-placeholder="placeholderName"
+            />
 
-            <label class="sr-only" for="email">Email</label>
+            <label class="sr-only" for="email" data-i18n="placeholderEmail">Email*</label>
             <input
               id="email"
               name="email"
               type="email"
               placeholder="Email*"
               required
+              data-i18n-placeholder="placeholderEmail"
             />
 
-            <label class="sr-only" for="message">Message</label>
+            <label class="sr-only" for="message" data-i18n="placeholderMessage">Message</label>
             <textarea
               id="message"
               name="message"
               rows="6"
               placeholder="Message"
               required
+              data-i18n-placeholder="placeholderMessage"
             ></textarea>
 
             <label class="checkbox-row">
               <input type="checkbox" name="newsletter" value="yes" />
-              <span
+              <span data-i18n="newsletterLabel"
                 >Sign up for our email list for updates, promotions, and
                 more.</span
               >
             </label>
 
-            <button type="submit" class="send-btn">Send</button>
+            <button type="submit" class="send-btn" data-i18n="sendBtn">Send</button>
           </form>
 
-          <p class="recaptcha-note">
+          <p class="recaptcha-note" data-i18n-html="recaptchaNote">
             This site is protected by reCAPTCHA and the Google
             <a
               href="https://policies.google.com/privacy"
@@ -342,25 +414,26 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-col">
-          <h4>Explore</h4>
-          <p class="footer-label">Services</p>
-          <a href="#puja">Puja</a>
-          <a href="#daiva">Daiva</a>
-          <a href="#daiva-swasti">Daiva Swasti</a>
-          <a href="#offerings">Spiritual Offerings</a>
-          <p class="footer-label">Contact</p>
+          <h4 data-i18n="footerExplore">Explore</h4>
+          <p class="footer-label" data-i18n="footerServices">Services</p>
+          <a href="#puja" data-i18n="footerPuja">Puja</a>
+          <a href="#daiva" data-i18n="footerDaiva">Daiva</a>
+          <a href="#daiva-swasti" data-i18n="footerDaivaSwasti">Daiva Swasti</a>
+          <a href="#offerings" data-i18n="footerOfferings">Spiritual Offerings</a>
+          <p class="footer-label" data-i18n="footerContact">Contact</p>
           <a href="mailto:pranam@daivaswasti.org">pranam@daivaswasti.org</a>
-          <a href="#contact">Contact form</a>
+          <a href="#contact" data-i18n="footerForm">Contact form</a>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>
+        <p data-i18n-html="footerCopy">
           Copyright &copy; <span id="year"></span> Daiva Swasti - All Rights
           Reserved.
         </p>
       </div>
     </footer>
 
-    <script src="script.js?v=34"></script>
+    <script src="i18n.js?v=35"></script>
+    <script src="script.js?v=35"></script>
   </body>
 </html>
