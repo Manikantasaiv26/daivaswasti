@@ -92,11 +92,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function setupLanguageSwitcher() {
-    const root = document.querySelector("[data-lang-switcher]");
-    const button = document.querySelector("[data-lang-button]");
-    const menu = document.querySelector("[data-lang-menu]");
-    if (!root || !button || !menu) return;
+  function setupDropdown({
+    rootSelector,
+    buttonSelector,
+    menuSelector,
+    onItemClick,
+  }) {
+    const root = document.querySelector(rootSelector);
+    const button = document.querySelector(buttonSelector);
+    const menu = document.querySelector(menuSelector);
+    if (!root || !button || !menu) return { close: () => {} };
 
     const closeMenu = () => {
       menu.hidden = true;
@@ -119,22 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    menu.querySelectorAll("[data-lang]").forEach((option) => {
-      option.addEventListener("click", (event) => {
-        event.stopPropagation();
-        const lang = option.getAttribute("data-lang");
-        if (lang) {
-          applyLanguage(lang);
-        }
+    menu.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (onItemClick) {
+        onItemClick(event, target, closeMenu);
+      } else if (target.closest("a")) {
         closeMenu();
-      });
-
-      option.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          option.click();
-        }
-      });
+      }
     });
 
     document.addEventListener("click", (event) => {
@@ -148,6 +145,43 @@ document.addEventListener("DOMContentLoaded", () => {
         closeMenu();
       }
     });
+
+    return { close: closeMenu, open: openMenu, root, button, menu };
+  }
+
+  function setupLanguageSwitcher() {
+    setupDropdown({
+      rootSelector: "[data-lang-switcher]",
+      buttonSelector: "[data-lang-button]",
+      menuSelector: "[data-lang-menu]",
+      onItemClick: (event, target, closeMenu) => {
+        const option = target.closest("[data-lang]");
+        if (!option) return;
+        event.stopPropagation();
+        const lang = option.getAttribute("data-lang");
+        if (lang) {
+          applyLanguage(lang);
+        }
+        closeMenu();
+      },
+    });
+
+    document.querySelectorAll("[data-lang]").forEach((option) => {
+      option.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          option.click();
+        }
+      });
+    });
+  }
+
+  function setupOfferingsDropdown() {
+    setupDropdown({
+      rootSelector: "[data-offerings-dropdown]",
+      buttonSelector: "[data-offerings-button]",
+      menuSelector: "[data-offerings-menu]",
+    });
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -159,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "en";
 
   setupLanguageSwitcher();
+  setupOfferingsDropdown();
   applyLanguage(initial);
 
   const form = document.getElementById("contact-form");

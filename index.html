@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=37" />
+    <link rel="stylesheet" href="styles.css?v=38" />
   </head>
   <body>
     <header class="site-header">
@@ -25,10 +25,49 @@
         <div class="header-actions">
           <nav class="main-nav" aria-label="Primary">
             <a href="#top" data-i18n="navHome">Home</a>
-            <a href="#puja" data-i18n="navPuja">Puja</a>
-            <a href="#daiva" data-i18n="navDaiva">Daiva</a>
-            <a href="#daiva-swasti" data-i18n="navDaivaSwasti">Daiva Swasti</a>
-            <a href="#offerings" data-i18n="navOfferings">Offerings</a>
+            <div class="nav-dropdown" data-offerings-dropdown>
+              <button
+                type="button"
+                class="nav-dropdown-btn"
+                data-offerings-button
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-i18n-aria="navOfferings"
+                aria-label="Offerings"
+              >
+                <span data-i18n="navOfferings">Offerings</span>
+                <svg
+                  class="nav-chevron"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2.5 4.25L6 7.75L9.5 4.25"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu" data-offerings-menu hidden>
+                <li>
+                  <a href="#puja" data-i18n="navPuja">Puja</a>
+                </li>
+                <li>
+                  <a href="#daiva" data-i18n="navDaiva">DAIVA</a>
+                </li>
+                <li>
+                  <a href="#daiva-swasti" data-i18n="navDaivaSwasti">DAIVA SWASTI</a>
+                </li>
+                <li>
+                  <a href="#offerings" data-i18n="footerOfferings">Spiritual Offerings</a>
+                </li>
+              </ul>
+            </div>
             <a href="#contact" data-i18n="navContact">Contact</a>
             <a class="talk-btn" href="#contact" data-i18n="navTalk">Talk to us</a>
           </nav>
@@ -433,7 +472,7 @@
       </div>
     </footer>
 
-    <script src="i18n.js?v=37"></script>
-    <script src="script.js?v=37"></script>
+    <script src="i18n.js?v=38"></script>
+    <script src="script.js?v=38"></script>
   </body>
 </html>
