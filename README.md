@@ -30,4 +30,4 @@ Custom domain: `daivaswasti.org` (via `CNAME`).
 - `index.html` — page markup
 - `styles.css` — layout and styling
 - `script.js` — form handling and year stamp
-- `assets/hero-temple.jpg` — hero image
+- `assets/shiva-lingam.jpg` — hero image (Shiva Lingam abhishekam)
