@@ -144,12 +144,13 @@ a:hover {
 }
 
 .brand-logo {
-  width: 56px;
-  height: 56px;
-  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
   border-radius: 50%;
   border: 1px solid rgba(15, 23, 42, 0.1);
   background: #0b0b0b;
+  padding: 2px;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
 }
 
@@ -263,16 +264,17 @@ body[data-lang="ml"] .main-nav {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  min-width: 8.75rem;
-  max-width: 14rem;
+  min-width: 7rem;
+  max-width: 12rem;
   padding: 0.45rem 0.75rem;
   border: 1px solid rgba(15, 23, 42, 0.18);
   border-radius: 8px;
   background: #fff;
   color: #1f2937;
   font-family: "Noto Sans", "Noto Sans Devanagari", "Noto Sans Tamil",
-    "Noto Sans Telugu", "Noto Sans Kannada", Arial, Helvetica, sans-serif;
-  font-size: 0.86rem;
+    "Noto Sans Telugu", "Noto Sans Kannada", "Noto Sans Malayalam", Arial,
+    Helvetica, sans-serif;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -326,8 +328,9 @@ body[data-lang="ml"] .main-nav {
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   color: #374151;
   font-family: "Noto Sans", "Noto Sans Devanagari", "Noto Sans Tamil",
-    "Noto Sans Telugu", "Noto Sans Kannada", Arial, Helvetica, sans-serif;
-  font-size: 0.92rem;
+    "Noto Sans Telugu", "Noto Sans Kannada", "Noto Sans Malayalam", Arial,
+    Helvetica, sans-serif;
+  font-size: 0.95rem;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -833,8 +836,8 @@ body[data-lang="ml"] .main-nav {
   }
 
   .brand-logo {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
 
   .nav-dropdown-menu--wide {

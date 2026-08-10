@@ -1,11 +1,11 @@
 window.DAIVA_I18N = {
   languages: [
     { code: "en", label: "English" },
-    { code: "hi", label: "In Hindi (Hindi)" },
-    { code: "te", label: "In Telugu (Telugu)" },
-    { code: "ta", label: "In Tamil (Tamil)" },
-    { code: "kn", label: "In Kannada (Kannada)" },
-    { code: "ml", label: "In Malayalam (Malayalam)" }
+    { code: "hi", label: "हिन्दी" },
+    { code: "te", label: "తెలుగు" },
+    { code: "ta", label: "தமிழ்" },
+    { code: "kn", label: "ಕನ್ನಡ" },
+    { code: "ml", label: "മലയാളം" }
   ],
   strings: {
     en: {
