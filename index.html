@@ -10,32 +10,48 @@
     />
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <title>Daiva Swasti</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=1" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=40" />
+    <link rel="stylesheet" href="styles.css?v=41" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#top" data-i18n="brand">DAIVA SWASTI</a>
+        <a
+          class="brand"
+          href="#top"
+          data-i18n-aria="brandHomeAria"
+          aria-label="Daiva Swasti — Home"
+        >
+          <img
+            class="brand-logo"
+            src="assets/logo.jpg?v=1"
+            width="56"
+            height="56"
+            alt=""
+            decoding="async"
+          />
+          <span class="brand-text" data-i18n="brand">DAIVA SWASTI</span>
+        </a>
         <div class="header-actions">
           <nav class="main-nav" aria-label="Primary">
-            <a href="#top" data-i18n="navHome">HOME</a>
-            <div class="nav-dropdown" data-offerings-dropdown>
+            <div class="nav-dropdown" data-nav-dropdown>
               <button
                 type="button"
                 class="nav-dropdown-btn"
-                data-offerings-button
+                data-nav-button
                 aria-haspopup="true"
                 aria-expanded="false"
-                data-i18n-aria="navOfferings"
-                aria-label="OFFERINGS"
+                data-i18n-aria="navWeAria"
+                aria-label="WE — About us"
               >
-                <span data-i18n="navOfferings">OFFERINGS</span>
+                <span data-i18n="navWe">WE</span>
                 <svg
                   class="nav-chevron"
                   width="12"
@@ -53,15 +69,72 @@
                   />
                 </svg>
               </button>
-              <ul class="nav-dropdown-menu" data-offerings-menu hidden>
+              <ul class="nav-dropdown-menu" data-nav-menu hidden>
+                <li>
+                  <a href="#daiva" data-i18n="navDaiva">DAIVA</a>
+                </li>
+                <li>
+                  <a href="#swasti" data-i18n="navSwasti">SWASTI</a>
+                </li>
                 <li>
                   <a href="#daiva-swasti" data-i18n="navDaivaSwasti">DAIVA SWASTI</a>
                 </li>
+              </ul>
+            </div>
+
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                type="button"
+                class="nav-dropdown-btn"
+                data-nav-button
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-i18n-aria="navSpiritualOfferings"
+                aria-label="SPIRITUAL OFFERINGS"
+              >
+                <span data-i18n="navSpiritualOfferings">SPIRITUAL OFFERINGS</span>
+                <svg
+                  class="nav-chevron"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2.5 4.25L6 7.75L9.5 4.25"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu nav-dropdown-menu--wide" data-nav-menu hidden>
                 <li>
-                  <a href="#offerings" data-i18n="footerOfferings">Spiritual Offerings</a>
+                  <a href="#offer-worship" data-i18n="offerWorshipTitle">Daily Worship – Pujas</a>
+                </li>
+                <li>
+                  <a href="#offer-fire" data-i18n="offerFireTitle">Homa &amp; Yajna</a>
+                </li>
+                <li>
+                  <a href="#offer-special" data-i18n="offerSpecialTitle">Satyanarayan Puja</a>
+                </li>
+                <li>
+                  <a href="#offer-fest" data-i18n="offerFestTitle">Festivals &amp; Celebrations</a>
+                </li>
+                <li>
+                  <a href="#offer-practice" data-i18n="offerPracticeTitle">Meditation &amp; Chanting</a>
+                </li>
+                <li>
+                  <a href="#offer-study" data-i18n="offerStudyTitle">Spiritual Discourses</a>
+                </li>
+                <li>
+                  <a href="#offer-seva" data-i18n="offerSevaTitle">Community Seva</a>
                 </li>
               </ul>
             </div>
+
             <a href="#contact" data-i18n="navContact">CONTACT</a>
             <a class="talk-btn" href="#contact" data-i18n="navTalk">TALK TO US</a>
           </nav>
@@ -99,19 +172,19 @@
                 English
               </li>
               <li role="option" tabindex="0" data-lang="hi" aria-selected="false">
-                Hindi
+                In Hindi (Hindi)
               </li>
               <li role="option" tabindex="0" data-lang="te" aria-selected="false">
-                Telugu
+                In Telugu (Telugu)
               </li>
               <li role="option" tabindex="0" data-lang="ta" aria-selected="false">
-                Tamil
+                In Tamil (Tamil)
               </li>
               <li role="option" tabindex="0" data-lang="kn" aria-selected="false">
-                Kannada
+                In Kannada (Kannada)
               </li>
               <li role="option" tabindex="0" data-lang="ml" aria-selected="false">
-                Malayalam
+                In Malayalam (Malayalam)
               </li>
             </ul>
           </div>
@@ -203,7 +276,7 @@
           </header>
 
           <div class="split-panels">
-            <article class="text-panel">
+            <article id="daiva-card" class="text-panel">
               <img
                 class="panel-image"
                 src="assets/daiva.jpg?v=2"
@@ -217,7 +290,7 @@
                 maintain.
               </p>
             </article>
-            <article class="text-panel">
+            <article id="swasti" class="text-panel">
               <img
                 class="panel-image"
                 src="assets/swasti.jpg?v=2"
@@ -293,7 +366,7 @@
           </figure>
 
           <div class="offer-grid">
-            <article class="offer-card">
+            <article id="offer-worship" class="offer-card">
               <p class="offer-tag" data-i18n="offerWorshipTag">Worship</p>
               <h3 data-i18n="offerWorshipTitle">Daily Worship – Pujas</h3>
               <p data-i18n="offerWorshipText">
@@ -302,7 +375,7 @@
               </p>
             </article>
 
-            <article class="offer-card">
+            <article id="offer-fire" class="offer-card">
               <p class="offer-tag" data-i18n="offerFireTag">Fire Rituals</p>
               <h3 data-i18n="offerFireTitle">Homa &amp; Yajna</h3>
               <p data-i18n="offerFireText">
@@ -313,7 +386,7 @@
               </p>
             </article>
 
-            <article class="offer-card">
+            <article id="offer-special" class="offer-card">
               <p class="offer-tag" data-i18n="offerSpecialTag">Special</p>
               <h3 data-i18n="offerSpecialTitle">Satyanarayan Puja</h3>
               <p data-i18n="offerSpecialText">
@@ -323,7 +396,7 @@
               </p>
             </article>
 
-            <article class="offer-card">
+            <article id="offer-fest" class="offer-card">
               <p class="offer-tag" data-i18n="offerFestTag">Festivals</p>
               <h3 data-i18n="offerFestTitle">Festivals &amp; Celebrations</h3>
               <p data-i18n="offerFestText">
@@ -333,7 +406,7 @@
               </p>
             </article>
 
-            <article class="offer-card">
+            <article id="offer-practice" class="offer-card">
               <p class="offer-tag" data-i18n="offerPracticeTag">Practice</p>
               <h3 data-i18n="offerPracticeTitle">Meditation &amp; Chanting</h3>
               <p data-i18n="offerPracticeText">
@@ -343,7 +416,7 @@
               </p>
             </article>
 
-            <article class="offer-card">
+            <article id="offer-study" class="offer-card">
               <p class="offer-tag" data-i18n="offerStudyTag">Study</p>
               <h3 data-i18n="offerStudyTitle">Spiritual Discourses</h3>
               <p data-i18n="offerStudyText">
@@ -352,7 +425,7 @@
               </p>
             </article>
 
-            <article class="offer-card">
+            <article id="offer-seva" class="offer-card">
               <p class="offer-tag" data-i18n="offerSevaTag">Seva</p>
               <h3 data-i18n="offerSevaTitle">Community Seva</h3>
               <p data-i18n="offerSevaText">
@@ -451,8 +524,11 @@
       <div class="container footer-grid">
         <div class="footer-col">
           <h4 data-i18n="footerExplore">Explore</h4>
-          <p class="footer-label" data-i18n="footerServices">Services</p>
+          <p class="footer-label" data-i18n="navWe">WE</p>
+          <a href="#daiva" data-i18n="footerDaiva">DAIVA</a>
+          <a href="#swasti" data-i18n="navSwasti">SWASTI</a>
           <a href="#daiva-swasti" data-i18n="footerDaivaSwasti">DAIVA SWASTI</a>
+          <p class="footer-label" data-i18n="navSpiritualOfferings">SPIRITUAL OFFERINGS</p>
           <a href="#offerings" data-i18n="footerOfferings">Spiritual Offerings</a>
           <p class="footer-label" data-i18n="footerContact">Contact</p>
           <a href="mailto:pranam@daivaswasti.org">pranam@daivaswasti.org</a>
@@ -467,7 +543,7 @@
       </div>
     </footer>
 
-    <script src="i18n.js?v=40"></script>
-    <script src="script.js?v=40"></script>
+    <script src="i18n.js?v=41"></script>
+    <script src="script.js?v=41"></script>
   </body>
 </html>

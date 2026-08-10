@@ -81,9 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.querySelectorAll("[data-lang]").forEach((option) => {
-      const selected = option.getAttribute("data-lang") === lang;
+      const code = option.getAttribute("data-lang");
+      const selected = code === lang;
       option.setAttribute("aria-selected", selected ? "true" : "false");
       option.classList.toggle("is-active", selected);
+      const optionLabel = i18n.languages.find((item) => item.code === code)?.label;
+      if (optionLabel) {
+        option.textContent = optionLabel;
+      }
     });
 
     const status = document.getElementById("form-status");
@@ -92,24 +97,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const dropdownClosers = [];
+
+  function closeAllDropdowns(exceptRoot = null) {
+    dropdownClosers.forEach((close) => close(exceptRoot));
+  }
+
   function setupDropdown({
-    rootSelector,
-    buttonSelector,
-    menuSelector,
+    root,
+    button,
+    menu,
     onItemClick,
   }) {
-    const root = document.querySelector(rootSelector);
-    const button = document.querySelector(buttonSelector);
-    const menu = document.querySelector(menuSelector);
     if (!root || !button || !menu) return { close: () => {} };
 
-    const closeMenu = () => {
+    const closeMenu = (exceptRoot = null) => {
+      if (exceptRoot && exceptRoot === root) return;
       menu.hidden = true;
       button.setAttribute("aria-expanded", "false");
       root.classList.remove("is-open");
     };
 
     const openMenu = () => {
+      closeAllDropdowns(root);
       menu.hidden = false;
       button.setAttribute("aria-expanded", "true");
       root.classList.add("is-open");
@@ -146,14 +156,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    dropdownClosers.push(closeMenu);
     return { close: closeMenu, open: openMenu, root, button, menu };
   }
 
   function setupLanguageSwitcher() {
     setupDropdown({
-      rootSelector: "[data-lang-switcher]",
-      buttonSelector: "[data-lang-button]",
-      menuSelector: "[data-lang-menu]",
+      root: document.querySelector("[data-lang-switcher]"),
+      button: document.querySelector("[data-lang-button]"),
+      menu: document.querySelector("[data-lang-menu]"),
       onItemClick: (event, target, closeMenu) => {
         const option = target.closest("[data-lang]");
         if (!option) return;
@@ -176,11 +187,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function setupOfferingsDropdown() {
-    setupDropdown({
-      rootSelector: "[data-offerings-dropdown]",
-      buttonSelector: "[data-offerings-button]",
-      menuSelector: "[data-offerings-menu]",
+  function setupNavDropdowns() {
+    document.querySelectorAll("[data-nav-dropdown]").forEach((root) => {
+      setupDropdown({
+        root,
+        button: root.querySelector("[data-nav-button]"),
+        menu: root.querySelector("[data-nav-menu]"),
+      });
     });
   }
 
@@ -193,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "en";
 
   setupLanguageSwitcher();
-  setupOfferingsDropdown();
+  setupNavDropdowns();
   applyLanguage(initial);
 
   const form = document.getElementById("contact-form");
