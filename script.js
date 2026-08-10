@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       labelEl.textContent = label;
     }
 
-    document.querySelectorAll("[data-lang]").forEach((option) => {
+    document.querySelectorAll("[data-lang-menu] [data-lang]").forEach((option) => {
       const code = option.getAttribute("data-lang");
       const selected = code === lang;
       option.setAttribute("aria-selected", selected ? "true" : "false");
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    document.querySelectorAll("[data-lang]").forEach((option) => {
+    document.querySelectorAll("[data-lang-menu] [data-lang]").forEach((option) => {
       option.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
