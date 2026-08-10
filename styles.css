@@ -106,7 +106,7 @@ a:hover {
 #offerings,
 #contact,
 [id^="offer-"] {
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 7.5rem;
 }
 
 .header-inner {
@@ -114,8 +114,8 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 1rem 1.25rem;
-  min-height: 88px;
-  padding-block: 0.55rem;
+  min-height: 108px;
+  padding-block: 0.65rem;
 }
 
 .header-actions {
@@ -131,12 +131,7 @@ a:hover {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
   flex-shrink: 0;
-  font-family: "Noto Sans", Arial, Helvetica, sans-serif;
-  letter-spacing: 0.12em;
-  font-size: 0.9rem;
-  font-weight: 700;
   color: #1f2937;
 }
 
@@ -145,19 +140,14 @@ a:hover {
 }
 
 .brand-logo {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(15, 23, 42, 0.12);
   background: linear-gradient(145deg, #e8eaed 0%, #b8bec6 55%, #d5d9de 100%);
-  padding: 3px;
+  padding: 4px;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
-}
-
-.brand-text {
-  max-width: 9.5rem;
-  line-height: 1.25;
 }
 
 .main-nav {
@@ -811,23 +801,23 @@ body[data-lang="ml"] .main-nav {
 
 @media (max-width: 1100px) {
   .brand-logo {
-    width: 64px;
-    height: 64px;
+    width: 84px;
+    height: 84px;
+  }
+
+  .header-inner {
+    min-height: 98px;
   }
 }
 
 @media (max-width: 980px) {
-  .brand-text {
-    display: none;
-  }
-
   .brand-logo {
-    width: 60px;
-    height: 60px;
+    width: 76px;
+    height: 76px;
   }
 
   .header-inner {
-    min-height: 80px;
+    min-height: 90px;
   }
 }
 
@@ -837,7 +827,7 @@ body[data-lang="ml"] .main-nav {
     flex-wrap: wrap;
     align-items: center;
     padding-block: 0.65rem;
-    min-height: 72px;
+    min-height: 84px;
   }
 
   .header-actions {
@@ -854,9 +844,9 @@ body[data-lang="ml"] .main-nav {
   }
 
   .brand-logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
   }
 
   .nav-dropdown-menu--wide {
