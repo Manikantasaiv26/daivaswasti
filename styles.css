@@ -134,7 +134,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  color: #1f2937;
+  color: var(--navy);
 }
 
 .brand:hover {
@@ -238,7 +238,7 @@ body[data-lang="ml"] .main-nav {
 .nav-dropdown-menu a {
   display: block;
   padding: 0.7rem 1rem;
-  color: #374151;
+  color: var(--navy);
   font-weight: 500;
   white-space: nowrap;
 }
