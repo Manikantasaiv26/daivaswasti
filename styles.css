@@ -5,7 +5,8 @@
   --muted: #c9c9c9;
   --gold: #d4af37;
   --navy: #001534;
-  --navy-hover: #0a2a52;
+  --navy-ui: #002b66;
+  --navy-hover: #0a3a7a;
   --border: rgba(255, 255, 255, 0.85);
   --max: 1100px;
 }
@@ -639,8 +640,10 @@ body[data-lang="ml"] .main-nav {
   color: #000;
 }
 
-.contact {
-  background: var(--navy);
+.contact,
+#contact.contact {
+  background: var(--navy-ui);
+  background-color: #002b66;
   text-align: center;
 }
 
