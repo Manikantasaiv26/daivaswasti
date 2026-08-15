@@ -360,7 +360,7 @@ body[data-lang="ml"] .main-nav {
   justify-content: center;
   padding: 0.55rem 1.1rem;
   border-radius: 8px;
-  background: var(--navy);
+  background: var(--navy-ui);
   color: #fff !important;
   font-weight: 600 !important;
 }
@@ -741,7 +741,8 @@ body[data-lang="ml"] .main-nav {
 }
 
 .site-footer {
-  background: var(--navy);
+  background: var(--navy-ui);
+  background-color: #002b66;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 3rem 0 1.5rem;
 }
