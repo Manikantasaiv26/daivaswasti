@@ -643,7 +643,7 @@ body[data-lang="ml"] .main-nav {
 .contact,
 #contact.contact {
   background: var(--navy-ui);
-  background-color: #002b66;
+  background-color: #00153d;
   text-align: center;
 }
 
@@ -742,7 +742,7 @@ body[data-lang="ml"] .main-nav {
 
 .site-footer {
   background: var(--navy-ui);
-  background-color: #002b66;
+  background-color: #00153d;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 3rem 0 1.5rem;
 }
