@@ -4,6 +4,8 @@
   --text: #f5f5f5;
   --muted: #c9c9c9;
   --gold: #d4af37;
+  --navy: #001534;
+  --navy-hover: #0a2a52;
   --border: rgba(255, 255, 255, 0.85);
   --max: 1100px;
 }
@@ -184,7 +186,7 @@ body[data-lang="ml"] .main-nav {
   padding: 0;
   border: 0;
   background: transparent;
-  color: #374151;
+  color: var(--navy);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -258,10 +260,10 @@ body[data-lang="ml"] .main-nav {
   min-width: 7rem;
   max-width: 12rem;
   padding: 0.45rem 0.75rem;
-  border: 1px solid rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(0, 21, 52, 0.22);
   border-radius: 8px;
   background: #fff;
-  color: #1f2937;
+  color: var(--navy);
   font-family: "Noto Sans", "Noto Sans Devanagari", "Noto Sans Tamil",
     "Noto Sans Telugu", "Noto Sans Kannada", "Noto Sans Malayalam", Arial,
     Helvetica, sans-serif;
@@ -287,7 +289,7 @@ body[data-lang="ml"] .main-nav {
 
 .lang-chevron {
   flex-shrink: 0;
-  color: #6b7280;
+  color: var(--navy);
   transition: transform 0.2s ease;
 }
 
@@ -343,7 +345,7 @@ body[data-lang="ml"] .main-nav {
 }
 
 .main-nav a {
-  color: #374151;
+  color: var(--navy);
   font-weight: 500;
 }
 
@@ -357,13 +359,13 @@ body[data-lang="ml"] .main-nav {
   justify-content: center;
   padding: 0.55rem 1.1rem;
   border-radius: 8px;
-  background: #0b1b33;
+  background: var(--navy);
   color: #fff !important;
   font-weight: 600 !important;
 }
 
 .talk-btn:hover {
-  background: #152744;
+  background: var(--navy-hover);
   color: #fff !important;
 }
 
@@ -638,7 +640,7 @@ body[data-lang="ml"] .main-nav {
 }
 
 .contact {
-  background: #000;
+  background: var(--navy);
   text-align: center;
 }
 
@@ -736,7 +738,7 @@ body[data-lang="ml"] .main-nav {
 }
 
 .site-footer {
-  background: #050505;
+  background: var(--navy);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 3rem 0 1.5rem;
 }
