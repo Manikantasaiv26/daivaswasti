@@ -1,0 +1,42 @@
+name: Deploy site to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Prepare site files
+        run: |
+          mkdir -p _site
+          cp -a index.html logos.html styles.css script.js i18n.js .nojekyll README.md favicon.ico _site/
+          cp -a assets _site/assets
+
+      - name: Deploy
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=daivaswasti --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deployment URL
+        run: |
+          echo "deployment-url=${{ steps.deploy.outputs.deployment-url }}"
+          echo "pages-alias=${{ steps.deploy.outputs.pages-deployment-alias-url }}"
