@@ -542,24 +542,27 @@ body[data-lang="ml"] .main-nav {
   margin-top: 0.35rem;
 }
 
-.ksact-copy {
-  max-width: 48rem;
-  margin: 0 auto;
-  color: #2a2a2a;
-  font-size: 1.02rem;
-  line-height: 1.7;
+.ksact-card {
+  max-width: 52rem;
 }
 
-.ksact-copy p {
-  margin: 0 0 1rem;
+.ksact-card h3 {
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  line-height: 1.25;
+  color: #171717;
 }
 
-.ksact-motto {
-  margin-top: 1.5rem !important;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(23, 23, 23, 0.12);
+.ksact-lead {
+  margin: 0.35rem 0 0.85rem !important;
+  color: #4b5563 !important;
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+  max-width: 68ch;
+}
+
+.ksact-motto-item {
   font-weight: 600;
-  color: var(--navy-ui);
+  color: #1a1a1a;
 }
 
 .feature-strip article,
