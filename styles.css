@@ -1108,18 +1108,6 @@ body[data-lang="ml"] .main-nav {
   }
 }
 
-@media (max-width: 1100px) {
-  .footer-grid {
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 2rem 1.5rem;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-    max-width: 40rem;
-  }
-}
-
 @media (max-width: 760px) {
   .send-btn {
     width: 100%;
