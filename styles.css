@@ -526,6 +526,42 @@ body[data-lang="ml"] .main-nav {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.offer-card--wide {
+  grid-column: 1 / -1;
+}
+
+.offer-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.offer-list li + li {
+  margin-top: 0.35rem;
+}
+
+.ksact-copy {
+  max-width: 48rem;
+  margin: 0 auto;
+  color: #2a2a2a;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.ksact-copy p {
+  margin: 0 0 1rem;
+}
+
+.ksact-motto {
+  margin-top: 1.5rem !important;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(23, 23, 23, 0.12);
+  font-weight: 600;
+  color: var(--navy-ui);
+}
+
 .feature-strip article,
 .text-panel,
 .offer-card {
