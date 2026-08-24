@@ -565,6 +565,18 @@ body[data-lang="ml"] .main-nav {
   color: #1a1a1a;
 }
 
+.we-intro-card {
+  margin-bottom: 1.1rem;
+}
+
+.we-split {
+  margin-top: 0;
+}
+
+.soft-section .offer-card {
+  background: #fff;
+}
+
 .feature-strip article,
 .text-panel,
 .offer-card {
