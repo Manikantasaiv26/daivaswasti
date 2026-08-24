@@ -302,20 +302,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Calm scroll reveals for text and cards
+  // Richer scroll reveals across the page
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealTargets = document.querySelectorAll(
-    ".panel-header, .offer-card, .text-panel, .ksact-card, .contact h2, .contact h3, .footer-col, .we-intro-card"
+    [
+      ".panel-header",
+      ".offer-card",
+      ".text-panel",
+      ".ksact-card",
+      ".we-intro-card",
+      ".section-media",
+      ".contact h2",
+      ".contact h3",
+      ".contact-form",
+      ".recaptcha-note",
+      ".footer-col",
+      ".footer-bottom"
+    ].join(", ")
   );
 
   if (reduceMotion) {
     revealTargets.forEach((el) => el.classList.add("is-visible"));
+    document.querySelectorAll(".offer-list li, .bullet-list li").forEach((li) => {
+      li.style.opacity = "1";
+      li.style.transform = "none";
+    });
   } else {
     revealTargets.forEach((el, index) => {
       el.classList.add("reveal");
-      const delay = index % 3;
-      if (delay > 0) {
-        el.classList.add(`reveal-delay-${delay}`);
+
+      if (el.matches("#daiva-card")) {
+        el.classList.add("reveal-left");
+      } else if (el.matches("#swasti")) {
+        el.classList.add("reveal-right");
+      } else if (el.matches(".section-media, .offer-card--wide, .ksact-card, .we-intro-card")) {
+        el.classList.add("reveal-scale");
+      }
+
+      const delay = (index % 4) + 1;
+      if (delay > 1) {
+        el.classList.add(`reveal-delay-${delay - 1}`);
       }
     });
 
@@ -327,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.16, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
 
     revealTargets.forEach((el) => observer.observe(el));
