@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=57" />
+    <link rel="stylesheet" href="styles.css?v=58" />
   </head>
   <body>
     <header class="site-header">
@@ -459,18 +459,46 @@
 
     <footer class="site-footer">
       <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="#top" aria-label="Daiva Swasti — Home">
+            <img
+              class="footer-logo"
+              src="assets/logo.jpg?v=38"
+              width="72"
+              height="72"
+              alt="Daiva Swasti"
+              decoding="async"
+            />
+          </a>
+          <p class="footer-brand-name" data-i18n="brand">DAIVA SWASTI</p>
+          <p class="footer-tagline" data-i18n="daivaIntro">
+            The sacred roots of our name, destiny, well-being and cosmic order.
+          </p>
+          <a class="footer-cta" href="#contact" data-i18n="navTalk">TALK TO US</a>
+        </div>
+
         <div class="footer-col">
-          <h4 data-i18n="footerExplore">Explore</h4>
-          <p class="footer-label" data-i18n="navWe">DAIVA SWASTI</p>
+          <h4 data-i18n="navWe">DAIVA SWASTI</h4>
           <a href="#daiva" data-i18n="navWeItem">WE</a>
+          <a href="#daiva-swasti" data-i18n="navDaivaSwasti">DAIVA SWASTI</a>
           <a href="#ksact" data-i18n="navKsact">AWAKENING TURN – KSACT</a>
-          <p class="footer-label" data-i18n="navSpiritualOfferings">SPIRITUAL EVENTS</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="navSpiritualOfferings">SPIRITUAL EVENTS</h4>
+          <a href="#offer-worship" data-i18n="offerWorshipTitle">Daily Worship – Puja's</a>
+          <a href="#offer-fire" data-i18n="offerFireTitle">Homa &amp; Yajna – Fire Rituals</a>
+          <a href="#offer-fest" data-i18n="offerFestTitle">Festivals &amp; Celebrations</a>
           <a href="#offerings" data-i18n="footerOfferings">Spiritual Events</a>
-          <p class="footer-label" data-i18n="footerContact">Contact</p>
-          <a href="mailto:pranam@daivaswasti.org">pranam@daivaswasti.org</a>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footerContact">Contact</h4>
+          <a class="footer-email" href="mailto:pranam@daivaswasti.org">pranam@daivaswasti.org</a>
           <a href="#contact" data-i18n="footerForm">Contact form</a>
         </div>
       </div>
+
       <div class="container footer-bottom">
         <p data-i18n-html="footerCopy">
           Copyright &copy; <span id="year"></span> Daiva Swasti - All Rights
@@ -480,6 +508,6 @@
     </footer>
 
     <script src="i18n.js?v=46"></script>
-    <script src="script.js?v=48"></script>
+    <script src="script.js?v=49"></script>
   </body>
 </html>

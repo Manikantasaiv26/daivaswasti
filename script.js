@@ -316,6 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ".contact h3",
       ".contact-form",
       ".recaptcha-note",
+      ".footer-brand",
       ".footer-col",
       ".footer-bottom"
     ].join(", ")
