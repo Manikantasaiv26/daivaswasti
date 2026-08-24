@@ -4,9 +4,9 @@
   --text: #f5f5f5;
   --muted: #c9c9c9;
   --gold: #d4af37;
-  --navy: #00153d;
-  --navy-ui: #00153d;
-  --navy-hover: #0a2a5c;
+  --navy: #4a1740;
+  --navy-ui: #4a1740;
+  --navy-hover: #6b2a5c;
   --border: rgba(255, 255, 255, 0.85);
   --max: 1100px;
 }
@@ -643,7 +643,7 @@ body[data-lang="ml"] .main-nav {
 .contact,
 #contact.contact {
   background: var(--navy-ui);
-  background-color: #00153d;
+  background-color: #4a1740;
   text-align: center;
 }
 
@@ -742,7 +742,7 @@ body[data-lang="ml"] .main-nav {
 
 .site-footer {
   background: var(--navy-ui);
-  background-color: #00153d;
+  background-color: #4a1740;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 3rem 0 1.5rem;
 }
