@@ -567,6 +567,29 @@ body[data-lang="ml"] .main-nav {
 
 .we-intro-card {
   margin-bottom: 1.1rem;
+  padding: 1.35rem 1.25rem;
+}
+
+.we-intro-card > .offer-tag,
+.we-intro-card > h3,
+.we-intro-card > p,
+.ksact-card:not(:has(.offer-card-image)) {
+  /* keep text inset handled below for cards without photos */
+}
+
+.ksact-card:not(:has(.offer-card-image)) {
+  padding: 1.35rem 1.25rem;
+}
+
+.ksact-card:not(:has(.offer-card-image)) > .offer-tag,
+.ksact-card:not(:has(.offer-card-image)) > h3,
+.ksact-card:not(:has(.offer-card-image)) > p,
+.ksact-card:not(:has(.offer-card-image)) > ul,
+.we-intro-card > .offer-tag,
+.we-intro-card > h3,
+.we-intro-card > p {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .we-split {
@@ -585,6 +608,40 @@ body[data-lang="ml"] .main-nav {
   border-radius: 14px;
   padding: 1.35rem 1.25rem;
   box-shadow: 0 8px 24px rgba(23, 23, 23, 0.04);
+}
+
+.offer-card {
+  overflow: hidden;
+  padding: 0 0 1.35rem;
+}
+
+.offer-card-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 0 1rem;
+}
+
+.offer-card--wide .offer-card-image {
+  height: min(280px, 42vw);
+}
+
+.offer-card-image--fest {
+  object-position: center 35%;
+}
+
+.offer-card-image--seva {
+  object-position: center 60%;
+}
+
+.offer-card > .offer-tag,
+.offer-card > h3,
+.offer-card > p,
+.offer-card > ul {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .soft-section .text-panel,
