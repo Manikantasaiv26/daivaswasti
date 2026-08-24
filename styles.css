@@ -1004,3 +1004,82 @@ body[data-lang="ml"] .main-nav {
     width: 100%;
   }
 }
+
+/* Motion — calm presence, not noise */
+.hero-caption .hero-kicker,
+.hero-caption .hero-title {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-caption .hero-title {
+  animation-delay: 0.18s;
+}
+
+@keyframes hero-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.24s;
+}
+
+.offer-card .offer-tag,
+.panel-eyebrow {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.offer-card.is-visible .offer-tag {
+  animation: tag-soft 0.55s ease both;
+  animation-delay: 0.12s;
+}
+
+@keyframes tag-soft {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-caption .hero-kicker,
+  .hero-caption .hero-title,
+  .reveal,
+  .offer-card.is-visible .offer-tag {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+

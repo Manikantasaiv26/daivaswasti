@@ -301,4 +301,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  // Calm scroll reveals for text and cards
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(
+    ".panel-header, .offer-card, .text-panel, .ksact-card, .contact h2, .contact h3, .footer-col, .we-intro-card"
+  );
+
+  if (reduceMotion) {
+    revealTargets.forEach((el) => el.classList.add("is-visible"));
+  } else {
+    revealTargets.forEach((el, index) => {
+      el.classList.add("reveal");
+      const delay = index % 3;
+      if (delay > 0) {
+        el.classList.add(`reveal-delay-${delay}`);
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+  }
 });
