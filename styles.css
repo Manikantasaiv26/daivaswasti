@@ -701,7 +701,8 @@ body[data-lang="ml"] .main-nav {
 
 .bullet-list {
   margin: 0;
-  padding-left: 1.15rem;
+  padding-left: 0;
+  list-style: none;
   display: grid;
   gap: 0.85rem;
   color: #4b5563;
@@ -709,8 +710,20 @@ body[data-lang="ml"] .main-nav {
   max-width: 68ch;
 }
 
-.bullet-list li::marker {
-  color: #b45309;
+.bullet-list li {
+  position: relative;
+  padding-left: 1.55rem;
+}
+
+.bullet-list li::before {
+  content: "ॐ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #9a3412;
+  font-weight: 600;
+  font-size: 0.95em;
+  line-height: inherit;
 }
 
 .text-panel em,
