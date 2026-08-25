@@ -570,10 +570,14 @@ body[data-lang="ml"] .main-nav {
   color: #171717;
 }
 
+#ksact .ksact-card > h3 {
+  margin: 0 0 0.7rem;
+}
+
 .ksact-lead {
-  margin: 0.35rem 0 0.85rem !important;
+  margin: 0 0 0.95rem !important;
   color: #4b5563 !important;
-  font-size: 1rem !important;
+  font-size: 1.02rem !important;
   line-height: 1.65 !important;
   max-width: none;
 }
@@ -582,6 +586,8 @@ body[data-lang="ml"] .main-nav {
   margin: 0 0 0.7rem;
 }
 
+/* Shared Om list alignment (DAIVA SWASTI + KSACT) */
+.om-align-list,
 #daiva-swasti .ds-offer-list {
   margin: 0;
   padding-left: 1.15rem;
@@ -592,10 +598,21 @@ body[data-lang="ml"] .main-nav {
   color: #4b5563;
 }
 
+.om-align-list li,
 #daiva-swasti .ds-offer-list li {
   max-width: none;
+  padding-left: 1.7rem;
 }
 
+.om-align-list li::before,
+#daiva-swasti .ds-offer-list li::before {
+  left: 0;
+  top: 0.05em;
+  font-size: 1em;
+  line-height: 1.65;
+}
+
+.om-align-list li + li,
 #daiva-swasti .ds-offer-list li + li {
   margin-top: 0.85rem;
 }
