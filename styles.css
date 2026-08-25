@@ -585,11 +585,33 @@ body[data-lang="ml"] .main-nav {
 .we-intro-card {
   margin-bottom: 1.1rem;
   padding: 1.35rem 1.25rem;
+  text-align: center;
+}
+
+.we-intro-card > .offer-tag {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.we-intro-card > h3 {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 28ch;
+}
+
+.we-intro-card .we-intro-list,
+.we-meaning-card .offer-list {
+  display: inline-block;
+  text-align: left;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .we-intro-card > .offer-tag,
 .we-intro-card > h3,
 .we-intro-card > p,
+.we-intro-card > ul,
 .ksact-card:not(:has(.offer-card-image)) {
   /* keep text inset handled below for cards without photos */
 }
@@ -604,13 +626,35 @@ body[data-lang="ml"] .main-nav {
 .ksact-card:not(:has(.offer-card-image)) > ul,
 .we-intro-card > .offer-tag,
 .we-intro-card > h3,
-.we-intro-card > p {
+.we-intro-card > p,
+.we-intro-card > ul {
   margin-left: 0;
   margin-right: 0;
 }
 
+.we-intro-card > .offer-tag {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 .we-split {
   margin-top: 0;
+}
+
+.we-meaning-card {
+  text-align: center;
+}
+
+.we-meaning-card > .offer-tag {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.we-meaning-card > .offer-list {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  width: calc(100% - 2.5rem);
+  box-sizing: border-box;
 }
 
 .soft-section .offer-card {
