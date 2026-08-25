@@ -560,7 +560,8 @@ body[data-lang="ml"] .main-nav {
 }
 
 .ksact-card {
-  max-width: 52rem;
+  max-width: none;
+  width: 100%;
 }
 
 .ksact-card h3 {
@@ -574,7 +575,17 @@ body[data-lang="ml"] .main-nav {
   color: #4b5563 !important;
   font-size: 1rem !important;
   line-height: 1.65 !important;
-  max-width: 68ch;
+  max-width: none;
+}
+
+#daiva-swasti .offer-list {
+  max-width: none;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+#daiva-swasti .offer-list li {
+  max-width: none;
 }
 
 .ksact-motto-item {
