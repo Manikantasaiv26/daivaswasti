@@ -578,14 +578,35 @@ body[data-lang="ml"] .main-nav {
   max-width: none;
 }
 
-#daiva-swasti .offer-list {
-  max-width: none;
-  font-size: 1.02rem;
-  line-height: 1.6;
+#daiva-swasti .ds-intro-card > h3 {
+  margin: 0 0 0.7rem;
 }
 
-#daiva-swasti .offer-list li {
+#daiva-swasti .ds-offer-list {
+  margin: 0;
+  padding-left: 1.15rem;
   max-width: none;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+#daiva-swasti .ds-offer-list li {
+  max-width: none;
+}
+
+#daiva-swasti .ds-offer-list li + li {
+  margin-top: 0.85rem;
+}
+
+#daiva-swasti .ds-deities {
+  display: block;
+  margin-top: 0.25rem;
+  padding-left: 1.1rem;
+}
+
+#daiva-swasti .ds-deities:empty {
+  display: none;
 }
 
 .ksact-motto-item {
