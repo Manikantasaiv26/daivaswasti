@@ -586,6 +586,7 @@ body[data-lang="ml"] .main-nav {
   margin: 0;
   padding-left: 1.15rem;
   max-width: none;
+  width: 100%;
   font-size: 1.02rem;
   line-height: 1.65;
   color: #4b5563;
@@ -597,16 +598,6 @@ body[data-lang="ml"] .main-nav {
 
 #daiva-swasti .ds-offer-list li + li {
   margin-top: 0.85rem;
-}
-
-#daiva-swasti .ds-deities {
-  display: block;
-  margin-top: 0.25rem;
-  padding-left: 1.1rem;
-}
-
-#daiva-swasti .ds-deities:empty {
-  display: none;
 }
 
 .ksact-motto-item {
