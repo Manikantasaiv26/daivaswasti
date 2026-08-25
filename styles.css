@@ -584,28 +584,39 @@ body[data-lang="ml"] .main-nav {
 
 .we-intro-card {
   margin-bottom: 1.1rem;
-  padding: 1.35rem 1.25rem;
+  padding: 1.5rem 1.5rem 1.6rem;
   text-align: center;
 }
 
 .we-intro-card > .offer-tag {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin: 0 auto 0.85rem !important;
 }
 
 .we-intro-card > h3 {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 28ch;
+  margin: 0 auto 0.85rem;
+  max-width: 36rem;
+  text-wrap: balance;
+  line-height: 1.25;
 }
 
-.we-intro-card .we-intro-list,
-.we-meaning-card .offer-list {
-  display: inline-block;
+.we-intro-line {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  max-width: 40rem;
   text-align: left;
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.we-intro-line .om-mark {
+  flex: 0 0 auto;
+  color: #9a3412;
+  font-weight: 600;
+  line-height: 1.65;
 }
 
 .we-intro-card > .offer-tag,
@@ -623,18 +634,9 @@ body[data-lang="ml"] .main-nav {
 .ksact-card:not(:has(.offer-card-image)) > .offer-tag,
 .ksact-card:not(:has(.offer-card-image)) > h3,
 .ksact-card:not(:has(.offer-card-image)) > p,
-.ksact-card:not(:has(.offer-card-image)) > ul,
-.we-intro-card > .offer-tag,
-.we-intro-card > h3,
-.we-intro-card > p,
-.we-intro-card > ul {
+.ksact-card:not(:has(.offer-card-image)) > ul {
   margin-left: 0;
   margin-right: 0;
-}
-
-.we-intro-card > .offer-tag {
-  margin-left: auto !important;
-  margin-right: auto !important;
 }
 
 .we-split {
@@ -642,12 +644,12 @@ body[data-lang="ml"] .main-nav {
 }
 
 .we-meaning-card {
-  text-align: center;
+  text-align: left;
 }
 
 .we-meaning-card > .offer-tag {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: 1.25rem !important;
+  margin-right: 1.25rem !important;
 }
 
 .we-meaning-card > .offer-list {
@@ -655,6 +657,7 @@ body[data-lang="ml"] .main-nav {
   margin-right: 1.25rem;
   width: calc(100% - 2.5rem);
   box-sizing: border-box;
+  text-align: left;
 }
 
 .soft-section .offer-card {
@@ -1050,9 +1053,46 @@ body[data-lang="ml"] .main-nav {
 
 .footer-bottom {
   margin-top: 2.75rem;
-  padding-top: 1.15rem;
+  padding-top: 1.35rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
+  display: grid;
+  gap: 1.15rem;
+  justify-items: center;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  background: rgba(212, 175, 55, 0.95);
+  border-color: rgba(212, 175, 55, 0.95);
+  color: #2a1a08 !important;
 }
 
 .footer-bottom p {
