@@ -744,8 +744,7 @@ body[data-lang="ml"] .main-nav {
 }
 
 .feature-strip h3,
-.text-panel h3,
-.offer-card h3 {
+.text-panel h3 {
   margin: 0 0 0.55rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.08rem;
@@ -753,10 +752,24 @@ body[data-lang="ml"] .main-nav {
   color: #171717;
 }
 
+.offer-card h3 {
+  margin: 0 var(--card-inset) 0.55rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #171717;
+}
+
 .feature-strip p,
-.text-panel p,
-.offer-card p {
+.text-panel p {
   margin: 0;
+  color: #5f6368;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.offer-card p {
+  margin: 0 var(--card-inset);
   color: #5f6368;
   font-size: 0.98rem;
   line-height: 1.6;
