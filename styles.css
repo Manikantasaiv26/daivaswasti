@@ -9,6 +9,9 @@
   --navy-hover: #6b2a5c;
   --border: rgba(255, 255, 255, 0.85);
   --max: 1100px;
+  --card-inset: 1.25rem;
+  --om-slot: 1.65rem;
+  --om-item-gap: 0.75rem;
 }
 
 *,
@@ -534,29 +537,29 @@ body[data-lang="ml"] .main-nav {
   margin: 0.35rem 0 0;
   padding-left: 0;
   list-style: none;
-  color: #333;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  color: #4b5563;
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 .offer-list li {
   position: relative;
-  padding-left: 1.55rem;
+  padding-left: var(--om-slot);
 }
 
 .offer-list li::before {
   content: "ॐ";
   position: absolute;
   left: 0;
-  top: 0;
+  top: 0.05em;
   color: #9a3412;
   font-weight: 600;
-  font-size: 0.95em;
+  font-size: 1em;
   line-height: inherit;
 }
 
 .offer-list li + li {
-  margin-top: 0.35rem;
+  margin-top: var(--om-item-gap);
 }
 
 .ksact-card {
@@ -570,7 +573,8 @@ body[data-lang="ml"] .main-nav {
   color: #171717;
 }
 
-#ksact .ksact-card > h3 {
+#ksact .ksact-card > h3,
+#daiva-swasti .ds-intro-card > h3 {
   margin: 0 0 0.7rem;
 }
 
@@ -582,15 +586,11 @@ body[data-lang="ml"] .main-nav {
   max-width: none;
 }
 
-#daiva-swasti .ds-intro-card > h3 {
-  margin: 0 0 0.7rem;
-}
-
-/* Shared Om list alignment (DAIVA SWASTI + KSACT) */
+/* Featured Om lists: same left edge as tags/headings, clear hanging indent */
 .om-align-list,
 #daiva-swasti .ds-offer-list {
   margin: 0;
-  padding-left: 1.15rem;
+  padding-left: 0;
   max-width: none;
   width: 100%;
   font-size: 1.02rem;
@@ -601,15 +601,7 @@ body[data-lang="ml"] .main-nav {
 .om-align-list li,
 #daiva-swasti .ds-offer-list li {
   max-width: none;
-  padding-left: 1.7rem;
-}
-
-.om-align-list li::before,
-#daiva-swasti .ds-offer-list li::before {
-  left: 0;
-  top: 0.05em;
-  font-size: 1em;
-  line-height: 1.65;
+  padding-left: var(--om-slot);
 }
 
 .om-align-list li + li,
@@ -624,7 +616,6 @@ body[data-lang="ml"] .main-nav {
 
 .we-intro-card {
   margin-bottom: 1.1rem;
-  padding: 1.5rem 1.5rem 1.6rem;
   text-align: left;
 }
 
@@ -640,13 +631,13 @@ body[data-lang="ml"] .main-nav {
 }
 
 .we-intro-line {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0.65rem;
+  display: grid;
+  grid-template-columns: var(--om-slot) minmax(0, 1fr);
+  column-gap: 0;
+  align-items: start;
   margin: 0;
-  padding-left: 1.15rem;
-  max-width: 46rem;
+  padding-left: 0;
+  max-width: none;
   text-align: left;
   color: #4b5563;
   font-size: 1.02rem;
@@ -654,23 +645,15 @@ body[data-lang="ml"] .main-nav {
 }
 
 .we-intro-line .om-mark {
-  flex: 0 0 auto;
+  width: var(--om-slot);
   color: #9a3412;
   font-weight: 600;
-  font-size: 1.05em;
+  font-size: 1em;
   line-height: 1.65;
 }
 
-.we-intro-card > .offer-tag,
-.we-intro-card > h3,
-.we-intro-card > p,
-.we-intro-card > ul,
 .ksact-card:not(:has(.offer-card-image)) {
-  /* keep text inset handled below for cards without photos */
-}
-
-.ksact-card:not(:has(.offer-card-image)) {
-  padding: 1.35rem 1.25rem;
+  padding: 1.35rem var(--card-inset);
 }
 
 .ksact-card:not(:has(.offer-card-image)) > .offer-tag,
@@ -689,15 +672,14 @@ body[data-lang="ml"] .main-nav {
   text-align: left;
 }
 
-.we-meaning-card > .offer-tag {
-  margin-left: 1.25rem !important;
-  margin-right: 1.25rem !important;
+.we-meaning-card > .offer-tag,
+.we-meaning-card > .offer-list {
+  margin-left: var(--card-inset) !important;
+  margin-right: var(--card-inset) !important;
 }
 
 .we-meaning-card > .offer-list {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-  width: calc(100% - 2.5rem);
+  width: auto;
   box-sizing: border-box;
   text-align: left;
 }
@@ -746,8 +728,8 @@ body[data-lang="ml"] .main-nav {
 .offer-card > h3,
 .offer-card > p,
 .offer-card > ul {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  margin-left: var(--card-inset);
+  margin-right: var(--card-inset);
 }
 
 .soft-section .text-panel,
