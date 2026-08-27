@@ -109,7 +109,7 @@ window.DAIVA_I18N = {
       ksactP5: "In memory of our two great ladies and inspired by the belief that education can transform lives, The Trust focuses on discovering talent where financial circumstances may hide it.",
       ksactP6: "There are many children with intelligence, dedication, curiosity and the determination to succeed, yet their educational journey can be challenged by circumstances beyond their control.",
       ksactP7: "Their potential deserves to be recognized, not overlooked.",
-      ksactP8: "Studying six students through our KSACT as of now.",
+      ksactP8: "Studying few students through our KSACT as of now.",
       ksactMotto: "KSACT motto is Recognizing Talent – Supporting Education – Transforming Lives",
       offerWorship1: "Shudh of puja place post self-purification (bath)",
       offerWorship2: "Sindhur and/or tilak, and offering water, flowers and incense",
@@ -231,7 +231,7 @@ window.DAIVA_I18N = {
 
       ksactP7: "उनकी क्षमता को अनदेखा नहीं, बल्कि पहचाना जाना चाहिए।",
 
-      ksactP8: "वर्तमान में हमारे KSACT के माध्यम से छह विद्यार्थी अध्ययन कर रहे हैं।",
+      ksactP8: "वर्तमान में हमारे KSACT के माध्यम से कुछ विद्यार्थी अध्ययन कर रहे हैं।",
 
       ksactMotto: "KSACT का ध्येय है — प्रतिभा की पहचान – शिक्षा का सहयोग – जीवन का रूपांतरण",
 
@@ -361,7 +361,7 @@ window.DAIVA_I18N = {
 
       ksactP7: "அவர்களின் திறன் புறக்கணிக்கப்படாமல் அங்கீகரிக்கப்பட வேண்டும்.",
 
-      ksactP8: "தற்போது எங்கள் KSACT மூலம் ஆறு மாணவர்கள் பயில்கின்றனர்.",
+      ksactP8: "தற்போது எங்கள் KSACT மூலம் சில மாணவர்கள் பயில்கின்றனர்.",
 
       ksactMotto: "KSACT குறிக்கோள் — திறமையை அங்கீகரித்தல் – கல்விக்கு ஆதரவு – வாழ்க்கையை மாற்றுதல்",
 
@@ -491,7 +491,7 @@ window.DAIVA_I18N = {
 
       ksactP7: "వారి సామర్థ్యాన్ని విస్మరించకుండా గుర్తించాలి.",
 
-      ksactP8: "ప్రస్తుతం మా KSACT ద్వారా ఆరుగురు విద్యార్థులు చదువుతున్నారు.",
+      ksactP8: "ప్రస్తుతం మా KSACT ద్వారా కొంతమంది విద్యార్థులు చదువుతున్నారు.",
 
       ksactMotto: "KSACT నినాదం — ప్రతిభను గుర్తించడం – విద్యకు మద్దతు – జీవితాలను మార్చడం",
 
@@ -621,7 +621,7 @@ window.DAIVA_I18N = {
 
       ksactP7: "ಅವರ ಸಾಮರ್ಥ್ಯವನ್ನು ನಿರ್ಲಕ್ಷಿಸದೆ ಗುರುತಿಸಬೇಕು.",
 
-      ksactP8: "ಪ್ರಸ್ತುತ ನಮ್ಮ KSACT ಮೂಲಕ ಆರು ವಿದ್ಯಾರ್ಥಿಗಳು ಅಧ್ಯಯನ ಮಾಡುತ್ತಿದ್ದಾರೆ.",
+      ksactP8: "ಪ್ರಸ್ತುತ ನಮ್ಮ KSACT ಮೂಲಕ ಕೆಲವು ವಿದ್ಯಾರ್ಥಿಗಳು ಅಧ್ಯಯನ ಮಾಡುತ್ತಿದ್ದಾರೆ.",
 
       ksactMotto: "KSACT ಧ್ಯೇಯ — ಪ್ರತಿಭೆಯನ್ನು ಗುರುತಿಸುವುದು – ಶಿಕ್ಷಣಕ್ಕೆ ಬೆಂಬಲ – ಜೀವನವನ್ನು ಪರಿವರ್ತಿಸುವುದು",
 
@@ -751,7 +751,7 @@ window.DAIVA_I18N = {
 
       ksactP7: "അവരുടെ കഴിവ് അവഗണിക്കപ്പെടാതെ തിരിച്ചറിയപ്പെടണം.",
 
-      ksactP8: "നിലവിൽ ഞങ്ങളുടെ KSACT വഴി ആറ് വിദ്യാർത്ഥികൾ പഠിക്കുന്നു.",
+      ksactP8: "നിലവിൽ ഞങ്ങളുടെ KSACT വഴി കുറച്ച് വിദ്യാർത്ഥികൾ പഠിക്കുന്നു.",
 
       ksactMotto: "KSACT മുദ്രാവാക്യം — പ്രതിഭ തിരിച്ചറിയുക – വിദ്യാഭ്യാസം പിന്തുണയ്ക്കുക – ജീവിതം മാറ്റുക",
 
