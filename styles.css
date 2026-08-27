@@ -616,11 +616,11 @@ body[data-lang="ml"] .main-nav {
 
 .we-intro-card {
   margin-bottom: 1.1rem;
-  text-align: left;
+  text-align: center;
 }
 
 .we-intro-card > .offer-tag {
-  margin: 0 0 0.95rem !important;
+  margin: 0 auto 0.95rem !important;
   padding: 0.4rem 1.05rem;
   font-size: 1.44rem !important;
   letter-spacing: 0.06em;
@@ -628,21 +628,22 @@ body[data-lang="ml"] .main-nav {
 }
 
 .we-intro-card > h3 {
-  margin: 0 0 0.75rem;
-  max-width: none;
+  margin: 0 auto 0.75rem;
+  max-width: 28ch;
   text-wrap: balance;
   font-size: clamp(1.55rem, 3.2vw, 2.15rem);
   line-height: 1.25;
+  text-align: center;
 }
 
 .we-intro-line {
-  display: grid;
-  grid-template-columns: var(--om-slot) minmax(0, 1fr);
-  column-gap: 0;
-  align-items: start;
-  margin: 0;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto;
   padding-left: 0;
-  max-width: none;
+  max-width: 40rem;
   text-align: left;
   color: #4b5563;
   font-size: 1.02rem;
@@ -650,7 +651,8 @@ body[data-lang="ml"] .main-nav {
 }
 
 .we-intro-line .om-mark {
-  width: var(--om-slot);
+  flex: 0 0 auto;
+  width: auto;
   color: #9a3412;
   font-weight: 600;
   font-size: 1em;
