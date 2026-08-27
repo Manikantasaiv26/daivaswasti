@@ -486,6 +486,34 @@ body[data-lang="ml"] .main-nav {
   line-height: 1.65;
 }
 
+#offerings .offerings-header {
+  max-width: none;
+}
+
+#offerings .offerings-intro {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding-left: var(--om-slot);
+  max-width: 42rem;
+}
+
+#offerings .offerings-intro::before {
+  content: "ॐ";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  color: #9a3412;
+  font-weight: 600;
+  font-size: 1em;
+  line-height: inherit;
+}
+
+#offerings .offerings-title {
+  margin: 0;
+  white-space: nowrap;
+  font-size: clamp(1.15rem, 2.6vw, 2.1rem);
+}
+
 .section-media {
   margin: 0 0 1.75rem;
   border-radius: 16px;
@@ -1211,6 +1239,10 @@ body[data-lang="ml"] .main-nav {
     align-items: center;
     padding-block: 0.65rem;
     min-height: 96px;
+  }
+
+  #offerings .offerings-title {
+    font-size: clamp(0.92rem, 3.8vw, 1.2rem);
   }
 
   .header-actions {
