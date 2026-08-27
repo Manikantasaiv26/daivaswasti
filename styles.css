@@ -573,9 +573,12 @@ body[data-lang="ml"] .main-nav {
   color: #171717;
 }
 
-#ksact .ksact-card > h3,
-#daiva-swasti .ds-intro-card > h3 {
+#ksact .ksact-card > h3 {
   margin: 0 0 0.7rem;
+}
+
+#daiva-swasti .ds-intro-card > .offer-tag {
+  margin-bottom: 0.85rem !important;
 }
 
 .ksact-lead {
