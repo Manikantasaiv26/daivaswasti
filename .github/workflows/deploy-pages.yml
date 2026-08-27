@@ -39,7 +39,8 @@ jobs:
             350a318313469337a7ea6eab42cf922387671a62 \
             cdac491de0b844fd83d7798b0f5aca7f8559ea1b \
             0260795ef15488c548509519c8b40caee3c69320 \
-            b1064957d67357b4cda98e03dbf6d1d8ff072f0d
+            b1064957d67357b4cda98e03dbf6d1d8ff072f0d \
+            5399adfdac5b184d99f0a242801e814ca566b999
           do
             echo "Cancelling pages deployment $sha (if present)..."
             gh api -X POST "repos/${{ github.repository }}/pages/deployments/${sha}/cancel" || true
