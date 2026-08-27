@@ -26,7 +26,7 @@ window.DAIVA_I18N = {
       navTalk: "TALK TO US",
       langAria: "Select language",
       heroKicker: "DAIVA SWASTI",
-      heroTitle: "Swasti N Brihaspatirdadhatu",
+      heroTitle: "Swasti No Brihaspatirdadhatu",
       introTitle: "Divine Influence And Auspicious Being",
       introText: "The sacred roots of our name, destiny, well-being and cosmic order.",
       pujaEyebrow: "Puja",
