@@ -99,7 +99,7 @@ window.DAIVA_I18N = {
       formSuccess: "Thank you. Your message was sent to pranam@daivaswasti.org.",
       formError: "Sorry, the message could not be sent. Please email pranam@daivaswasti.org directly.",
       navKsact: "AWAKENING TURN – KSACT",
-      ksactEyebrow: "AWAKENING TURN",
+      ksactEyebrow: "AWAKENING TURN – KSACT",
       ksactTitle: "AWAKENING TURN – KSACT",
       ksactLead: "Koti SubSri AnnapurnaDevi Charitable Trust – Committed to identifying academically talented, sincere and deserving school students from financially disadvantaged families, and supporting them in their educational journey.",
       ksactP1: "We believe that financial circumstances should never determine how far a child's talent can take them.",
@@ -211,7 +211,7 @@ window.DAIVA_I18N = {
       formError: "क्षमा करें, संदेश नहीं भेजा जा सका। कृपया सीधे pranam@daivaswasti.org पर ईमेल करें।",
       navKsact: "अवेकनिंग टर्न – KSACT",
 
-      ksactEyebrow: "अवेकनिंग टर्न",
+      ksactEyebrow: "अवेकनिंग टर्न – KSACT",
 
       ksactTitle: "अवेकनिंग टर्न – KSACT",
 
@@ -341,7 +341,7 @@ window.DAIVA_I18N = {
       formError: "மன்னிக்கவும், செய்தியை அனுப்ப முடியவில்லை. தயவுசெய்து நேரடியாக pranam@daivaswasti.org க்கு மின்னஞ்சல் அனுப்புங்கள்.",
       navKsact: "அவேக்கனிங் டர்ன் – KSACT",
 
-      ksactEyebrow: "அவேக்கனிங் டர்ன்",
+      ksactEyebrow: "அவேக்கனிங் டர்ன் – KSACT",
 
       ksactTitle: "அவேக்கனிங் டர்ன் – KSACT",
 
@@ -471,7 +471,7 @@ window.DAIVA_I18N = {
       formError: "క్షమించండి, సందేశం పంపలేకపోయాము. దయచేసి నేరుగా pranam@daivaswasti.org కు ఇమెయిల్ చేయండి.",
       navKsact: "అవేకనింగ్ టర్న్ – KSACT",
 
-      ksactEyebrow: "అవేకనింగ్ టర్న్",
+      ksactEyebrow: "అవేకనింగ్ టర్న్ – KSACT",
 
       ksactTitle: "అవేకనింగ్ టర్న్ – KSACT",
 
@@ -601,7 +601,7 @@ window.DAIVA_I18N = {
       formError: "ಕ್ಷಮಿಸಿ, ಸಂದೇಶವನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನೇರವಾಗಿ pranam@daivaswasti.org ಗೆ ಇಮೇಲ್ ಮಾಡಿ.",
       navKsact: "ಅವೇಕನಿಂಗ್ ಟರ್ನ್ – KSACT",
 
-      ksactEyebrow: "ಅವೇಕನಿಂಗ್ ಟರ್ನ್",
+      ksactEyebrow: "ಅವೇಕನಿಂಗ್ ಟರ್ನ್ – KSACT",
 
       ksactTitle: "ಅವೇಕನಿಂಗ್ ಟರ್ನ್ – KSACT",
 
@@ -731,7 +731,7 @@ window.DAIVA_I18N = {
       formError: "ക്ഷമിക്കണം, സന്ദേശം അയയ്ക്കാനായില്ല. ദയവായി pranam@daivaswasti.org എന്ന വിലാസത്തിലേക്ക് നേരിട്ട് ഇമെയിൽ ചെയ്യുക.",
       navKsact: "അവേക്കനിങ് ടേൺ – KSACT",
 
-      ksactEyebrow: "അവേക്കനിങ് ടേൺ",
+      ksactEyebrow: "അവേക്കനിങ് ടേൺ – KSACT",
 
       ksactTitle: "അവേക്കനിങ് ടേൺ – KSACT",
 
