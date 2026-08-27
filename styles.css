@@ -691,6 +691,7 @@ body[data-lang="ml"] .main-nav {
 .we-meaning-card > .offer-tag {
   margin-top: 0 !important;
   margin-bottom: 0.55rem !important;
+  margin-left: calc(var(--card-inset) - 0.55rem) !important;
 }
 
 .we-meaning-card > .offer-list {
