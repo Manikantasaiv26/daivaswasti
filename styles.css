@@ -627,8 +627,10 @@ body[data-lang="ml"] .main-nav {
   line-height: 1.2;
 }
 
-.we-intro-card > h3 {
-  margin: 0 auto 0.75rem;
+.we-intro-card.ksact-card > h3,
+.ksact-card.we-intro-card:not(:has(.offer-card-image)) > h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
   margin-left: auto !important;
   margin-right: auto !important;
   max-width: 28ch;
@@ -636,6 +638,7 @@ body[data-lang="ml"] .main-nav {
   font-size: clamp(1.55rem, 3.2vw, 2.15rem);
   line-height: 1.25;
   text-align: center;
+  color: #171717;
 }
 
 .we-intro-line {
