@@ -492,7 +492,7 @@ body[data-lang="ml"] .main-nav {
 
 #offerings .offerings-intro {
   position: relative;
-  margin: 0 0 0.85rem;
+  margin: 0.85rem 0 0;
   padding-left: var(--om-slot);
   max-width: 42rem;
 }
