@@ -31,12 +31,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # Clear a known stuck pages_build_version that blocks new deploys.
-          for sha in e64aaa22aa2475a573b10ef65add6a84e92b2abb; do
+          # Clear stuck pages_build_versions that block new deploys.
+          for sha in \
+            e64aaa22aa2475a573b10ef65add6a84e92b2abb \
+            946c7fbf3b1cb743e0388df774177bd53b4b88f6 \
+            aaccc3efbcb756f36ec9872c0f5f02d1abdb797c \
+            350a318313469337a7ea6eab42cf922387671a62
+          do
             echo "Cancelling pages deployment $sha (if present)..."
             gh api -X POST "repos/${{ github.repository }}/pages/deployments/${sha}/cancel" || true
           done
-
+          sleep 5
       - name: Prepare site files
         run: |
           mkdir -p _site
