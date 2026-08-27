@@ -682,34 +682,15 @@ body[data-lang="ml"] .main-nav {
   text-align: left;
 }
 
-.we-meaning-card > .we-om,
 .we-meaning-card > .offer-tag,
-.we-meaning-card > .we-meaning-text,
 .we-meaning-card > .offer-list {
   margin-left: var(--card-inset) !important;
   margin-right: var(--card-inset) !important;
 }
 
-.we-meaning-card > .we-om {
-  margin-top: 0 !important;
-  margin-bottom: 0.4rem !important;
-  color: #9a3412;
-  font-weight: 600;
-  font-size: 1.15rem;
-  line-height: 1.2;
-}
-
 .we-meaning-card > .offer-tag {
   margin-top: 0 !important;
   margin-bottom: 0.55rem !important;
-}
-
-.we-meaning-card > .we-meaning-text {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  color: #4b5563;
-  font-size: 0.98rem;
-  line-height: 1.65;
 }
 
 .we-meaning-card > .offer-list {
