@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -26,6 +26,16 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
+
+      - name: Cancel stuck Pages deployments
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Clear a known stuck pages_build_version that blocks new deploys.
+          for sha in e64aaa22aa2475a573b10ef65add6a84e92b2abb; do
+            echo "Cancelling pages deployment $sha (if present)..."
+            gh api -X POST "repos/${{ github.repository }}/pages/deployments/${sha}/cancel" || true
+          done
 
       - name: Prepare site files
         run: |
