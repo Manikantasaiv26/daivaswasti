@@ -643,13 +643,23 @@ body[data-lang="ml"] .main-nav {
 
 .we-intro-line {
   display: block;
-  margin: 0 auto;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding-left: 0;
   max-width: 40rem;
+  width: fit-content;
   text-align: center;
   color: #4b5563;
   font-size: 1.02rem;
   line-height: 1.65;
+}
+
+.ksact-card.we-intro-card:not(:has(.offer-card-image)) > .we-intro-line {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
 }
 
 .ksact-card:not(:has(.offer-card-image)) {
