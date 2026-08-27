@@ -629,6 +629,8 @@ body[data-lang="ml"] .main-nav {
 
 .we-intro-card > h3 {
   margin: 0 auto 0.75rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
   max-width: 28ch;
   text-wrap: balance;
   font-size: clamp(1.55rem, 3.2vw, 2.15rem);
