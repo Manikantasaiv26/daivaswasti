@@ -620,13 +620,18 @@ body[data-lang="ml"] .main-nav {
 }
 
 .we-intro-card > .offer-tag {
-  margin: 0 0 0.85rem !important;
+  margin: 0 0 0.95rem !important;
+  padding: 0.4rem 1.05rem;
+  font-size: 1.44rem !important;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
 }
 
 .we-intro-card > h3 {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.75rem;
   max-width: none;
   text-wrap: balance;
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
   line-height: 1.25;
 }
 
