@@ -207,7 +207,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupLanguageSwitcher();
   setupNavDropdowns();
+  setupMobileNav();
   applyLanguage(initial);
+
+  function setupMobileNav() {
+    const toggle = document.querySelector("[data-menu-toggle]");
+    const menu = document.querySelector("[data-site-menu]");
+    if (!toggle || !menu) return;
+
+    const setOpen = (open) => {
+      menu.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("nav-open", open);
+      if (!open) {
+        closeAllDropdowns();
+      }
+    };
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setOpen(!menu.classList.contains("is-open"));
+    });
+
+    menu.addEventListener("click", (event) => {
+      const link = event.target instanceof Element ? event.target.closest("a[href^='#']") : null;
+      if (link) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.matchMedia("(min-width: 761px)").matches) {
+        setOpen(false);
+      }
+    });
+  }
 
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
