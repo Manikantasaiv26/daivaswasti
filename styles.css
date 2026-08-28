@@ -1297,7 +1297,7 @@ body[data-lang="ml"] .main-nav {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
   .header-inner {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1305,10 +1305,6 @@ body[data-lang="ml"] .main-nav {
     gap: 0.65rem 0.85rem;
     padding-block: 0.55rem;
     min-height: 0;
-  }
-
-  #offerings .offerings-title {
-    font-size: clamp(0.92rem, 3.8vw, 1.2rem);
   }
 
   .menu-toggle {
@@ -1344,7 +1340,7 @@ body[data-lang="ml"] .main-nav {
     gap: 0.15rem;
     width: 100%;
     flex: none;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
 
   .main-nav > a,
@@ -1358,7 +1354,7 @@ body[data-lang="ml"] .main-nav {
   .nav-dropdown-btn {
     width: 100%;
     justify-content: space-between;
-    padding: 0.85rem 0.15rem;
+    padding: 0.9rem 0.15rem;
     text-align: left;
   }
 
@@ -1391,12 +1387,12 @@ body[data-lang="ml"] .main-nav {
 
   .nav-dropdown-menu a {
     white-space: normal;
-    padding: 0.75rem 0.9rem;
+    padding: 0.8rem 1rem;
   }
 
   .brand-logo {
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     border-radius: 14px;
   }
 
@@ -1409,13 +1405,33 @@ body[data-lang="ml"] .main-nav {
     width: 100%;
     min-width: 0;
     justify-content: space-between;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .lang-menu {
     left: 0;
     right: 0;
     min-width: 100%;
+  }
+
+  #daiva,
+  #swasti,
+  #daiva-swasti,
+  #offerings,
+  #contact,
+  [id^="offer-"] {
+    scroll-margin-top: 5.75rem;
+  }
+}
+
+@media (max-width: 760px) {
+  #offerings .offerings-title {
+    font-size: clamp(0.92rem, 3.8vw, 1.2rem);
+  }
+
+  .brand-logo {
+    width: 64px;
+    height: 64px;
   }
 
   .hero-image {
@@ -1444,15 +1460,6 @@ body[data-lang="ml"] .main-nav {
   .footer-brand {
     grid-column: 1 / -1;
     max-width: 36rem;
-  }
-
-  #daiva,
-  #swasti,
-  #daiva-swasti,
-  #offerings,
-  #contact,
-  [id^="offer-"] {
-    scroll-margin-top: 5.5rem;
   }
 }
 

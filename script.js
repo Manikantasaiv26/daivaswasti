@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("resize", () => {
-      if (window.matchMedia("(min-width: 761px)").matches) {
+      if (window.matchMedia("(min-width: 1025px)").matches) {
         setOpen(false);
       }
     });
