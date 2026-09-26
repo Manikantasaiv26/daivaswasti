@@ -50,7 +50,7 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir -p _site
-          cp -a index.html logos.html styles.css script.js i18n.js CNAME .nojekyll README.md favicon.ico _site/
+          cp -a index.html logos.html styles.css script.js i18n.js payment.js payment-config.js CNAME .nojekyll README.md favicon.ico _site/
           cp -a assets _site/assets
 
       - name: Upload site

@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=89" />
+    <link rel="stylesheet" href="styles.css?v=90" />
   </head>
   <body>
     <header class="site-header">
@@ -143,8 +143,8 @@
               </ul>
             </div>
 
-            <a href="#contribute" data-i18n="navContribute">OFFER</a>
             <a href="#contact" data-i18n="navContact">CONTACT</a>
+            <a class="pay-nav-btn" href="#contribute" data-i18n="navContribute">PAY</a>
             <a class="talk-btn" href="#contact" data-i18n="navTalk">TALK TO US</a>
           </nav>
 
@@ -211,6 +211,20 @@
         <div class="hero-caption">
           <p class="hero-kicker" data-i18n="heroKicker">DAIVA SWASTI</p>
           <h1 class="hero-title" data-i18n="heroTitle">Swasti No Brihaspatirdadhatu</h1>
+        </div>
+      </section>
+
+      <section class="pay-entry" aria-label="Payment options">
+        <div class="container pay-entry-inner">
+          <p class="pay-entry-lead" data-i18n="payEntryLead">Choose how to pay</p>
+          <a class="pay-entry-option" href="#contribute" data-pay-method="upi">
+            <strong data-i18n="payMethodUpi">UPI</strong>
+            <span data-i18n="payEntryUpi">GPay, PhonePe, Paytm or any UPI app</span>
+          </a>
+          <a class="pay-entry-option" href="#contribute" data-pay-method="card">
+            <strong data-i18n="payMethodCard">Credit / debit card</strong>
+            <span data-i18n="payEntryCard">Visa, Mastercard, RuPay</span>
+          </a>
         </div>
       </section>
 
@@ -733,7 +747,7 @@
 
     <script src="assets/qrcode-generator.js?v=1"></script>
     <script src="payment-config.js?v=1"></script>
-    <script src="i18n.js?v=56"></script>
+    <script src="i18n.js?v=57"></script>
     <script src="script.js?v=52"></script>
     <script src="payment.js?v=2"></script>
   </body>

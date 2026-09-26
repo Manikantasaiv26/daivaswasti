@@ -477,7 +477,21 @@
     });
 
     document.addEventListener("click", function (event) {
-      var link = event.target instanceof Element ? event.target.closest("[data-pay-purpose]") : null;
+      var target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
+      var methodLink = target.closest("[data-pay-method]");
+      if (methodLink && !methodLink.closest("#payment-form")) {
+        var method = methodLink.getAttribute("data-pay-method");
+        if (method === "upi" || method === "card") {
+          var methodInput = form.querySelector('input[name="method"][value="' + method + '"]');
+          if (methodInput) {
+            methodInput.checked = true;
+            syncMethod();
+          }
+          showForm();
+        }
+      }
+      var link = target.closest("[data-pay-purpose]");
       if (!link || link.closest("#payment-form")) return;
       var purpose = link.getAttribute("data-pay-purpose");
       if (PURPOSES.indexOf(purpose) < 0) return;
