@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=96" />
+    <link rel="stylesheet" href="styles.css?v=97" />
   </head>
   <body>
     <header class="site-header">
@@ -547,8 +547,22 @@
                   <p class="pay-timer" data-pay-timer role="timer" aria-live="polite">01:00</p>
                   <p class="pay-timer-label" data-i18n="payTimerLabel">Time left to pay</p>
                 </div>
-                <div class="pay-qr" data-pay-qr role="img" aria-label="UPI QR code"></div>
-                <p class="pay-scan" data-i18n="payScan">Scan to pay</p>
+                <div data-pay-desktop>
+                  <div class="pay-qr" data-pay-qr role="img" aria-label="UPI QR code"></div>
+                  <p class="pay-scan" data-i18n="payScan">Scan with your phone camera</p>
+                  <p class="pay-apps-label" data-i18n="payOpenApp">Open a UPI app</p>
+                  <div class="pay-apps">
+                    <a data-pay-app="gpay" data-i18n="payAppGpay">GPay</a>
+                    <a data-pay-app="phonepe" data-i18n="payAppPhonepe">PhonePe</a>
+                    <a data-pay-app="paytm" data-i18n="payAppPaytm">Paytm</a>
+                    <a data-pay-app="any" data-i18n="payAppAny">Any UPI app</a>
+                  </div>
+                  <p class="pay-mail-note" data-i18n="payMailNote">Scan with your phone camera and pay in your UPI app. As soon as the payment is finished, this code closes and the receipt is emailed to you. If the minute ends first, fill in the form again.</p>
+                </div>
+                <div data-pay-phone hidden>
+                  <p class="pay-mail-note" data-i18n="payPhoneWait">This opens your UPI app. When the payment is finished, the code closes and your receipt is emailed to you.</p>
+                  <a class="pay-submit" data-pay-upi-launch data-i18n="payPhoneButton">Pay with UPI</a>
+                </div>
                 <div class="pay-id-row">
                   <span data-i18n="payUpiIdLabel">UPI ID</span>
                   <code data-pay-vpa></code>
@@ -559,14 +573,6 @@
                   <code data-pay-ref></code>
                   <button type="button" class="pay-copy" data-copy="ref" data-i18n="payCopy">Copy</button>
                 </div>
-                <p class="pay-apps-label" data-i18n="payOpenApp">Open a UPI app</p>
-                <div class="pay-apps">
-                  <a data-pay-app="gpay" data-i18n="payAppGpay">GPay</a>
-                  <a data-pay-app="phonepe" data-i18n="payAppPhonepe">PhonePe</a>
-                  <a data-pay-app="paytm" data-i18n="payAppPaytm">Paytm</a>
-                  <a data-pay-app="any" data-i18n="payAppAny">Any UPI app</a>
-                </div>
-                <p class="pay-mail-note" data-i18n="payMailNote">This code is valid for 1 minute. Pay in your UPI app before it ends. If the minute ends, fill in the form again.</p>
               </div>
               <div id="pay-paid" class="pay-paid" hidden>
                 <div class="pay-paid-mark" aria-hidden="true"></div>
@@ -816,8 +822,8 @@
 
     <script src="assets/qrcode-generator.js?v=1"></script>
     <script src="payment-config.js?v=2"></script>
-    <script src="i18n.js?v=63"></script>
+    <script src="i18n.js?v=64"></script>
     <script src="script.js?v=52"></script>
-    <script src="payment.js?v=7"></script>
+    <script src="payment.js?v=8"></script>
   </body>
 </html>

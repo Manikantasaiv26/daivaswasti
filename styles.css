@@ -2044,6 +2044,8 @@ body[data-lang="ml"] .main-nav {
 .pay-amount-due[hidden],
 .pay-purpose-line[hidden],
 [data-pay-ready][hidden],
+[data-pay-desktop][hidden],
+[data-pay-phone][hidden],
 .pay-receipt-list div[hidden] {
   display: none !important;
 }
@@ -2120,6 +2122,7 @@ body[data-lang="ml"] .main-nav {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .pay-submit:hover:not(:disabled) {

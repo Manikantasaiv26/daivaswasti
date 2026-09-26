@@ -129,6 +129,37 @@
     return "DS" + y + m + d + suffix;
   }
 
+  function makeToken() {
+    var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+    var bytes = new Uint8Array(16);
+    if (root.crypto && root.crypto.getRandomValues) root.crypto.getRandomValues(bytes);
+    else {
+      for (var i = 0; i < bytes.length; i += 1) bytes[i] = Math.floor(Math.random() * 256);
+    }
+    var token = "dsw";
+    for (var n = 0; n < bytes.length; n += 1) token += alphabet[bytes[n] % alphabet.length];
+    return token;
+  }
+
+  function encodeSession(data) {
+    var json = JSON.stringify(data);
+    return btoa(unescape(encodeURIComponent(json))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+  }
+
+  function decodeSession(raw) {
+    try {
+      var b64 = String(raw || "").replace(/-/g, "+").replace(/_/g, "/");
+      while (b64.length % 4) b64 += "=";
+      return JSON.parse(decodeURIComponent(escape(atob(b64))));
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function sessionLink(payload) {
+    return root.location.origin + root.location.pathname + "?seva=" + encodeURIComponent(payload) + "#contribute";
+  }
+
   function validateOffering(input, config) {
     var purpose = PURPOSES.indexOf(input.purpose) >= 0 ? input.purpose : "";
     var method = input.method === "card" ? "card" : input.method === "upi" ? "upi" : "";
@@ -180,7 +211,9 @@
     var statusState = null;
     var offering = null;
     var paymentTimer = null;
+    var paymentWatch = null;
     var paymentOpen = false;
+    var upiArmed = false;
 
     var errorEl = document.getElementById("pay-error");
     var liveNote = document.getElementById("pay-setup-note");
@@ -271,6 +304,7 @@
     }
 
     function showForm() {
+      try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
       stopPaymentTimer();
       form.hidden = false;
       if (result) result.hidden = true;
@@ -285,9 +319,14 @@
 
     function stopPaymentTimer() {
       paymentOpen = false;
+      upiArmed = false;
       if (paymentTimer) {
         clearInterval(paymentTimer);
         paymentTimer = null;
+      }
+      if (paymentWatch) {
+        clearInterval(paymentWatch);
+        paymentWatch = null;
       }
     }
 
@@ -325,9 +364,11 @@
       if (form.scrollIntoView) form.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    function startPaymentTimer() {
+    function startPaymentTimer(limitSeconds) {
       stopPaymentTimer();
-      var endsAt = Date.now() + config().qrSeconds * 1000;
+      var limit = Number(limitSeconds);
+      if (!Number.isFinite(limit) || limit < 1) limit = config().qrSeconds;
+      var endsAt = Date.now() + limit * 1000;
       paymentOpen = true;
       function tick() {
         if (!paymentOpen) return;
@@ -546,6 +587,142 @@
       }
     }
 
+    function showPayerMode(isPhone) {
+      var desktop = result ? result.querySelector("[data-pay-desktop]") : null;
+      var phone = result ? result.querySelector("[data-pay-phone]") : null;
+      if (desktop) desktop.hidden = !!isPhone;
+      if (phone) phone.hidden = !isPhone;
+      var launch = result ? result.querySelector("[data-pay-upi-launch]") : null;
+      if (launch && offering) {
+        launch.href = buildUpiUrl({
+          upiId: config().upiId,
+          payeeName: config().payeeName,
+          amount: offering.amount,
+          reference: offering.reference
+        });
+      }
+    }
+
+    function watchPayment(topic, since) {
+      if (paymentWatch) {
+        clearInterval(paymentWatch);
+        paymentWatch = null;
+      }
+      function poll() {
+        if (!paymentOpen || !offering || offering.paid) return;
+        fetch("https://ntfy.sh/" + encodeURIComponent(topic) + "/json?poll=1&since=" + since)
+          .then(function (response) { return response.text(); })
+          .then(function (text) {
+            if (!offering || offering.paid) return;
+            String(text || "").split("\n").forEach(function (line) {
+              if (!line || !offering || offering.paid) return;
+              var msg = null;
+              try { msg = JSON.parse(line); } catch (error) { return; }
+              if (msg && msg.event === "message" && msg.message === "paid") {
+                completePayment({ sendMail: true, publish: false });
+              }
+            });
+          })
+          .catch(function () {});
+      }
+      poll();
+      paymentWatch = root.setInterval(poll, 1000);
+    }
+
+    function armUpiReturn() {
+      if (!offering || offering.paid) return;
+      upiArmed = true;
+      try {
+        root.sessionStorage.setItem("daivaUpiReturn", JSON.stringify({
+          hiddenAt: Date.now(),
+          offering: {
+            reference: offering.reference,
+            amount: offering.amount,
+            purpose: offering.purpose,
+            name: offering.name,
+            email: offering.email,
+            phone: offering.phone,
+            note: offering.note || "",
+            method: "upi",
+            topic: offering.topic || "",
+            remotePayer: !!offering.remotePayer
+          }
+        }));
+      } catch (error) {}
+    }
+
+    function maybeFinishReturn() {
+      var raw = null;
+      try { raw = root.sessionStorage.getItem("daivaUpiReturn"); } catch (error) { return; }
+      if (!raw) return;
+      var saved = null;
+      try { saved = JSON.parse(raw); } catch (error) { return; }
+      if (!saved || !saved.offering || !saved.hiddenAt) return;
+      var elapsed = Date.now() - Number(saved.hiddenAt);
+      if (elapsed < 1500) {
+        try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
+        upiArmed = false;
+        return;
+      }
+      if (elapsed > 120000) {
+        try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
+        return;
+      }
+      try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
+      if (!offering || offering.reference !== saved.offering.reference) offering = saved.offering;
+      if (result && result.hidden) fillReceipt(offering, offering.reference);
+      completePayment({
+        sendMail: !offering.remotePayer,
+        publish: !!offering.remotePayer
+      });
+    }
+
+    function readSeva(raw) {
+      var data = decodeSession(raw);
+      if (!data) return null;
+      var amount = Number(data.amount);
+      var exp = Number(data.exp);
+      if (!data.reference || !/^DS\d{8}[A-HJ-NP-Z2-9]{4}$/.test(data.reference)) return null;
+      if (!Number.isFinite(amount) || amount < 1) return null;
+      if (PURPOSES.indexOf(data.purpose) < 0) return null;
+      if (!EMAIL_RE.test(String(data.email || ""))) return null;
+      if (!PHONE_RE.test(String(data.phone || ""))) return null;
+      if (!/^dsw[a-z0-9]{16}$/.test(String(data.token || ""))) return null;
+      if (!Number.isFinite(exp)) return null;
+      return data;
+    }
+
+    function openPayerFromLocation() {
+      var params = new URLSearchParams(root.location.search);
+      var raw = params.get("seva");
+      if (!raw) return false;
+      var data = readSeva(raw);
+      if (!data || Number(data.exp) < Date.now()) {
+        setError("payExpired");
+        return true;
+      }
+      offering = {
+        reference: data.reference,
+        amount: Number(data.amount),
+        purpose: data.purpose,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        note: data.note || "",
+        method: "upi",
+        paymentId: "",
+        topic: data.token,
+        remotePayer: true
+      };
+      fillReceipt(offering, offering.reference);
+      setReceiptMode(false);
+      showPayerMode(true);
+      startPaymentTimer(Math.max(1, Math.ceil((Number(data.exp) - Date.now()) / 1000)));
+      setError("");
+      setStatus("");
+      return true;
+    }
+
     function showUpi(value) {
       var current = config();
       if (!current.upiId) {
@@ -553,25 +730,48 @@
         return;
       }
       var reference = makeReference();
-      offering = Object.assign({ reference: reference, paymentId: "" }, value);
-      var url = buildUpiUrl({
+      var token = makeToken();
+      var exp = Date.now() + config().qrSeconds * 1000;
+      offering = Object.assign({
+        reference: reference,
+        paymentId: "",
+        method: "upi",
+        topic: token,
+        remotePayer: false
+      }, value);
+      var upiPayUrl = buildUpiUrl({
         upiId: current.upiId,
         payeeName: current.payeeName,
         amount: value.amount,
         reference: reference
       });
+      var pageUrl = sessionLink(encodeSession({
+        reference: reference,
+        amount: value.amount,
+        purpose: value.purpose,
+        name: value.name,
+        email: value.email,
+        phone: value.phone,
+        note: value.note || "",
+        token: token,
+        exp: exp
+      }));
       fillReceipt(value, reference);
       setReceiptMode(false);
-      renderQr(url);
+      showPayerMode(false);
+      renderQr(pageUrl);
       if (result) {
+        result.setAttribute("data-pay-link", pageUrl);
+        result.setAttribute("data-pay-topic", token);
         result.querySelectorAll("[data-pay-app]").forEach(function (link) {
           var app = link.getAttribute("data-pay-app");
-          link.href = appUrl(app, url);
+          link.href = appUrl(app, upiPayUrl);
         });
       }
       setError("");
       setStatus("");
       startPaymentTimer();
+      watchPayment(token, Math.floor(Date.now() / 1000) - 1);
     }
 
     function loadRazorpay() {
@@ -642,9 +842,11 @@
       });
     }
 
-    function completePayment() {
+    function completePayment(options) {
       if (!offering || offering.paid) return;
       offering.paid = true;
+      var topic = offering.topic;
+      var remote = offering.remotePayer;
       stopPaymentTimer();
       var paidAmount = document.querySelector("[data-pay-paid-amount]");
       if (paidAmount) paidAmount.textContent = formatInr(offering.amount);
@@ -653,8 +855,22 @@
         back.setAttribute("data-i18n", "payAnother");
         back.textContent = t("payAnother");
       }
+      if (result && result.hidden) fillReceipt(offering, offering.reference);
       showReceipt();
-      deliverReceipt();
+      if (!options || options.sendMail !== false) deliverReceipt();
+      else setStatus("payReceiptEmailSent", { email: offering.email });
+      if (remote && topic && (!options || options.publish !== false)) {
+        var desktopWillMail = !options || options.sendMail !== false;
+        fetch("https://ntfy.sh/" + encodeURIComponent(topic), {
+          method: "POST",
+          headers: { "Content-Type": "text/plain" },
+          body: "paid"
+        }).then(function (response) {
+          if (!desktopWillMail && (!response || !response.ok)) deliverReceipt();
+        }).catch(function () {
+          if (!desktopWillMail) deliverReceipt();
+        });
+      }
     }
 
     function deliverReceipt() {
@@ -858,6 +1074,21 @@
       frame.setAttribute("aria-hidden", "true");
       document.body.appendChild(frame);
     }
+    if (result) {
+      result.addEventListener("click", function (event) {
+        var target = event.target instanceof Element ? event.target : null;
+        if (!target) return;
+        if (target.closest("[data-pay-app], [data-pay-upi-launch]")) armUpiReturn();
+      });
+    }
+    root.addEventListener("pageshow", function (event) {
+      var nav = root.performance && root.performance.getEntriesByType && root.performance.getEntriesByType("navigation")[0];
+      if (event.persisted || (nav && nav.type === "back_forward")) maybeFinishReturn();
+    });
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible" && upiArmed) maybeFinishReturn();
+    });
+    openPayerFromLocation();
   }
 
   return {
