@@ -320,6 +320,7 @@
 
     function showForm() {
       try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
+      try { root.sessionStorage.removeItem("daivaOffering"); } catch (error) {}
       stopPaymentTimer();
       form.hidden = false;
       if (result) result.hidden = true;
@@ -373,12 +374,11 @@
 
     function expirePayment() {
       if (!paymentOpen) return;
-      try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
+      if (offering && !offering.paid) {
+        completePayment({ sendMail: true });
+        return;
+      }
       stopPaymentTimer();
-      clearOfferingForm();
-      showForm();
-      setError("payExpired");
-      if (form.scrollIntoView) form.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function startPaymentTimer(limitSeconds) {
@@ -443,6 +443,52 @@
           { ref: record.reference, id: record.paymentId || "" }
         )
       };
+    }
+
+    function persistOffering() {
+      if (!offering) return;
+      try {
+        root.sessionStorage.setItem("daivaOffering", JSON.stringify({
+          reference: offering.reference,
+          amount: offering.amount,
+          purpose: offering.purpose,
+          name: offering.name,
+          email: offering.email,
+          phone: offering.phone,
+          note: offering.note || "",
+          method: offering.method || "upi",
+          paymentId: offering.paymentId || "",
+          issuedAt: offering.issuedAt || "",
+          paid: !!offering.paid,
+          receiptEmailed: !!offering.receiptEmailed
+        }));
+      } catch (error) {}
+    }
+
+    function showOfferingRecord() {
+      var receipt = document.getElementById("pay-receipt");
+      if (!offering) return;
+      if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
+      if (receipt) receipt.hidden = false;
+      fillReceiptDocument();
+      persistOffering();
+    }
+
+    function restoreOffering() {
+      var raw = null;
+      try { raw = root.sessionStorage.getItem("daivaOffering"); } catch (error) { return false; }
+      if (!raw) return false;
+      var saved = null;
+      try { saved = JSON.parse(raw); } catch (error) { return false; }
+      if (!saved || !saved.reference || !saved.email || !saved.name) return false;
+      var mailed = !!saved.receiptEmailed;
+      offering = saved;
+      offering.paid = false;
+      offering.receiptEmailed = mailed;
+      fillReceipt(offering, offering.reference);
+      showOfferingRecord();
+      completePayment({ sendMail: !mailed });
+      return true;
     }
 
     function setReceiptMode(open) {
@@ -582,6 +628,15 @@
       if (purposeEl) purposeEl.textContent = t(PURPOSE_KEYS[value.purpose]);
       if (vpaEl) vpaEl.textContent = config().upiId;
       if (refEl) refEl.textContent = reference;
+      var savedLine = result.querySelector("[data-pay-saved]");
+      if (savedLine) {
+        savedLine.hidden = false;
+        savedLine.textContent = format(t("paySavedLine"), {
+          name: value.name || "",
+          email: value.email || "",
+          phone: value.phone || ""
+        });
+      }
       result.hidden = false;
       form.hidden = true;
       result.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -699,21 +754,21 @@
     }
 
     function maybeFinishReturn() {
-      if (offering && offering.paid) return;
+      if (offering && offering.paid) return true;
       var saved = readUpiReturn();
-      if (!saved || !saved.offering || !saved.hiddenAt) return;
+      if (!saved || !saved.offering || !saved.hiddenAt) return false;
       var elapsed = Date.now() - Number(saved.hiddenAt);
       if (elapsed < 1500) {
         saved.hiddenAt = 0;
         writeUpiReturn(saved);
-        return;
+        return false;
       }
       if (elapsed > 120000) {
         try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
         upiArmed = false;
         if (paymentOpen) expirePayment();
         else setError("payExpired");
-        return;
+        return true;
       }
       try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
       if (!offering || offering.reference !== saved.offering.reference) offering = saved.offering;
@@ -722,6 +777,7 @@
         sendMail: true,
         publish: !!offering.topic
       });
+      return true;
     }
 
     function readSeva(raw) {
@@ -812,6 +868,8 @@
       }
       setError("");
       setStatus("");
+      showOfferingRecord();
+      deliverReceipt();
       startPaymentTimer();
       if (isPhoneBrowser()) {
         armUpiReturn();
@@ -901,6 +959,7 @@
       }
       if (result && result.hidden) fillReceipt(offering, offering.reference);
       showReceipt();
+      persistOffering();
       if (!options || options.sendMail !== false) deliverReceipt();
       else setStatus("payReceiptEmailSent", { email: offering.email });
       if (topic && options && options.publish) {
@@ -916,6 +975,7 @@
       if (!offering || offering.receiptEmailed) return;
       if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
       offering.receiptEmailed = true;
+      persistOffering();
       setStatus("payReceiptSending", { email: offering.email });
       postReceiptForm(offering, receiptPlainText(offering))
         .then(function () {
@@ -1130,7 +1190,7 @@
       if (document.visibilityState === "hidden") markUpiLeft();
       else maybeFinishReturn();
     });
-    if (!openPayerFromLocation()) maybeFinishReturn();
+    if (!openPayerFromLocation() && !maybeFinishReturn()) restoreOffering();
   }
 
   return {
