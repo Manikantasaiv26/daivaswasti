@@ -1,5 +1,5 @@
 (function (root, factory) {
-  var api = factory();
+  var api = factory(root);
   if (typeof module === "object" && module.exports) {
     module.exports = api;
   }
@@ -9,7 +9,7 @@
       api.mount();
     });
   }
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   var PURPOSES = ["ksact", "annadanam", "puja", "general"];
   var PURPOSE_KEYS = {
     ksact: "payPurposeKsact",
