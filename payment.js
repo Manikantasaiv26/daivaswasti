@@ -546,18 +546,64 @@
       });
     }
 
-    function deliverReceipt(openWhatsApp) {
-      if (!offering) return;
+    function postReceiptForm(record, message) {
+      var current = config();
+      return new Promise(function (resolve) {
+        var frame = document.getElementById("pay-mail-frame");
+        var form = document.createElement("form");
+        var fields = {
+          name: record.name,
+          email: record.email,
+          phone: record.phone,
+          message: message,
+          purpose: t(PURPOSE_KEYS[record.purpose]) || record.purpose,
+          amount_inr: String(record.amount),
+          method: record.method === "card" ? t("payMethodCard") : t("payMethodUpi"),
+          reference: record.reference,
+          upi_id: record.method === "card" ? "" : current.upiId,
+          razorpay_payment_id: record.paymentId || "",
+          note: record.note || "",
+          _replyto: record.email,
+          _cc: record.email,
+          _subject: "Your Daiva Swasti offering receipt " + record.reference,
+          _template: "table",
+          _captcha: "false",
+          _autoresponse: message
+        };
+        form.method = "POST";
+        form.action = "https://formsubmit.co/" + encodeURIComponent(current.notifyEmail);
+        form.target = "pay-mail-frame";
+        form.acceptCharset = "UTF-8";
+        form.hidden = true;
+        Object.keys(fields).forEach(function (key) {
+          if (!fields[key]) return;
+          var input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          input.value = fields[key];
+          form.appendChild(input);
+        });
+        var finished = false;
+        var finish = function () {
+          if (finished) return;
+          finished = true;
+          frame.removeEventListener("load", finish);
+          resolve();
+        };
+        frame.addEventListener("load", finish);
+        document.body.appendChild(form);
+        form.submit();
+        form.remove();
+        root.setTimeout(finish, 12000);
+      });
+    }
+
+    function deliverReceipt() {
+      if (!offering || offering.receiptEmailed) return;
       if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
-      var message = receiptPlainText(offering);
-      if (openWhatsApp && !offering.whatsappOpened) {
-        offering.whatsappOpened = true;
-        root.open(whatsappReceiptUrl(offering), "_blank", "noopener,noreferrer");
-      }
-      if (offering.receiptEmailed) return;
       offering.receiptEmailed = true;
-      setStatus("payReceiptSending");
-      notifyTrust(offering, { autoresponse: message })
+      setStatus("payReceiptSending", { email: offering.email });
+      postReceiptForm(offering, receiptPlainText(offering))
         .then(function () {
           setStatus("payReceiptEmailSent", { email: offering.email });
         })
@@ -617,7 +663,7 @@
               offering.paymentId = response && response.razorpay_payment_id ? response.razorpay_payment_id : "";
               fillReceipt(value, reference);
               showReceipt();
-              deliverReceipt(false);
+              deliverReceipt();
             },
             modal: {
               ondismiss: function () {
@@ -716,7 +762,7 @@
       if (receiptButton) {
         receiptButton.addEventListener("click", function () {
           showReceipt();
-          deliverReceipt(true);
+          deliverReceipt();
         });
       }
       var printButton = result.querySelector("[data-receipt-print]");
@@ -772,6 +818,14 @@
     selectAmount(501, false);
     syncMethod();
     refreshLiveNote();
+    if (!document.getElementById("pay-mail-frame")) {
+      var frame = document.createElement("iframe");
+      frame.id = "pay-mail-frame";
+      frame.name = "pay-mail-frame";
+      frame.hidden = true;
+      frame.setAttribute("aria-hidden", "true");
+      document.body.appendChild(frame);
+    }
   }
 
   return {

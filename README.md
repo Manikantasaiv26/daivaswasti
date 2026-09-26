@@ -38,7 +38,7 @@ The **Offer** section on the home page collects a seva contribution.
 
 - **UPI** — after the trust UPI ID is set, the page shows a QR code and opens GPay, PhonePe, Paytm, or any UPI app with the amount and reference filled in.
 - **Credit or debit card** — Razorpay’s secure window collects the card. This website never asks for a card number or CVV.
-- **Receipt** — after UPI payment, choose **Payment done — receipt**. A successful card payment opens the same receipt. It is emailed to the address entered on the form, and WhatsApp opens with the same receipt for that mobile number. It can also be printed or downloaded.
+- **Receipt** — after UPI payment, choose **I have paid — email my receipt**. The receipt is emailed directly to the address entered on the form, with a copy to the trust. A successful card payment sends that email automatically. It can also be printed, downloaded, or sent on WhatsApp.
 
 To turn payments on, edit `payment-config.js`:
 

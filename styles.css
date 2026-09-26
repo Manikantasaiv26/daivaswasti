@@ -2229,6 +2229,13 @@ body[data-lang="ml"] .main-nav {
   margin-top: 0.9rem;
 }
 
+.pay-mail-note {
+  margin: 0.9rem 0 0;
+  color: #3f3f46;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 .pay-submit--receipt {
   background: #d4af37;
   color: #2a1a08;
