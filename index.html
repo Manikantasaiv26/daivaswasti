@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=91" />
+    <link rel="stylesheet" href="styles.css?v=92" />
   </head>
   <body>
     <header class="site-header">
@@ -563,7 +563,64 @@
                   <a data-pay-app="any" data-i18n="payAppAny">Any UPI app</a>
                 </div>
                 <button type="button" class="pay-submit" data-pay-notify data-i18n="payNotify">Email this reference to the trust</button>
+                <button type="button" class="pay-submit pay-submit--receipt" data-pay-receipt data-i18n="payGetReceipt">Payment done — receipt</button>
               </div>
+              <article id="pay-receipt" class="pay-receipt" hidden>
+                <p class="pay-receipt-brand">DAIVA SWASTI</p>
+                <p class="pay-receipt-blessing">Swasti No Brihaspatirdadhatu</p>
+                <h3 data-i18n="payReceiptHeading">Offering receipt</h3>
+                <dl class="pay-receipt-list">
+                  <div data-receipt-row="date">
+                    <dt data-i18n="payReceiptDate">Date</dt>
+                    <dd data-receipt-date></dd>
+                  </div>
+                  <div data-receipt-row="ref">
+                    <dt data-i18n="payReference">Reference</dt>
+                    <dd data-receipt-ref></dd>
+                  </div>
+                  <div data-receipt-row="name">
+                    <dt data-i18n="payReceiptName">Name</dt>
+                    <dd data-receipt-name></dd>
+                  </div>
+                  <div data-receipt-row="email">
+                    <dt data-i18n="payReceiptEmail">Email</dt>
+                    <dd data-receipt-email></dd>
+                  </div>
+                  <div data-receipt-row="phone">
+                    <dt data-i18n="payReceiptPhone">Mobile</dt>
+                    <dd data-receipt-phone></dd>
+                  </div>
+                  <div data-receipt-row="purpose">
+                    <dt data-i18n="payReceiptPurpose">Offering for</dt>
+                    <dd data-receipt-purpose></dd>
+                  </div>
+                  <div data-receipt-row="amount">
+                    <dt data-i18n="payReceiptAmount">Amount</dt>
+                    <dd data-receipt-amount></dd>
+                  </div>
+                  <div data-receipt-row="method">
+                    <dt data-i18n="payReceiptMethod">Paid by</dt>
+                    <dd data-receipt-method></dd>
+                  </div>
+                  <div data-receipt-row="vpa">
+                    <dt data-i18n="payUpiIdLabel">UPI ID</dt>
+                    <dd data-receipt-vpa></dd>
+                  </div>
+                  <div data-receipt-row="payment">
+                    <dt data-i18n="payReceiptPaymentId">Payment id</dt>
+                    <dd data-receipt-payment></dd>
+                  </div>
+                  <div data-receipt-row="note">
+                    <dt data-i18n="payReceiptNote">Note</dt>
+                    <dd data-receipt-note></dd>
+                  </div>
+                </dl>
+                <p class="pay-receipt-status" data-receipt-status></p>
+                <div class="pay-receipt-actions">
+                  <button type="button" class="pay-submit" data-receipt-print data-i18n="payReceiptPrint">Print receipt</button>
+                  <button type="button" class="pay-back" data-receipt-download data-i18n="payReceiptDownload">Download receipt</button>
+                </div>
+              </article>
               <p class="pay-status" data-pay-status role="status"></p>
               <button type="button" class="pay-back" data-pay-back data-i18n="payBack">Change details</button>
             </div>
@@ -747,8 +804,8 @@
 
     <script src="assets/qrcode-generator.js?v=1"></script>
     <script src="payment-config.js?v=2"></script>
-    <script src="i18n.js?v=58"></script>
+    <script src="i18n.js?v=59"></script>
     <script src="script.js?v=52"></script>
-    <script src="payment.js?v=2"></script>
+    <script src="payment.js?v=3"></script>
   </body>
 </html>

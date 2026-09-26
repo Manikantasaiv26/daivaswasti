@@ -268,7 +268,140 @@
     function showForm() {
       form.hidden = false;
       if (result) result.hidden = true;
+      setReceiptMode(false);
       offering = null;
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function formatIssuedAt(iso) {
+      var date = new Date(iso);
+      if (Number.isNaN(date.getTime())) return "";
+      try {
+        return new Intl.DateTimeFormat(undefined, {
+          dateStyle: "medium",
+          timeStyle: "short"
+        }).format(date);
+      } catch (error) {
+        return date.toLocaleString();
+      }
+    }
+
+    function receiptDetails(record) {
+      var current = config();
+      var card = record.method === "card";
+      return {
+        date: formatIssuedAt(record.issuedAt),
+        ref: record.reference,
+        name: record.name,
+        email: record.email,
+        phone: record.phone,
+        purpose: t(PURPOSE_KEYS[record.purpose]) || record.purpose,
+        amount: formatInr(record.amount),
+        method: card ? t("payMethodCard") : t("payMethodUpi"),
+        vpa: card ? "" : current.upiId,
+        payment: record.paymentId || "",
+        note: record.note || "",
+        status: format(
+          t(card ? "payReceiptStatusCard" : "payReceiptStatusUpi"),
+          { ref: record.reference, id: record.paymentId || "" }
+        )
+      };
+    }
+
+    function setReceiptMode(open) {
+      var receipt = document.getElementById("pay-receipt");
+      if (receipt) receipt.hidden = !open;
+      if (ready) ready.hidden = open;
+      if (!result) return;
+      var title = result.querySelector("h3");
+      var due = result.querySelector(".pay-amount-due");
+      var purposeLine = result.querySelector(".pay-purpose-line");
+      if (title) title.hidden = open;
+      if (due) due.hidden = open;
+      if (purposeLine) purposeLine.hidden = open;
+    }
+
+    function fillReceiptDocument() {
+      var receipt = document.getElementById("pay-receipt");
+      if (!receipt || !offering) return;
+      var details = receiptDetails(offering);
+      Object.keys(details).forEach(function (key) {
+        if (key === "status") return;
+        var row = receipt.querySelector('[data-receipt-row="' + key + '"]');
+        var cell = receipt.querySelector("[data-receipt-" + key + "]");
+        if (cell) cell.textContent = details[key];
+        if (row) row.hidden = !details[key];
+      });
+      var status = receipt.querySelector("[data-receipt-status]");
+      if (status) status.textContent = details.status;
+    }
+
+    function receiptFileHtml(record) {
+      var details = receiptDetails(record);
+      var rows = [
+        ["payReceiptDate", details.date],
+        ["payReference", details.ref],
+        ["payReceiptName", details.name],
+        ["payReceiptEmail", details.email],
+        ["payReceiptPhone", details.phone],
+        ["payReceiptPurpose", details.purpose],
+        ["payReceiptAmount", details.amount],
+        ["payReceiptMethod", details.method],
+        ["payUpiIdLabel", details.vpa],
+        ["payReceiptPaymentId", details.payment],
+        ["payReceiptNote", details.note]
+      ].filter(function (row) {
+        return row[1];
+      }).map(function (row) {
+        return "<tr><th>" + escapeHtml(t(row[0])) + "</th><td>" + escapeHtml(row[1]) + "</td></tr>";
+      }).join("");
+      return "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>" +
+        escapeHtml(t("payReceiptHeading") + " " + record.reference) +
+        "</title><style>body{font-family:Georgia,serif;color:#171717;margin:2rem auto;max-width:640px}h1{font-family:Arial,sans-serif;letter-spacing:.14em;font-size:1rem;color:#4a1740}p.bless{color:#9a3412}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.55rem 0;border-top:1px solid #eadfce;vertical-align:top}th{width:34%;color:#57534e;font-weight:600}</style></head><body><h1>DAIVA SWASTI</h1><p class=\"bless\">Swasti No Brihaspatirdadhatu</p><h2>" +
+        escapeHtml(t("payReceiptHeading")) +
+        "</h2><table>" + rows + "</table><p>" + escapeHtml(details.status) + "</p></body></html>";
+    }
+
+    function showReceipt() {
+      if (!offering) return;
+      if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
+      fillReceiptDocument();
+      setReceiptMode(true);
+      var receipt = document.getElementById("pay-receipt");
+      if (receipt) receipt.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function printReceipt() {
+      document.body.classList.add("pay-printing");
+      var cleanup = function () {
+        document.body.classList.remove("pay-printing");
+        root.removeEventListener("afterprint", cleanup);
+      };
+      root.addEventListener("afterprint", cleanup);
+      root.print();
+    }
+
+    function downloadReceipt() {
+      if (!offering) return;
+      if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
+      var blob = new Blob([receiptFileHtml(offering)], { type: "text/html;charset=utf-8" });
+      var link = document.createElement("a");
+      var url = URL.createObjectURL(blob);
+      link.href = url;
+      link.download = "Daiva-Swasti-" + offering.reference + ".html";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      root.setTimeout(function () {
+        URL.revokeObjectURL(url);
+      }, 1000);
     }
 
     function fillReceipt(value, reference) {
@@ -323,7 +456,7 @@
         reference: reference
       });
       fillReceipt(value, reference);
-      if (ready) ready.hidden = false;
+      setReceiptMode(false);
       renderQr(url);
       if (result) {
         result.querySelectorAll("[data-pay-app]").forEach(function (link) {
@@ -428,7 +561,7 @@
             handler: function (response) {
               offering.paymentId = response && response.razorpay_payment_id ? response.razorpay_payment_id : "";
               fillReceipt(value, reference);
-              if (ready) ready.hidden = true;
+              showReceipt();
               notifyTrust(offering)
                 .then(function () {
                   setStatus("payCardSuccess", {
@@ -536,6 +669,17 @@
         });
       });
 
+      var receiptButton = result.querySelector("[data-pay-receipt]");
+      if (receiptButton) {
+        receiptButton.addEventListener("click", function () {
+          showReceipt();
+        });
+      }
+      var printButton = result.querySelector("[data-receipt-print]");
+      if (printButton) printButton.addEventListener("click", printReceipt);
+      var downloadButton = result.querySelector("[data-receipt-download]");
+      if (downloadButton) downloadButton.addEventListener("click", downloadReceipt);
+
       var notify = result.querySelector("[data-pay-notify]");
       if (notify) {
         notify.addEventListener("click", function () {
@@ -564,6 +708,8 @@
       if (offering && result) {
         var purposeEl = result.querySelector("[data-pay-purpose-label]");
         if (purposeEl) purposeEl.textContent = t(PURPOSE_KEYS[offering.purpose]);
+        var receipt = document.getElementById("pay-receipt");
+        if (receipt && !receipt.hidden) fillReceiptDocument();
       }
     });
 

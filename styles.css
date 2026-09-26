@@ -2038,7 +2038,12 @@ body[data-lang="ml"] .main-nav {
 .pay-setup[hidden],
 #payment-form[hidden],
 #pay-result[hidden],
-[data-pay-ready][hidden] {
+#pay-receipt[hidden],
+.pay-result h3[hidden],
+.pay-amount-due[hidden],
+.pay-purpose-line[hidden],
+[data-pay-ready][hidden],
+.pay-receipt-list div[hidden] {
   display: none !important;
 }
 
@@ -2222,6 +2227,121 @@ body[data-lang="ml"] .main-nav {
 
 .pay-back {
   margin-top: 0.9rem;
+}
+
+.pay-submit--receipt {
+  background: #d4af37;
+  color: #2a1a08;
+}
+
+.pay-submit--receipt:hover:not(:disabled) {
+  background: #e3c35a;
+}
+
+.pay-receipt {
+  margin-top: 0.5rem;
+  padding: 1.1rem 1rem 1rem;
+  border: 1px solid rgba(74, 23, 64, 0.16);
+  border-radius: 14px;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #d4af37, #4a1740) border-box;
+  border: 1px solid transparent;
+}
+
+.pay-receipt-brand,
+.pay-receipt-blessing {
+  margin: 0;
+  text-align: center;
+}
+
+.pay-receipt-brand {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #4a1740;
+}
+
+.pay-receipt-blessing {
+  margin-top: 0.2rem;
+  color: #9a3412;
+  font-size: 0.92rem;
+}
+
+.pay-receipt h3 {
+  margin: 0.65rem 0 0.85rem;
+  text-align: center;
+  font-size: 1.35rem;
+  color: #171717;
+}
+
+.pay-receipt-list {
+  margin: 0;
+}
+
+.pay-receipt-list div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 34%) 1fr;
+  gap: 0.35rem 0.75rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid rgba(74, 23, 64, 0.1);
+}
+
+.pay-receipt-list dt {
+  margin: 0;
+  color: #57534e;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.pay-receipt-list dd {
+  margin: 0;
+  color: #171717;
+  font-weight: 650;
+  word-break: break-word;
+}
+
+.pay-receipt-status {
+  margin: 0.85rem 0 0;
+  color: #3f3f46;
+  font-size: 0.92rem;
+}
+
+.pay-receipt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.pay-receipt-actions .pay-submit,
+.pay-receipt-actions .pay-back {
+  margin-top: 0;
+}
+
+@media print {
+  body.pay-printing * {
+    visibility: hidden;
+  }
+
+  body.pay-printing .pay-receipt,
+  body.pay-printing .pay-receipt * {
+    visibility: visible;
+  }
+
+  body.pay-printing .pay-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 0;
+    box-shadow: none;
+  }
+
+  body.pay-printing .pay-receipt-actions {
+    display: none !important;
+  }
 }
 
 .pay-inline-link {
