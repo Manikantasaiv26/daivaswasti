@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return strings[key] ?? i18n.strings.en[key] ?? null;
   }
 
+  window.daivaT = t;
+
   function applyLanguage(lang) {
     if (!supported.has(lang)) {
       lang = "en";
@@ -95,6 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (status) {
       status.textContent = "";
     }
+
+    document.dispatchEvent(
+      new CustomEvent("daiva:language", { detail: { lang: currentLang } })
+    );
   }
 
   const dropdownClosers = [];

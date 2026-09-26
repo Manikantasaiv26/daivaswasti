@@ -32,9 +32,25 @@ If Pages was turned off (for example after changing visibility), re-enable it un
 
 Free GitHub Pages cannot serve a public site from a private repository. If you need a private repo later, use `.github/workflows/deploy-cloudflare.yml` with Cloudflare secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) and point the domain to Cloudflare Pages. See the workflow file for project name `daivaswasti`.
 
+## Offerings (UPI and card)
+
+The **Offer** section on the home page collects a seva contribution.
+
+- **UPI** — after the trust UPI ID is set, the page shows a QR code and opens GPay, PhonePe, Paytm, or any UPI app with the amount and reference filled in.
+- **Credit or debit card** — Razorpay’s secure window collects the card. This website never asks for a card number or CVV.
+
+To turn payments on, edit `payment-config.js`:
+
+- `upiId` — the trust VPA, for example `ksact@oksbi`
+- `razorpayKeyId` — the public Key ID from the Razorpay dashboard (`rzp_test_...` or `rzp_live_...`)
+
+Leave the Razorpay Key Secret off this site. Static hosting cannot safely create server-side orders, so card payments use Razorpay Checkout directly. UPI is confirmed when the transfer reaches the trust account; the optional email only sends the reference to `pranam@daivaswasti.org`.
+
 ## Project structure
 
 - `index.html` — page markup
 - `styles.css` — layout and styling
 - `script.js` — form handling and year stamp
-- `assets/` — logo, favicons, and images
+- `payment-config.js` — UPI ID and Razorpay Key ID
+- `payment.js` — offerings checkout
+- `assets/` — logo, favicons, images, and the QR code generator

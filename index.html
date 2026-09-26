@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=88" />
+    <link rel="stylesheet" href="styles.css?v=89" />
   </head>
   <body>
     <header class="site-header">
@@ -143,6 +143,7 @@
               </ul>
             </div>
 
+            <a href="#contribute" data-i18n="navContribute">OFFER</a>
             <a href="#contact" data-i18n="navContact">CONTACT</a>
             <a class="talk-btn" href="#contact" data-i18n="navTalk">TALK TO US</a>
           </nav>
@@ -304,6 +305,9 @@
                 KSACT motto is Recognizing Talent – Supporting Education – Transforming Lives
               </li>
             </ul>
+            <p class="pay-inline-link">
+              <a href="#contribute" data-pay-purpose="ksact" data-i18n="payLinkKsact">Support a student</a>
+            </p>
           </article>
         </div>
       </section>
@@ -402,7 +406,153 @@
                   May all beings be blissful with good health, wisdom, caring, sharing, mind peace and happy.
                 </li>
               </ul>
+              <p class="pay-inline-link">
+                <a href="#contribute" data-pay-purpose="annadanam" data-i18n="payLinkSeva">Offer annadanam</a>
+              </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contribute" class="section soft-section">
+        <div class="container">
+          <header class="panel-header">
+            <p class="panel-eyebrow" data-i18n="payEyebrow">Seva</p>
+            <h2 class="panel-title" data-i18n="payTitle">Support the work</h2>
+            <p class="panel-intro" data-i18n="payIntro">
+              Contributions sustain KSACT student support, annadanam, and sacred observances. Pay by UPI, or by credit or debit card on Razorpay's secure page. Card numbers are never typed into this website.
+            </p>
+          </header>
+
+          <div class="pay-layout">
+            <p id="pay-setup-note" class="pay-setup" hidden></p>
+
+            <form id="payment-form" class="pay-card" novalidate>
+              <fieldset>
+                <legend data-i18n="payPurposeLabel">Offering for</legend>
+                <div class="pay-purpose-grid">
+                  <label class="pay-choice">
+                    <input type="radio" name="purpose" value="ksact" checked />
+                    <span data-i18n="payPurposeKsact">KSACT student education</span>
+                  </label>
+                  <label class="pay-choice">
+                    <input type="radio" name="purpose" value="annadanam" />
+                    <span data-i18n="payPurposeAnnadanam">Annadanam</span>
+                  </label>
+                  <label class="pay-choice">
+                    <input type="radio" name="purpose" value="puja" />
+                    <span data-i18n="payPurposePuja">Puja and rituals</span>
+                  </label>
+                  <label class="pay-choice">
+                    <input type="radio" name="purpose" value="general" />
+                    <span data-i18n="payPurposeGeneral">General seva</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend data-i18n="payAmountLabel">Amount (INR)</legend>
+                <div class="pay-amounts">
+                  <button type="button" class="pay-amount is-selected" data-amount="501" aria-pressed="true">₹501</button>
+                  <button type="button" class="pay-amount" data-amount="1100" aria-pressed="false">₹1,100</button>
+                  <button type="button" class="pay-amount" data-amount="2100" aria-pressed="false">₹2,100</button>
+                  <button type="button" class="pay-amount" data-amount="5100" aria-pressed="false">₹5,100</button>
+                  <button type="button" class="pay-amount" data-amount="custom" aria-pressed="false" data-i18n="payCustomAmount">Other amount</button>
+                </div>
+                <label class="pay-custom" data-custom-amount hidden>
+                  <span class="sr-only" data-i18n="payCustomAmount">Other amount</span>
+                  <input
+                    id="pay-custom-amount"
+                    name="amount"
+                    type="number"
+                    inputmode="numeric"
+                    min="101"
+                    max="200000"
+                    step="1"
+                    placeholder="101"
+                  />
+                </label>
+              </fieldset>
+
+              <div class="pay-fields">
+                <label>
+                  <span data-i18n="payName">Name</span>
+                  <input id="pay-name" name="name" type="text" autocomplete="name" maxlength="80" required />
+                </label>
+                <label>
+                  <span data-i18n="payEmail">Email</span>
+                  <input id="pay-email" name="email" type="email" autocomplete="email" required />
+                </label>
+                <label>
+                  <span data-i18n="payPhone">Mobile number</span>
+                  <input id="pay-phone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="14" required />
+                </label>
+                <label class="pay-note-field">
+                  <span data-i18n="payNote">Sankalpa or note (optional)</span>
+                  <textarea id="pay-note" name="note" rows="3" maxlength="160" data-i18n-placeholder="payNotePlaceholder" placeholder="In gratitude, in memory, or a short prayer"></textarea>
+                </label>
+              </div>
+
+              <fieldset>
+                <legend data-i18n="payMethodLabel">How would you like to offer?</legend>
+                <div class="pay-methods">
+                  <label class="pay-choice">
+                    <input type="radio" name="method" value="upi" checked />
+                    <span data-i18n="payMethodUpi">UPI</span>
+                  </label>
+                  <label class="pay-choice">
+                    <input type="radio" name="method" value="card" />
+                    <span data-i18n="payMethodCard">Credit / debit card</span>
+                  </label>
+                </div>
+                <p class="pay-hint" data-pay-hint="upi" data-i18n="payUpiHint">
+                  Scan the QR or open your UPI app. The amount and reference are filled in for you.
+                </p>
+                <p class="pay-hint" data-pay-hint="card" data-i18n="payCardHint" hidden>
+                  You enter card details only on Razorpay, the payment partner. This site never sees your card number or CVV.
+                </p>
+              </fieldset>
+
+              <p id="pay-error" class="pay-error" role="alert"></p>
+              <button type="submit" class="pay-submit" data-pay-submit="upi" data-i18n="payContinueUpi">Continue with UPI</button>
+              <button type="submit" class="pay-submit" data-pay-submit="card" data-i18n="payContinueCard" hidden>Continue to card payment</button>
+              <p class="pay-secure" data-i18n="paySecureNote">
+                Offerings are voluntary. UPI is confirmed when it reaches the trust account. Card payments are confirmed by Razorpay.
+              </p>
+            </form>
+
+            <div id="pay-result" class="pay-card pay-result" hidden>
+              <h3 data-i18n="payReceiptTitle">Your offering</h3>
+              <p class="pay-amount-due">
+                <span data-i18n="payAmountDue">Amount to pay</span>
+                <strong data-pay-amount></strong>
+              </p>
+              <p class="pay-purpose-line" data-pay-purpose-label></p>
+              <div data-pay-ready>
+                <div class="pay-qr" data-pay-qr role="img" aria-label="UPI QR code"></div>
+                <p class="pay-scan" data-i18n="payScan">Scan to pay</p>
+                <div class="pay-id-row">
+                  <span data-i18n="payUpiIdLabel">UPI ID</span>
+                  <code data-pay-vpa></code>
+                  <button type="button" class="pay-copy" data-copy="vpa" data-i18n="payCopy">Copy</button>
+                </div>
+                <div class="pay-id-row">
+                  <span data-i18n="payReference">Reference</span>
+                  <code data-pay-ref></code>
+                  <button type="button" class="pay-copy" data-copy="ref" data-i18n="payCopy">Copy</button>
+                </div>
+                <p class="pay-apps-label" data-i18n="payOpenApp">Open a UPI app</p>
+                <div class="pay-apps">
+                  <a data-pay-app="gpay" data-i18n="payAppGpay">GPay</a>
+                  <a data-pay-app="phonepe" data-i18n="payAppPhonepe">PhonePe</a>
+                  <a data-pay-app="paytm" data-i18n="payAppPaytm">Paytm</a>
+                  <a data-pay-app="any" data-i18n="payAppAny">Any UPI app</a>
+                </div>
+                <button type="button" class="pay-submit" data-pay-notify data-i18n="payNotify">Email this reference to the trust</button>
+              </div>
+              <p class="pay-status" data-pay-status role="status"></p>
+              <button type="button" class="pay-back" data-pay-back data-i18n="payBack">Change details</button>
+            </div>
           </div>
         </div>
       </section>
@@ -524,6 +674,7 @@
         <div class="footer-col">
           <h4 data-i18n="footerContact">Contact</h4>
           <a class="footer-email" href="mailto:pranam@daivaswasti.org">pranam@daivaswasti.org</a>
+          <a href="#contribute" data-i18n="footerOffer">Offer seva</a>
           <a href="#contact" data-i18n="footerForm">Contact form</a>
         </div>
       </div>
@@ -580,7 +731,10 @@
       </div>
     </footer>
 
-    <script src="i18n.js?v=55"></script>
-    <script src="script.js?v=51"></script>
+    <script src="assets/qrcode-generator.js?v=1"></script>
+    <script src="payment-config.js?v=1"></script>
+    <script src="i18n.js?v=56"></script>
+    <script src="script.js?v=52"></script>
+    <script src="payment.js?v=1"></script>
   </body>
 </html>
