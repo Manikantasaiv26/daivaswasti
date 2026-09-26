@@ -105,6 +105,21 @@
     return (APP_PREFIX[app] || APP_PREFIX.any) + query;
   }
 
+  function isPhoneBrowser() {
+    var ua = (root.navigator && root.navigator.userAgent) || "";
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+  }
+
+  function openUpiApp(url) {
+    if (!url || typeof document === "undefined" || !document.body) return;
+    var link = document.createElement("a");
+    link.href = url;
+    link.hidden = true;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
   function makeReference(date, random) {
     var now = date || new Date();
     var y = now.getFullYear();
@@ -320,6 +335,7 @@
     function stopPaymentTimer() {
       paymentOpen = false;
       upiArmed = false;
+      try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
       if (paymentTimer) {
         clearInterval(paymentTimer);
         paymentTimer = null;
@@ -357,6 +373,7 @@
 
     function expirePayment() {
       if (!paymentOpen) return;
+      try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
       stopPaymentTimer();
       clearOfferingForm();
       showForm();
@@ -372,9 +389,14 @@
       paymentOpen = true;
       function tick() {
         if (!paymentOpen) return;
+        if (typeof document === "undefined" || document.visibilityState !== "hidden") maybeFinishReturn();
+        if (!paymentOpen) return;
         var secondsLeft = Math.max(0, Math.ceil((endsAt - Date.now()) / 1000));
         renderTimer(secondsLeft);
-        if (secondsLeft <= 0) expirePayment();
+        if (secondsLeft <= 0) {
+          if (document.visibilityState === "hidden" && upiArmed) return;
+          expirePayment();
+        }
       }
       tick();
       paymentTimer = root.setInterval(tick, 250);
@@ -619,7 +641,7 @@
               var msg = null;
               try { msg = JSON.parse(line); } catch (error) { return; }
               if (msg && msg.event === "message" && msg.message === "paid") {
-                completePayment({ sendMail: true, publish: false });
+                completePayment({ sendMail: false, publish: false });
               }
             });
           })
@@ -629,51 +651,76 @@
       paymentWatch = root.setInterval(poll, 1000);
     }
 
+    function offeringSnapshot() {
+      return {
+        reference: offering.reference,
+        amount: offering.amount,
+        purpose: offering.purpose,
+        name: offering.name,
+        email: offering.email,
+        phone: offering.phone,
+        note: offering.note || "",
+        method: "upi",
+        topic: offering.topic || "",
+        remotePayer: !!offering.remotePayer
+      };
+    }
+
+    function readUpiReturn() {
+      try {
+        var raw = root.sessionStorage.getItem("daivaUpiReturn");
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function writeUpiReturn(data) {
+      try { root.sessionStorage.setItem("daivaUpiReturn", JSON.stringify(data)); } catch (error) {}
+    }
+
     function armUpiReturn() {
       if (!offering || offering.paid) return;
       upiArmed = true;
-      try {
-        root.sessionStorage.setItem("daivaUpiReturn", JSON.stringify({
-          hiddenAt: Date.now(),
-          offering: {
-            reference: offering.reference,
-            amount: offering.amount,
-            purpose: offering.purpose,
-            name: offering.name,
-            email: offering.email,
-            phone: offering.phone,
-            note: offering.note || "",
-            method: "upi",
-            topic: offering.topic || "",
-            remotePayer: !!offering.remotePayer
-          }
-        }));
-      } catch (error) {}
+      var existing = readUpiReturn();
+      writeUpiReturn({
+        hiddenAt: existing && existing.offering && existing.offering.reference === offering.reference ? Number(existing.hiddenAt) || 0 : 0,
+        offering: offeringSnapshot()
+      });
+    }
+
+    function markUpiLeft() {
+      if (!upiArmed || !offering || offering.paid) return;
+      writeUpiReturn({
+        hiddenAt: Date.now(),
+        offering: offeringSnapshot()
+      });
     }
 
     function maybeFinishReturn() {
-      var raw = null;
-      try { raw = root.sessionStorage.getItem("daivaUpiReturn"); } catch (error) { return; }
-      if (!raw) return;
-      var saved = null;
-      try { saved = JSON.parse(raw); } catch (error) { return; }
+      if (offering && offering.paid) return;
+      var saved = readUpiReturn();
       if (!saved || !saved.offering || !saved.hiddenAt) return;
       var elapsed = Date.now() - Number(saved.hiddenAt);
       if (elapsed < 1500) {
-        try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
-        upiArmed = false;
+        saved.hiddenAt = 0;
+        writeUpiReturn(saved);
         return;
       }
       if (elapsed > 120000) {
         try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
+        upiArmed = false;
+        if (paymentOpen) expirePayment();
+        else setError("payExpired");
         return;
       }
       try { root.sessionStorage.removeItem("daivaUpiReturn"); } catch (error) {}
       if (!offering || offering.reference !== saved.offering.reference) offering = saved.offering;
       if (result && result.hidden) fillReceipt(offering, offering.reference);
       completePayment({
-        sendMail: !offering.remotePayer,
-        publish: !!offering.remotePayer
+        sendMail: true,
+        publish: !!offering.topic
       });
     }
 
@@ -720,6 +767,15 @@
       startPaymentTimer(Math.max(1, Math.ceil((Number(data.exp) - Date.now()) / 1000)));
       setError("");
       setStatus("");
+      armUpiReturn();
+      if (isPhoneBrowser()) {
+        openUpiApp(buildUpiUrl({
+          upiId: config().upiId,
+          payeeName: config().payeeName,
+          amount: offering.amount,
+          reference: offering.reference
+        }));
+      }
       return true;
     }
 
@@ -757,6 +813,10 @@
       setError("");
       setStatus("");
       startPaymentTimer();
+      if (isPhoneBrowser()) {
+        armUpiReturn();
+        openUpiApp(upiPayUrl);
+      }
     }
 
     function loadRazorpay() {
@@ -831,7 +891,6 @@
       if (!offering || offering.paid) return;
       offering.paid = true;
       var topic = offering.topic;
-      var remote = offering.remotePayer;
       stopPaymentTimer();
       var paidAmount = document.querySelector("[data-pay-paid-amount]");
       if (paidAmount) paidAmount.textContent = formatInr(offering.amount);
@@ -844,17 +903,12 @@
       showReceipt();
       if (!options || options.sendMail !== false) deliverReceipt();
       else setStatus("payReceiptEmailSent", { email: offering.email });
-      if (remote && topic && (!options || options.publish !== false)) {
-        var desktopWillMail = !options || options.sendMail !== false;
+      if (topic && options && options.publish) {
         fetch("https://ntfy.sh/" + encodeURIComponent(topic), {
           method: "POST",
           headers: { "Content-Type": "text/plain" },
           body: "paid"
-        }).then(function (response) {
-          if (!desktopWillMail && (!response || !response.ok)) deliverReceipt();
-        }).catch(function () {
-          if (!desktopWillMail) deliverReceipt();
-        });
+        }).catch(function () {});
       }
     }
 
@@ -1066,14 +1120,17 @@
         if (target.closest("[data-pay-app], [data-pay-upi-launch]")) armUpiReturn();
       });
     }
-    root.addEventListener("pageshow", function (event) {
-      var nav = root.performance && root.performance.getEntriesByType && root.performance.getEntriesByType("navigation")[0];
-      if (event.persisted || (nav && nav.type === "back_forward")) maybeFinishReturn();
+    root.addEventListener("pagehide", function () {
+      markUpiLeft();
+    });
+    root.addEventListener("pageshow", function () {
+      maybeFinishReturn();
     });
     document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "visible" && upiArmed) maybeFinishReturn();
+      if (document.visibilityState === "hidden") markUpiLeft();
+      else maybeFinishReturn();
     });
-    openPayerFromLocation();
+    if (!openPayerFromLocation()) maybeFinishReturn();
   }
 
   return {
