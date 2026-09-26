@@ -65,6 +65,8 @@
     if (!Number.isFinite(minAmount) || minAmount < 1) minAmount = 101;
     if (!Number.isFinite(maxAmount) || maxAmount < minAmount) maxAmount = 200000;
     var payeeName = String(raw.payeeName || "Daiva Swasti").trim().slice(0, 50);
+    var qrSeconds = Number(raw.qrSeconds);
+    if (!Number.isFinite(qrSeconds) || qrSeconds < 1 || qrSeconds > 600) qrSeconds = 60;
     return {
       payeeName: payeeName || "Daiva Swasti",
       upiId: UPI_RE.test(upiId) ? upiId : "",
@@ -73,7 +75,8 @@
       razorpayKeyInvalid: Boolean(razorpayKeyId) && !KEY_RE.test(razorpayKeyId),
       minAmount: minAmount,
       maxAmount: maxAmount,
-      notifyEmail: String(raw.notifyEmail || "pranam@daivaswasti.org").trim()
+      notifyEmail: String(raw.notifyEmail || "pranam@daivaswasti.org").trim(),
+      qrSeconds: qrSeconds
     };
   }
 
@@ -176,6 +179,8 @@
     var busy = false;
     var statusState = null;
     var offering = null;
+    var paymentTimer = null;
+    var paymentOpen = false;
 
     var errorEl = document.getElementById("pay-error");
     var liveNote = document.getElementById("pay-setup-note");
@@ -266,10 +271,67 @@
     }
 
     function showForm() {
+      stopPaymentTimer();
       form.hidden = false;
       if (result) result.hidden = true;
       setReceiptMode(false);
       offering = null;
+    }
+
+    function stopPaymentTimer() {
+      paymentOpen = false;
+      if (paymentTimer) {
+        clearInterval(paymentTimer);
+        paymentTimer = null;
+      }
+    }
+
+    function twoDigits(value) {
+      return (value < 10 ? "0" : "") + value;
+    }
+
+    function renderTimer(secondsLeft) {
+      var timer = result ? result.querySelector("[data-pay-timer]") : null;
+      if (!timer) return;
+      timer.textContent = twoDigits(Math.floor(secondsLeft / 60)) + ":" + twoDigits(secondsLeft % 60);
+      timer.classList.toggle("is-low", secondsLeft <= 15);
+    }
+
+    function clearOfferingForm() {
+      ["#pay-name", "#pay-email", "#pay-phone", "#pay-note"].forEach(function (selector) {
+        var field = form.querySelector(selector);
+        if (field) field.value = "";
+      });
+      if (customInput) customInput.value = "";
+      var purpose = form.querySelector('input[name="purpose"][value="ksact"]');
+      if (purpose) purpose.checked = true;
+      var method = form.querySelector('input[name="method"][value="upi"]');
+      if (method) method.checked = true;
+      selectAmount(501, false);
+      syncMethod();
+    }
+
+    function expirePayment() {
+      if (!paymentOpen) return;
+      stopPaymentTimer();
+      clearOfferingForm();
+      showForm();
+      setError("payExpired");
+      if (form.scrollIntoView) form.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function startPaymentTimer() {
+      stopPaymentTimer();
+      var endsAt = Date.now() + config().qrSeconds * 1000;
+      paymentOpen = true;
+      function tick() {
+        if (!paymentOpen) return;
+        var secondsLeft = Math.max(0, Math.ceil((endsAt - Date.now()) / 1000));
+        renderTimer(secondsLeft);
+        if (secondsLeft <= 0) expirePayment();
+      }
+      tick();
+      paymentTimer = root.setInterval(tick, 250);
     }
 
     function escapeHtml(value) {
@@ -498,6 +560,7 @@
       }
       setError("");
       setStatus("");
+      startPaymentTimer();
     }
 
     function loadRazorpay() {
@@ -761,6 +824,7 @@
       var receiptButton = result.querySelector("[data-pay-receipt]");
       if (receiptButton) {
         receiptButton.addEventListener("click", function () {
+          stopPaymentTimer();
           showReceipt();
           deliverReceipt();
         });
