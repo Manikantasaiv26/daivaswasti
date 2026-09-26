@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=95" />
+    <link rel="stylesheet" href="styles.css?v=96" />
   </head>
   <body>
     <header class="site-header">
@@ -566,9 +566,15 @@
                   <a data-pay-app="paytm" data-i18n="payAppPaytm">Paytm</a>
                   <a data-pay-app="any" data-i18n="payAppAny">Any UPI app</a>
                 </div>
-                <p class="pay-mail-note" data-i18n="payMailNote">This QR is valid for 1 minute. After you pay, press the button. The receipt is emailed to the address you entered, with your name and mobile number. If the minute ends, fill in the form again.</p>
-                <button type="button" class="pay-submit" data-pay-notify data-i18n="payNotify">Email this reference to the trust</button>
-                <button type="button" class="pay-submit pay-submit--receipt" data-pay-receipt data-i18n="payGetReceipt">I have paid — email my receipt</button>
+                <p class="pay-mail-note" data-i18n="payMailNote">This code is valid for 1 minute. Pay in your UPI app before it ends. If the minute ends, fill in the form again.</p>
+              </div>
+              <div id="pay-paid" class="pay-paid" hidden>
+                <div class="pay-paid-mark" aria-hidden="true"></div>
+                <p class="pay-paid-kicker" data-i18n="payPaidKicker">Payment received</p>
+                <h3 data-i18n="payPaidTitle">You have paid</h3>
+                <p class="pay-paid-amount" data-pay-paid-amount></p>
+                <p class="pay-paid-words" data-i18n="payPaidWords">Your offering has reached Daiva Swasti. May it return to you as peace, good health, and grace.</p>
+                <p class="pay-paid-mail" data-i18n="payPaidMail">Your receipt is on its way to your email, with your name and mobile number. The payment code is closed.</p>
               </div>
               <article id="pay-receipt" class="pay-receipt" hidden>
                 <p class="pay-receipt-brand">DAIVA SWASTI</p>
@@ -810,8 +816,8 @@
 
     <script src="assets/qrcode-generator.js?v=1"></script>
     <script src="payment-config.js?v=2"></script>
-    <script src="i18n.js?v=62"></script>
+    <script src="i18n.js?v=63"></script>
     <script src="script.js?v=52"></script>
-    <script src="payment.js?v=6"></script>
+    <script src="payment.js?v=7"></script>
   </body>
 </html>

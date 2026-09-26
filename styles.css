@@ -2038,6 +2038,7 @@ body[data-lang="ml"] .main-nav {
 .pay-setup[hidden],
 #payment-form[hidden],
 #pay-result[hidden],
+#pay-paid[hidden],
 #pay-receipt[hidden],
 .pay-result h3[hidden],
 .pay-amount-due[hidden],
@@ -2259,13 +2260,63 @@ body[data-lang="ml"] .main-nav {
   text-align: center;
 }
 
-.pay-submit--receipt {
-  background: #d4af37;
-  color: #2a1a08;
+.pay-paid {
+  margin-top: 0.75rem;
+  padding: 1.35rem 1rem 0.4rem;
+  text-align: center;
 }
 
-.pay-submit--receipt:hover:not(:disabled) {
-  background: #e3c35a;
+.pay-paid-mark {
+  position: relative;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin: 0 auto 0.75rem;
+  border-radius: 50%;
+  background: #166534;
+}
+
+.pay-paid-mark::after {
+  content: "";
+  position: absolute;
+  left: 1.22rem;
+  top: 0.72rem;
+  width: 0.72rem;
+  height: 1.25rem;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.pay-paid-kicker {
+  margin: 0;
+  color: #9a3412;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pay-paid h3 {
+  margin: 0.35rem 0 0.2rem;
+  color: var(--deep-purple);
+  font-size: 1.85rem;
+}
+
+.pay-paid-amount {
+  margin: 0;
+  color: #166534;
+  font-family: Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.pay-paid-words,
+.pay-paid-mail {
+  max-width: 36rem;
+  margin: 0.75rem auto 0;
+  color: #3f3f46;
+  line-height: 1.55;
 }
 
 .pay-receipt {

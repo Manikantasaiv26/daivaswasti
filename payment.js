@@ -276,6 +276,11 @@
       if (result) result.hidden = true;
       setReceiptMode(false);
       offering = null;
+      var back = result ? result.querySelector("[data-pay-back]") : null;
+      if (back) {
+        back.setAttribute("data-i18n", "payBack");
+        back.textContent = t("payBack");
+      }
     }
 
     function stopPaymentTimer() {
@@ -379,10 +384,12 @@
 
     function setReceiptMode(open) {
       var receipt = document.getElementById("pay-receipt");
+      var paid = document.getElementById("pay-paid");
       if (receipt) receipt.hidden = !open;
+      if (paid) paid.hidden = !open;
       if (ready) ready.hidden = open;
       if (!result) return;
-      var title = result.querySelector("h3");
+      var title = result.querySelector("[data-i18n='payReceiptTitle']");
       var due = result.querySelector(".pay-amount-due");
       var purposeLine = result.querySelector(".pay-purpose-line");
       if (title) title.hidden = open;
@@ -439,6 +446,9 @@
         "DAIVA SWASTI",
         "Swasti No Brihaspatirdadhatu",
         "",
+        t("payPaidTitle"),
+        t("payPaidWords"),
+        "",
         t("payReceiptHeading"),
         "",
         t("payReceiptDate") + ": " + details.date,
@@ -468,8 +478,9 @@
       if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
       fillReceiptDocument();
       setReceiptMode(true);
-      var receipt = document.getElementById("pay-receipt");
-      if (receipt) receipt.scrollIntoView({ behavior: "smooth", block: "start" });
+      var paid = document.getElementById("pay-paid");
+      var target = paid && !paid.hidden ? paid : document.getElementById("pay-receipt");
+      if (target && target.scrollIntoView) target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function printReceipt() {
@@ -579,36 +590,6 @@
       });
     }
 
-    function notifyTrust(payload, options) {
-      var current = config();
-      var body = {
-        name: payload.name,
-        email: payload.email,
-        phone: payload.phone,
-        purpose: t(PURPOSE_KEYS[payload.purpose]) || payload.purpose,
-        amount_inr: payload.amount,
-        method: payload.method,
-        reference: payload.reference,
-        razorpay_payment_id: payload.paymentId || "",
-        note: payload.note || "",
-        _subject: "Your Daiva Swasti offering receipt " + payload.reference,
-        _template: "table",
-        _captcha: "false"
-      };
-      if (options && options.autoresponse) body._autoresponse = options.autoresponse;
-      return fetch("https://formsubmit.co/ajax/" + encodeURIComponent(current.notifyEmail), {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify(body)
-      }).then(function (response) {
-        if (!response.ok) throw new Error("Notify failed");
-        return response;
-      });
-    }
-
     function postReceiptForm(record, message) {
       var current = config();
       return new Promise(function (resolve) {
@@ -659,6 +640,21 @@
         form.remove();
         root.setTimeout(finish, 12000);
       });
+    }
+
+    function completePayment() {
+      if (!offering || offering.paid) return;
+      offering.paid = true;
+      stopPaymentTimer();
+      var paidAmount = document.querySelector("[data-pay-paid-amount]");
+      if (paidAmount) paidAmount.textContent = formatInr(offering.amount);
+      var back = result ? result.querySelector("[data-pay-back]") : null;
+      if (back) {
+        back.setAttribute("data-i18n", "payAnother");
+        back.textContent = t("payAnother");
+      }
+      showReceipt();
+      deliverReceipt();
     }
 
     function deliverReceipt() {
@@ -725,8 +721,7 @@
             handler: function (response) {
               offering.paymentId = response && response.razorpay_payment_id ? response.razorpay_payment_id : "";
               fillReceipt(value, reference);
-              showReceipt();
-              deliverReceipt();
+              completePayment();
             },
             modal: {
               ondismiss: function () {
@@ -821,37 +816,10 @@
         });
       });
 
-      var receiptButton = result.querySelector("[data-pay-receipt]");
-      if (receiptButton) {
-        receiptButton.addEventListener("click", function () {
-          stopPaymentTimer();
-          showReceipt();
-          deliverReceipt();
-        });
-      }
       var printButton = result.querySelector("[data-receipt-print]");
       if (printButton) printButton.addEventListener("click", printReceipt);
       var downloadButton = result.querySelector("[data-receipt-download]");
       if (downloadButton) downloadButton.addEventListener("click", downloadReceipt);
-
-      var notify = result.querySelector("[data-pay-notify]");
-      if (notify) {
-        notify.addEventListener("click", function () {
-          if (!offering || notify.disabled) return;
-          notify.disabled = true;
-          setStatus("paySending");
-          notifyTrust(offering)
-            .then(function () {
-              setStatus("payNotified");
-            })
-            .catch(function () {
-              setStatus("payNotifyFail");
-            })
-            .finally(function () {
-              notify.disabled = false;
-            });
-        });
-      }
     }
 
     document.addEventListener("daiva:language", function () {
