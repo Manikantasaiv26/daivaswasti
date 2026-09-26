@@ -41,7 +41,7 @@ The **Offer** section on the home page collects a seva contribution.
 
 To turn payments on, edit `payment-config.js`:
 
-- `upiId` — the trust VPA, for example `ksact@oksbi`
+- `upiId` — the trust VPA. UPI offerings are credited to `manikantasaiv@ybl`
 - `razorpayKeyId` — the public Key ID from the Razorpay dashboard (`rzp_test_...` or `rzp_live_...`)
 
 Leave the Razorpay Key Secret off this site. Static hosting cannot safely create server-side orders, so card payments use Razorpay Checkout directly. UPI is confirmed when the transfer reaches the trust account; the optional email only sends the reference to `pranam@daivaswasti.org`.

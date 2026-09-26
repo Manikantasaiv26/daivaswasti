@@ -3,8 +3,8 @@
 // (Dashboard → API Keys). Never put the Razorpay Key Secret in this file.
 window.DAIVA_PAYMENT = {
   payeeName: "Daiva Swasti",
-  // Trust UPI VPA, for example "ksact@oksbi". Leave "" until the VPA is ready.
-  upiId: "",
+  // UPI payments are credited to this VPA.
+  upiId: "manikantasaiv@ybl",
   // Public Razorpay Key ID, for example "rzp_live_..." or "rzp_test_...".
   razorpayKeyId: "",
   minAmount: 101,

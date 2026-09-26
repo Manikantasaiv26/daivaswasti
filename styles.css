@@ -2032,6 +2032,16 @@ body[data-lang="ml"] .main-nav {
   margin-top: 0.75rem;
 }
 
+.pay-custom[hidden],
+.pay-submit[hidden],
+.pay-hint[hidden],
+.pay-setup[hidden],
+#payment-form[hidden],
+#pay-result[hidden],
+[data-pay-ready][hidden] {
+  display: none !important;
+}
+
 .pay-card input,
 .pay-card textarea {
   width: 100%;
