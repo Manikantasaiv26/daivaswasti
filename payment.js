@@ -730,13 +730,10 @@
         return;
       }
       var reference = makeReference();
-      var token = makeToken();
-      var exp = Date.now() + config().qrSeconds * 1000;
       offering = Object.assign({
         reference: reference,
         paymentId: "",
         method: "upi",
-        topic: token,
         remotePayer: false
       }, value);
       var upiPayUrl = buildUpiUrl({
@@ -745,24 +742,13 @@
         amount: value.amount,
         reference: reference
       });
-      var pageUrl = sessionLink(encodeSession({
-        reference: reference,
-        amount: value.amount,
-        purpose: value.purpose,
-        name: value.name,
-        email: value.email,
-        phone: value.phone,
-        note: value.note || "",
-        token: token,
-        exp: exp
-      }));
       fillReceipt(value, reference);
       setReceiptMode(false);
       showPayerMode(false);
-      renderQr(pageUrl);
+      renderQr(upiPayUrl);
       if (result) {
-        result.setAttribute("data-pay-link", pageUrl);
-        result.setAttribute("data-pay-topic", token);
+        result.setAttribute("data-pay-link", upiPayUrl);
+        result.removeAttribute("data-pay-topic");
         result.querySelectorAll("[data-pay-app]").forEach(function (link) {
           var app = link.getAttribute("data-pay-app");
           link.href = appUrl(app, upiPayUrl);
@@ -771,7 +757,6 @@
       setError("");
       setStatus("");
       startPaymentTimer();
-      watchPayment(token, Math.floor(Date.now() / 1000) - 1);
     }
 
     function loadRazorpay() {
