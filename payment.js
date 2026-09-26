@@ -341,6 +341,8 @@
       });
       var status = receipt.querySelector("[data-receipt-status]");
       if (status) status.textContent = details.status;
+      var whatsapp = receipt.querySelector("[data-receipt-whatsapp]");
+      if (whatsapp) whatsapp.href = whatsappReceiptUrl(offering);
     }
 
     function receiptFileHtml(record) {
@@ -367,6 +369,36 @@
         "</title><style>body{font-family:Georgia,serif;color:#171717;margin:2rem auto;max-width:640px}h1{font-family:Arial,sans-serif;letter-spacing:.14em;font-size:1rem;color:#4a1740}p.bless{color:#9a3412}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.55rem 0;border-top:1px solid #eadfce;vertical-align:top}th{width:34%;color:#57534e;font-weight:600}</style></head><body><h1>DAIVA SWASTI</h1><p class=\"bless\">Swasti No Brihaspatirdadhatu</p><h2>" +
         escapeHtml(t("payReceiptHeading")) +
         "</h2><table>" + rows + "</table><p>" + escapeHtml(details.status) + "</p></body></html>";
+    }
+
+    function receiptPlainText(record) {
+      var details = receiptDetails(record);
+      var lines = [
+        "DAIVA SWASTI",
+        "Swasti No Brihaspatirdadhatu",
+        "",
+        t("payReceiptHeading"),
+        "",
+        t("payReceiptDate") + ": " + details.date,
+        t("payReference") + ": " + details.ref,
+        t("payReceiptName") + ": " + details.name,
+        t("payReceiptEmail") + ": " + details.email,
+        t("payReceiptPhone") + ": " + details.phone,
+        t("payReceiptPurpose") + ": " + details.purpose,
+        t("payReceiptAmount") + ": " + details.amount,
+        t("payReceiptMethod") + ": " + details.method
+      ];
+      if (details.vpa) lines.push(t("payUpiIdLabel") + ": " + details.vpa);
+      if (details.payment) lines.push(t("payReceiptPaymentId") + ": " + details.payment);
+      if (details.note) lines.push(t("payReceiptNote") + ": " + details.note);
+      lines.push("", details.status);
+      return lines.join("\n");
+    }
+
+    function whatsappReceiptUrl(record) {
+      var phone = String(record.phone || "").replace(/\D/g, "");
+      if (phone.length === 10) phone = "91" + phone;
+      return "https://wa.me/" + phone + "?text=" + encodeURIComponent(receiptPlainText(record));
     }
 
     function showReceipt() {
@@ -484,32 +516,55 @@
       });
     }
 
-    function notifyTrust(payload) {
+    function notifyTrust(payload, options) {
       var current = config();
+      var body = {
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        purpose: t(PURPOSE_KEYS[payload.purpose]) || payload.purpose,
+        amount_inr: payload.amount,
+        method: payload.method,
+        reference: payload.reference,
+        razorpay_payment_id: payload.paymentId || "",
+        note: payload.note || "",
+        _subject: "Your Daiva Swasti offering receipt " + payload.reference,
+        _template: "table",
+        _captcha: "false"
+      };
+      if (options && options.autoresponse) body._autoresponse = options.autoresponse;
       return fetch("https://formsubmit.co/ajax/" + encodeURIComponent(current.notifyEmail), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json"
         },
-        body: JSON.stringify({
-          name: payload.name,
-          email: payload.email,
-          phone: payload.phone,
-          purpose: t(PURPOSE_KEYS[payload.purpose]) || payload.purpose,
-          amount_inr: payload.amount,
-          method: payload.method,
-          reference: payload.reference,
-          razorpay_payment_id: payload.paymentId || "",
-          note: payload.note || "",
-          _subject: "Seva offering " + payload.reference + " — Daiva Swasti",
-          _template: "table",
-          _captcha: "false"
-        })
+        body: JSON.stringify(body)
       }).then(function (response) {
         if (!response.ok) throw new Error("Notify failed");
         return response;
       });
+    }
+
+    function deliverReceipt(openWhatsApp) {
+      if (!offering) return;
+      if (!offering.issuedAt) offering.issuedAt = new Date().toISOString();
+      var message = receiptPlainText(offering);
+      if (openWhatsApp && !offering.whatsappOpened) {
+        offering.whatsappOpened = true;
+        root.open(whatsappReceiptUrl(offering), "_blank", "noopener,noreferrer");
+      }
+      if (offering.receiptEmailed) return;
+      offering.receiptEmailed = true;
+      setStatus("payReceiptSending");
+      notifyTrust(offering, { autoresponse: message })
+        .then(function () {
+          setStatus("payReceiptEmailSent", { email: offering.email });
+        })
+        .catch(function () {
+          offering.receiptEmailed = false;
+          setStatus("payReceiptEmailFail", { email: offering.email });
+        });
     }
 
     function showCard(value) {
@@ -562,19 +617,7 @@
               offering.paymentId = response && response.razorpay_payment_id ? response.razorpay_payment_id : "";
               fillReceipt(value, reference);
               showReceipt();
-              notifyTrust(offering)
-                .then(function () {
-                  setStatus("payCardSuccess", {
-                    ref: reference,
-                    id: offering.paymentId
-                  });
-                })
-                .catch(function () {
-                  setStatus("payCardSuccessUnsent", {
-                    ref: reference,
-                    id: offering.paymentId
-                  });
-                });
+              deliverReceipt(false);
             },
             modal: {
               ondismiss: function () {
@@ -673,6 +716,7 @@
       if (receiptButton) {
         receiptButton.addEventListener("click", function () {
           showReceipt();
+          deliverReceipt(true);
         });
       }
       var printButton = result.querySelector("[data-receipt-print]");

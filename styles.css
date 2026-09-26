@@ -2316,8 +2316,26 @@ body[data-lang="ml"] .main-nav {
 }
 
 .pay-receipt-actions .pay-submit,
-.pay-receipt-actions .pay-back {
+.pay-receipt-actions .pay-back,
+.pay-receipt-actions .pay-whatsapp {
   margin-top: 0;
+}
+
+.pay-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.2rem;
+  border-radius: 10px;
+  background: #128c7e;
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pay-whatsapp:hover {
+  background: #0e6f64;
+  color: #fff !important;
 }
 
 @media print {
